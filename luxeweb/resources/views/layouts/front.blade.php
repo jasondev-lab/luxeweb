@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<meta charset="utf-8" />
+		<title>Facets - Antiques & Collectibles</title>
+		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="canonical" href="https://keenthemes.com/metronic" />
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!--end::Fonts-->
+
+		<!--begin::Global Theme Styles(used by all pages)-->
+		<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<!--end::Global Theme Styles-->
+		<!--begin::Layout Themes(used by all pages)-->
+		<link href="{{ asset('assets/css/themes/layout/header/base/light.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/themes/layout/header/menu/light.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/themes/layout/brand/dark.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('assets/css/themes/layout/aside/dark.css') }}" rel="stylesheet" type="text/css" />
+		<!--end::Layout Themes-->
+		<link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
+
+		{{-- Includable CSS --}}
+        	@yield('styles')
+		@php
+			$colors=isset($home['colors']) ? $home['colors']['meta_value'] : [];
+			$text=isset($home['text']) ? $home['text']['meta_value'] : [];
+			$mobile=isset($home['mobile']) ? $home['mobile']['meta_value'] : [];
+			$logos=isset($home['logos']) ? $home['logos']['meta_value'] : [];
+			$social=isset($home['social']) ? $home['social']['meta_value'] : [];
+			$background_image=isset($home['background_image']) ? $home['background_image']['meta_value'] : [];
+			$website=isset($home['website']) ? $home['website']['meta_value'] : [];
+			$copyright=isset($home['copyright']) ? $home['copyright']['meta_value'] : [];
+			$bottom_navigation=isset($home['bottom_navigation']) ? $home['bottom_navigation']['meta_value'] : [];
+			$background_image_comingsoon=isset($home['background_image_comingsoon']) ? $home['background_image_comingsoon']['meta_value'] : [];
+			$comingsoon_font_color=isset($home['comingsoon_font_color']) ? $home['comingsoon_font_color']['meta_value'] : [];
+			$comingsoon_background=isset($home['comingsoon_background']) ? $home['comingsoon_background']['meta_value'] : [];
+			$menu_styles=isset($home['menu']) ? $home['menu']['meta_value'] : [];
+			$home=isset($home['home']) ? $home['home'] : 1;
+		@endphp
+        <style>
+			@font-face
+			{
+				font-family: 'Peignot';
+				src: url("{{ asset('assets/css/fonts').'/'.'Peignot.ttf' }}") format('truetype');
+			}
+            .aside-fixed .wrapper {
+                padding-left: 0px;
+            }
+            .header-fixed.subheader-fixed.subheader-enabled .wrapper {
+                padding-top: 0px;
+            }
+            .aside-enabled .header.header-fixed {
+                left: 0px;
+            }
+            body {
+                background: {{ isset($colors['background']) ? $colors['background'] : 'white' }};
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+            }
+            #kt_header {
+                border: 2px solid {{ isset($colors['topbar_border']) ? $colors['topbar_border'] : '#969494' }};
+                border-radius: 50px;
+                background: {{ isset($colors['topbar']) ? $colors['topbar'] : '#aaaaaa' }};
+            }
+            #kt_subheader {
+                border: 2px solid {{ isset($colors['navigationbar_border']) ? $colors['navigationbar_border'] : '#2f88e4' }};
+                border-radius: 0px 0px 50px 50px;
+                background: {{ isset($colors['navigationbar']) ? $colors['navigationbar'] : '#3699FF' }};
+            }
+            #kt_left {
+				padding-top: 190px !important;
+                background: {{ isset($colors['sidebar']) ? $colors['sidebar'] : '#cccccc' }};
+                margin-top: -173px;
+                z-index: 100;
+                border: 2px solid {{ isset($colors['sidebar_border']) ? $colors['sidebar_border'] : '#b5b3b3' }};
+                border-radius: 100px;
+				/*max-height: 1340px;*/
+            }
+			#kt_quick_cart {
+				background: {{ isset($colors['sidebar']) ? $colors['sidebar'] : '#cccccc' }};
+			}
+            #main_content {
+                /*background: green;*/
+                width: 100%;
+            }
+            #kt_footer {
+                /* background: #676464; */
+				font-family: {{ isset($copyright['font']) ? $copyright['font'] : 'Verdana' }};
+				color: {{ isset($copyright['font_color']) ? $copyright['font_color'] : '#ffffff' }};
+				background: {{ isset($copyright['background']) ? $copyright['background'] : '#232F3E' }};
+            }
+			.social-section {
+                background: #676464;
+            }
+			.nav {
+				display: flex;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				padding-left: 0;
+				margin-bottom: 0;
+				list-style: none;
+				width: 100%;
+				justify-content: space-evenly;
+			}
+            .nav-link, .nav .nav-link {
+                padding: 0;
+				text-align: center;
+				color: {{ isset($colors['navigationlink']) ? $colors['navigationlink'] : '#181C32' }};
+				text-transform: uppercase;
+				font-family: {{ isset($text['navigation_font_family']) ? $text['navigation_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+			}
+			#nav_mobile_menu.nav.nav-item.nav-link {
+				color: gray;
+			}
+			::-webkit-scrollbar {
+				width: 5px;
+			}
+			::-webkit-scrollbar-track {
+				box-shadow: inset 0 0 5px grey;
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #E4E6EF;
+				border-radius: 10px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: #b30000;
+			}
+			.custom-title {
+				font-family: {{ isset($text['title_font_family']) ? $text['title_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+				font-size: {{ isset($text['title_font_size']) ? $text['title_font_size'] : '28' }}px;
+				color: {{ isset($text['title_text_color']) ? $text['title_text_color'] : '#181C32' }};
+				text-transform: uppercase;
+			}
+			.custom-description {
+				font-family: {{ isset($text['description_font_family']) ? $text['description_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+				font-size: {{ isset($text['description_font_size']) ? $text['description_font_size'] : '16' }}px;
+				color: {{ isset($text['description_color']) ? $text['description_color'] : '#7E8299' }};
+			}
+			.side-link {
+				color: {{ isset($colors['sidelink']) ? $colors['sidelink'] : '#181C32' }};
+			}
+			.side-link:hover {
+				color: {{ isset($colors['sidelink_hover']) ? $colors['sidelink_hover'] : '#181C32' }};
+			}
+			.left-img-container{
+				padding: 5px;
+				width: {{ $image_sizes['left_side_image_width']+10 }}px;
+				height: {{ $image_sizes['left_side_image_height']+10 }}px;
+			}
+			.sidebar-description {
+				font-family: {{ isset($text['sidebar_description_font_family']) ? $text['sidebar_description_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+				color: {{ isset($text['sidebar_description_color']) ? $text['sidebar_description_color'] : '#7E8299' }};
+			}
+			.sidebar-link {
+				font-family: {{ isset($text['sidebar_link_font_family']) ? $text['sidebar_link_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+				color: {{ isset($text['sidebar_link_color']) ? $text['sidebar_link_color'] : '#7E8299' }};
+			}
+			.custom-text {
+				font-family: {{ isset($text['main_text_font_family']) ? $text['main_text_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
+				color: {{ isset($text['main_text_color']) ? $text['main_text_color'] : '#7E8299' }};
+			}
+			.verdana-text {
+				font-family: Verdana;
+			}
+			.custom-button {
+				background: {{ isset($colors['buttons']) ? $colors['buttons'] : '#3699FF' }};
+				border-color: {{ isset($colors['buttons_border']) ? $colors['buttons_border'] : '#3699FF' }};
+				font-family: Verdana;
+				text-transform: uppercase;
+				color: {{ isset($colors['button_text']) ? $colors['button_text'] : '#3699FF' }};
+			}
+			.custom-button:hover {
+				color: {{ isset($colors['button_text_hover']) ? $colors['button_text_hover'] : '#181C32' }};
+			}
+			.custom-background {
+				background: {{ isset($colors['background']) ? $colors['background'] : 'white' }};
+			}
+			.bottom-navigation {
+				background: {{ isset($bottom_navigation['bottom_nav_background']) ? $bottom_navigation['bottom_nav_background'] : '#232F3E' }};
+				border-bottom: 1px solid gray;
+			}
+			.bottom-navigation ul li {
+				list-style-type: none;
+				margin-bottom: 10px;
+				font-size: {{ isset($bottom_navigation['bottom_nav_font_size']) ? (empty($bottom_navigation['bottom_nav_font_size']) ? '16' : $bottom_navigation['bottom_nav_font_size']) : '16' }}px;
+				font-family: {{ isset($bottom_navigation['bottom_nav_font_family']) ? (empty($bottom_navigation['bottom_nav_font_family']) ? 'Peignot' : $bottom_navigation['bottom_nav_font_family']) : 'Peignot' }}, Helvetica, "sans-serif";
+			}
+			.bottom-navigation ul li a {
+				color: {{ isset($bottom_navigation['bottom_nav_font_color']) ? $bottom_navigation['bottom_nav_font_color'] : 'white' }};
+			}
+			.bottom-navigation ul li a:hover {
+				text-decoration: underline !important;
+			}
+			.bottom-navigation ul li:last-child {
+				/* margin-bottom: 0; */
+			}
+			.back-to-top {
+				background: {{ isset($bottom_navigation['back_to_top_background']) ? $bottom_navigation['back_to_top_background'] : '#37475A' }};
+			}
+			.back-to-top a {
+				color: {{ isset($bottom_navigation['back_to_top_font_color']) ? $bottom_navigation['back_to_top_font_color'] : 'white' }};
+				font-family: {{ isset($bottom_navigation['back_to_top_font_family']) ? (empty($bottom_navigation['back_to_top_font_family']) ? 'Peignot' : $bottom_navigation['back_to_top_font_family']) : 'Peignot' }}, Helvetica, "sans-serif";
+				font-size: {{ isset($bottom_navigation['back_to_top_font_size']) ? (empty($bottom_navigation['back_to_top_font_size']) ? '14' : $bottom_navigation['back_to_top_font_size']) : '14' }}px;
+			}
+			.back-to-top a:hover {
+				text-decoration: underline !important;
+			}
+			.updates-box {
+				width: 80%;
+				color: {{ isset($bottom_navigation['updates_box_font_color']) ? $bottom_navigation['updates_box_font_color'] : 'white' }};
+				font-size: {{ isset($bottom_navigation['updates_box_font_size']) ? (empty($bottom_navigation['updates_box_font_size']) ? '16' : $bottom_navigation['updates_box_font_size']) : '16' }}px;
+				font-family: {{ isset($bottom_navigation['updates_box_font_family']) ? (empty($bottom_navigation['updates_box_font_family']) ? 'Peignot' : $bottom_navigation['updates_box_font_family']) : 'Peignot' }}, Helvetica, "sans-serif";
+			}
+			.updates-box input{
+				font-size: {{ isset($bottom_navigation['updates_box_font_size']) ? (empty($bottom_navigation['updates_box_font_size']) ? '16' : $bottom_navigation['updates_box_font_size']) : '16' }}px;
+			}
+			.bottom-nav-ul {
+				width: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				padding-left: 0;
+				margin-bottom: 0;
+				list-style: none;
+			}
+			.bottom-nav-ul-li {
+				list-style-type: none;
+				font-size: 12px;
+				font-family: verdana, Helvetica, "sans-serif";
+				display: flex;
+				align-items: center;
+			}
+			.nav .show > .nav-link, .nav .nav-link:hover:not(.disabled), .nav .nav-link.active {
+				color: {{ isset($colors['navigationlink_hover']) ? $colors['navigationlink_hover'] : 'white' }};
+			}
+			.nav .show > .nav-link:after, .nav .nav-link:hover:not(.disabled):after, .nav .nav-link.active:after {
+				color: {{ isset($colors['navigationlink_hover']) ? $colors['navigationlink_hover'] : 'white' }};
+			}
+			.dropdown-item.active, .dropdown-item:active {
+				background-color: #b1a6a4;
+			}
+			.dropdown:hover .dropdown-menu {
+				display: block;
+			}
+			#collapseShop ul {
+				list-style-type: none;
+				margin-bottom: 0;
+			}
+			.scroll-pull {
+				overflow-x: hidden !important;
+				overflow-y: auto;
+			}
+			#kt_quick_cart_close {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+			#kt_quick_cart_toggle i, #kt_quick_cart_close i {
+				color: {{ isset($mobile['hamburger_color']) ? $mobile['hamburger_color'] : '#3F4254' }};
+			}
+			.dropdown-menu {
+				margin-top: -1px;
+				background-color: {{ isset($menu_styles['bg_color']) ? $menu_styles['bg_color'] : '#ffffff' }};
+			}
+			.shop-menu-item {
+				font-family: {{ isset($menu_styles['font_family']) ? $menu_styles['font_family'] : 'Verdana' }};
+				font-size: {{ isset($menu_styles['font_size']) ? $menu_styles['font_size'] : '12' }}px;
+				color: {{ isset($menu_styles['font_color']) ? $menu_styles['font_color'] : '#181c32' }};
+				background-color: {{ isset($menu_styles['bg_color']) ? $menu_styles['bg_color'] : '#ffffff' }};
+			}
+			.shop-menu-item.active {
+				color: {{ isset($menu_styles['open_color']) ? $menu_styles['open_color'] : '#3f4254' }};
+				background-color: {{ isset($menu_styles['open_bg_color']) ? $menu_styles['open_bg_color'] : '#ffffff' }};
+			}
+			.shop-menu-item:hover {
+				color: {{ isset($menu_styles['hover_color']) ? $menu_styles['hover_color'] : '#3f4254' }};
+				background-color: {{ isset($menu_styles['hover_bg_color']) ? $menu_styles['hover_bg_color'] : '#ffffff' }};
+			}
+			.shop-menu-item:active {
+				color: {{ isset($menu_styles['click_color']) ? $menu_styles['click_color'] : '#3f4254' }};
+				background-color: {{ isset($menu_styles['click_bg_color']) ? $menu_styles['click_bg_color'] : '#ffffff' }};
+			}
+			#kt_quick_cart_toggle {
+				display: none;
+			}
+			#kt_quick_menu_toggle {
+				display: none;
+			}
+			#img_logo {
+				margin-left: -15%;
+				height: 90%;
+			}
+			#kt_header {
+				margin-left: 6.25rem;
+				margin-top: 2.5rem;
+				display: flex;
+			}
+			#kt_subheader {
+				display: block;
+			}
+			#main_content {
+				padding: 2.5rem 5rem;
+			}
+			#store_closed {
+				margin-left: -8%;
+			}
+			#text_logo {
+				display: none;
+			}
+			#kt_logo #img_logo {
+				display: none;
+			}
+			.social-link {
+				width: 39px;
+				height: 39px;
+			}
+
+			@media (max-width: 1200px) {
+				#kt_header_left {
+					display: none;
+				}
+				#kt_subheader_left {
+					display: none;
+				}
+				#kt_left {
+					display: none;
+				}
+				#kt_quick_cart_toggle {
+					display: block;
+				}
+				#img_logo {
+					height: 100%;
+					margin-left: 5%;
+					display: none;
+				}
+				#kt_header {
+					margin-left: 2.5rem;
+					display: none;
+				}
+				#kt_subheader {
+					display: none;
+				}
+				#nav_menu {
+					display: none;
+				}
+				#main_content {
+					padding: 2.5rem 5rem;
+				}
+				#store_closed {
+					margin-left: 0;
+				}
+				#text_logo {
+					display: block;
+					max-width: 100%;
+					font-family: {{ isset($mobile['toptext_font_family']) ? $mobile['toptext_font_family'] : 'Verdana' }};
+					font-size: {{ isset($mobile['toptext_font_size']) ? $mobile['toptext_font_size'] : '28' }}px;
+					color: {{ isset($mobile['toptext_color']) ? $mobile['toptext_color'] : '#181C32' }};
+					line-height: 1.4em !important;
+					letter-spacing: 0.015em;
+					text-transform: uppercase;
+					margin: auto;
+					vertical-align: top !important;
+					text-align: center;
+				}
+				#kt_logo {
+					width: 100%;
+					margin-top: 0.5rem;
+				}
+				#kt_logo #img_logo {
+					display: block;
+					width: 360px;
+					height: auto;
+					margin: auto;
+				}
+				#sidebar_content {
+					display: none;
+				}
+				#kt_quick_cart {
+					background-color: {{ isset($mobile['nav_background_color']) ? $mobile['nav_background_color'] : '#B1A6A4' }} !important;
+				}
+				.mobile-nav-button {
+					background-color: {{ isset($mobile['navbutton_color']) ? $mobile['navbutton_color'] : '#B1A6A4' }};
+					border-color: {{ isset($mobile['navbutton_border_color']) ? $mobile['navbutton_border_color'] : '#B1A6A4' }};
+					color: {{ isset($mobile['navbutton_font_color']) ? $mobile['navbutton_font_color'] : '#ffffff' }};
+					font-family: {{ isset($mobile['navbutton_font_family']) ? $mobile['navbutton_font_family'] : 'Verdana' }};
+					font-size: {{ isset($mobile['navbutton_font_size']) ? $mobile['navbutton_font_size'] : '14' }}px;
+				}
+			}
+			@media (max-width: 992px) {
+				#img_logo {
+				    height: 90%;
+					top: 58px;
+					left: 0;
+					right: 0;
+					margin-left: 5%;
+					width: 90%;
+				}
+				#main_content {
+					padding: 5px;
+				}
+				#store_closed {
+					margin-left: 0;
+				}
+			}
+			@media (max-width: 768px) {
+				.subheader.subheader-solid {
+					margin-bottom: 5px;
+				}				
+			}
+			@media (max-width: 576px) {
+				#img_logo {
+                    height: 75%;
+                    top: 58px;
+                    left: 0;
+                    right: 0;
+                    margin-left: 5%;
+                    width: 80%;
+                }
+				.bottom-nav-links li {
+					text-align: center !important;
+				}
+
+				.bottom-nav-logo {
+					margin-bottom: 1rem !important;
+				}
+				.bottom-nav-ul {
+					display: block;
+				}
+			}
+        </style>
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="subheader-enabled page-loading">
+		<!--begin::Main-->
+		<div class="d-flex flex-column flex-root"  style="background-color:{{ $comingsoon_background['value']??'#fffff'; }} !important">
+			@php
+				if(empty($logos)) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
+				else{
+					if($logos['active']==1) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
+					else if($logos['active']==2) $img=asset('assets/media/logos/facets_vintage/logo-all-blue.png');
+					else if($logos['active']==3) $img=asset('assets/media/logos/facets_vintage/logo-all-burgundy.png');
+					else if($logos['active']==4) $img=asset('assets/media/logos/facets_vintage/logo-all-darkblue.png');
+					else if($logos['active']==5) $img=asset('assets/media/logos/facets_vintage/logo-all-red.png');
+					else if($logos['active']==6) $img=asset('assets/media/logos/facets_vintage/logo-blue.png');
+					else if($logos['active']==7) $img=asset('assets/media/logos/facets_vintage/logo-red.png');
+					else if($logos['active']==8) $img=asset('assets/media/logos/facets_vintage/logo-blue_white.png');
+					else if($logos['active']==9) $img=asset('assets/media/logos/facets_vintage/logo-red_white.png');
+					else if($logos['active']==10) $img=asset('assets/media/logos/facets/logo-all-white.png');
+					else if($logos['active']==11) $img=asset('assets/media/logos/facets/logo-all-blue.png');
+					else if($logos['active']==12) $img=asset('assets/media/logos/facets/logo-all-burgundy.png');
+					else if($logos['active']==13) $img=asset('assets/media/logos/facets/logo-all-darkblue.png');
+					else if($logos['active']==14) $img=asset('assets/media/logos/facets/logo-all-red.png');
+					else if($logos['active']==15) $img=asset('assets/media/logos/facets/logo-blue.png');
+					else if($logos['active']==16) $img=asset('assets/media/logos/facets/logo-red.png');
+					else if($logos['active']==17) $img=asset('assets/media/logos/facets/logo-blue_white.png');
+					else if($logos['active']==18) $img=asset('assets/media/logos/facets/logo-red_white.png');
+					else if($logos['active']==19) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-white.png');
+					else if($logos['active']==20) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-blue.png');
+					else if($logos['active']==21) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-burgundy.png');
+					else if($logos['active']==22) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-darkblue.png');
+					else if($logos['active']==23) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-red.png');
+					else if($logos['active']==24) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue.png');
+					else if($logos['active']==25) $img=asset('assets/media/logos/facets_vintage_larger/logo-red.png');
+					else if($logos['active']==26) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue_white.png');
+					else if($logos['active']==27) $img=asset('assets/media/logos/facets_vintage_larger/logo-red_white.png');
+					else if($logos['active']==28) $img=asset('assets/media/logos/facets_larger/logo-all-white.png');
+					else if($logos['active']==29) $img=asset('assets/media/logos/facets_larger/logo-all-blue.png');
+					else if($logos['active']==30) $img=asset('assets/media/logos/facets_larger/logo-all-burgundy.png');
+					else if($logos['active']==31) $img=asset('assets/media/logos/facets_larger/logo-all-darkblue.png');
+					else if($logos['active']==32) $img=asset('assets/media/logos/facets_larger/logo-all-red.png');
+					else if($logos['active']==33) $img=asset('assets/media/logos/facets_larger/logo-blue.png');
+					else if($logos['active']==34) $img=asset('assets/media/logos/facets_larger/logo-red.png');
+					else if($logos['active']==35) $img=asset('assets/media/logos/facets_larger/logo-blue_white.png');
+					else if($logos['active']==36) $img=asset('assets/media/logos/facets_larger/logo-red_white.png');
+				}
+			@endphp	
+			@if($home==1)
+			<!--begin::Page-->
+			<div class="d-flex flex-row flex-column-fluid page">
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header mr-10 h-100px align-items-center justify-content-between" style="background-image:url('{{ asset("uploads/home/".$background_image['topbar'])}}');">
+                        <div class="col-2" id="kt_header_left"></div>
+						<button class="btn d-none" id="kt_quick_menu_toggle">
+							<i class="icon-2x fas fa-align-right"></i>
+						</button>
+						<!--begin::Container-->
+						<div class="d-flex justify-content-center align-items-center" style="width: 100%;height: 100%;" id="kt_header_right">
+							<a href="{{ route('/') }}" class="brand-logo" style="width: 100%;height: 100%;justify-content:center;display: flex;align-items: center;">
+                                <img alt="Logo" src="{{ $img }}" id="img_logo">
+								<span id="text_logo">{{ $mobile['top_text'] }}</span>
+                            </a>
+						</div>
+						<!--end::Container-->
+						<button class="btn d-none">
+							<i class="icon-2x fas fa-align-justify"></i>
+						</button>
+					</div>
+					<!--end::Header-->
+                    <!--begin::Subheader-->
+                    <div class="subheader py-2 subheader-solid mx-30 my-0" id="kt_subheader" style="background-image:url('{{ asset("uploads/home/".$background_image['navigationbar']) }}');">
+                        <div class="col-2" id="kt_subheader_left"></div>
+                        <div class="container-fluid d-flex align-items-center flex-wrap flex-sm-nowrap col-10" style="justify-content: center;">
+							<ul class="nav" id="nav_menu">
+								<li class="nav-item d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
+									<a class="nav-link {{ $menu=='home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
+								</li>
+								<li class="nav-item dropdown d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
+									<a class="nav-link dropdown-toggle {{ $menu=='shop-our-store' ? 'active' : '' }}" href="#" data-toggle="dropdown">Shop</a>
+									<div class="dropdown-menu">
+										@foreach($categories as $ctg)
+										<a class="dropdown-item shop-menu-item {{isset($category) && $ctg['id']==$category['id'] ? 'active' : ''}}" href="{{ url('shop-our-store/category/'.$ctg['id']) }}">{{ $ctg['title'] }}</a>
+										@endforeach
+									</div>
+								</li>
+								<li class="nav-item d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
+									<a class="nav-link {{ $menu=='policies' ? 'active' : '' }}" href="{{ route('policies') }}">STORE POLICY</a>
+								</li>
+								<li class="nav-item d-flex align-items-center font-size-h5 font-weight-bold">
+									<a class="nav-link {{ $menu=='contact' ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
+								</li>
+							</ul>
+                        </div>
+                    </div>
+                    <!--end::Subheader-->
+					<div id="kt_logo" class="mb-10">
+						<div class="d-flex">
+							<button class="btn" id="kt_quick_cart_toggle">
+								<i class="icon-2x fas fa-align-justify"></i>
+							</button>
+							<div class="text-center m-auto">
+								<a href="{{ route('/') }}" class="brand-logo" style="width: 100%;height: 100%;justify-content:center;display: flex;align-items: center;">
+									<span id="text_logo" style="opacity: 0;">{{ $mobile['top_text'] }}</span>
+								</a>
+							</div>
+							<div style="width: 52px;"></div>
+						</div>
+						<img alt="Logo" src="{{ $img }}" id="img_logo" class="mt-5">
+					</div>
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid mx-10" id="kt_content">
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+                            <div class="col-2 px-10 py-20" id="kt_left" style="background-image:url('{{ asset("uploads/home/".$background_image['sidebar']) }}');">
+								<div>
+									<div class="text-center font-weight-bolder" style="font-family:{{ $text['sidebar_text_font_family'] }}; font-size:{{ $text['sidebar_text_font_size'] }}px; color:{{ $text['sidebar_text_color'] }}">
+										{{ $text['sidebar_text'] }}
+									</div>
+									<div>
+										@if(isset($side_items))
+										@foreach($side_items as $item)
+										@php
+											if($item['shop']!=0) $url=url('shop-our-store/product/'.$item['id']);
+											else $url=$item['link'];
+										@endphp
+										<div class="p-5">
+											<div class="d-flex justify-content-center">
+												<div class="left-img-container d-flex justify-content-center align-items-center">
+													<a href="{{ $item['link'] }}"><img src="{{ asset('uploads/products/thumb').'/'.$item['thumb'] }}"></a>
+												</div>
+											</div>
+											<div class="d-flex justify-content-center">
+												<div class="text-center">
+													<h4 class="font-size-h5">
+														<a href="{{ $url }}" class="font-weight-bolder sidebar-link">{{ $item['name'] }}</a>
+													</h4>
+													<div class="sidebar-description" style="font-size:14px">{{ $item['description'] }}</div>
+												</div>
+											</div>
+										</div>
+										@endforeach
+										@endif
+									</div>
+								</div>
+							</div>
+							<div class="col-10" id="main_content">@yield('content')</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Entry-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="d-flex align-items-center justify-content-center py-5 back-to-top">
+						<a href="javascript:void(0)" id="kt_scrolltop2" class="nav_a">Back to top</a>
+					</div>
+					<div class="bottom-navigation">
+						<div class="container py-10">
+							<div class="row">
+								<div class="col-sm d-flex flex-column bottom-nav-logo">
+									<div class="d-flex justify-content-center">
+										<a href="{{ route('/') }}" class="brand-logo">
+											<img alt="Logo" src="{{ $img }}" id="" width="200">
+										</a>
+									</div>
+									<div class="d-flex justify-content-center mt-10" style="gap: 1rem;">
+										<a href="{{ isset($social['facebook']) ? $social['facebook'] : 'https://www.facebook.com' }}" target="_blank" class="nav-link social-link">
+											<span class="label label-xl label-primary p-6">
+												<i class="icon-xl fab fa-facebook-f" style="color:white"></i>
+											</span>
+										</a>
+										<a href="{{ isset($social['twitter']) ? $social['twitter'] : 'https://twitter.com' }}" target="_blank" class="nav-link social-link">
+											<span class="label label-xl label-primary" style="width: 39px; height: 39px; padding: 8px">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+													<path fill="white" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+												</svg>
+											</span>
+										</a>
+										<a href="{{ isset($social['instagram']) ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" class="nav-link social-link">
+											<span class="label label-xl label-primary p-6">
+												<i class="icon-xl fab fa-instagram" style="color:white"></i>
+											</span>
+										</a>
+									</div>
+								</div>
+								<div class="col-sm d-none justify-content-center bottom-nav-links">
+									<ul style="padding: 0"  class="bottom-nav-ul">
+										<li class="bottom-nav-ul-li">
+											<a href="{{ route('home') }}" class="nav_a">Home</a>
+										</li>
+										<li  class="bottom-nav-ul-li">
+											<a href="#" class="nav_a">Shop</a>
+										</li>
+										<li  class="bottom-nav-ul-li">
+											<a href="{{ route('policies') }}" class="nav_a">Store Policy</a>
+										</li>
+										<li  class="bottom-nav-ul-li">
+											<a href="{{ route('contact') }}" class="nav_a">Contact</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center">
+							<!--begin::Copyright-->
+							<div class="order-2 order-md-1">
+								<span class="font-weight-bold text-uppercase">{{ isset($copyright['text']) ? $copyright['text'] : '© 2024 Facets Inc. All Rights Reserved.' }}</span>
+							</div>
+							<!--end::Copyright-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+			@else
+			<!--begin::Error-->
+			<div class="d-flex flex-row-fluid flex-column bgi-size-cover bgi-position-center bgi-no-repeat p-10 p-sm-30" style="background-image: url({{ asset('assets/media/error/bg1.jpg') }});">
+				<!--begin::Content-->
+				<div class="d-flex align-items-center mb-10">
+					<a href="{{ route('/') }}" class="brand-logo">
+						<img alt="Logo" src="{{ $img }}" style="height: 72px;">
+					</a>
+				</div>
+				<p class="font-size-h3 text-muted font-weight-normal font">{{ $website['message'] }}</p>
+				<!--end::Content-->
+			</div>
+			<!--end::Error-->
+			@endif
+		</div>
+		<!--end::Main-->
+		<div id="kt_quick_cart" class="offcanvas offcanvas-left px-10 pb-10 pt-20">
+			<!--begin::Header-->
+			<a href="#" id="kt_quick_cart_close">
+				<i class="icon-2x ki ki-close icon-xs"></i>
+			</a>
+			<!--end::Header-->
+			<!--begin::Content-->
+			<div class="offcanvas-content">
+				<!--begin::Wrapper-->
+				<div class="offcanvas-wrapper mb-5 scroll-pull">
+					<div class="mb-10" id="nav_mobile_menu" style="width: 100%; text-align: center">
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-8">
+								<a href="{{ route('home') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Home</a>
+							</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-8" id="accordionShop">
+								<a class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button" data-toggle="collapse" href="#collapseShop">Shop</a>
+								<div id="collapseShop" class="collapse" data-parent="#accordionShop">
+									<ul>
+										@foreach($categories as $ctg)
+										<li><a class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button" href="{{ url('shop-our-store/category/'.$ctg['id']) }}">{{ $ctg['title'] }}</a></li>
+										@endforeach
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-8">
+								<a href="{{ route('policies') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Store Policy</a>
+							</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-8">
+								<a href="{{ route('contact') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Contact</a>
+							</div>
+						</div>
+					</div>
+					<div id="sidebar_content">
+						<div class="text-center font-weight-bolder" style="font-family:{{ $text['sidebar_text_font_family'] }}; font-size:{{ $text['sidebar_text_font_size'] }}px; color:{{ $text['sidebar_text_color'] }}">
+							{{ $text['sidebar_text'] }}
+						</div>
+						<div style="overflow-y:auto;">
+							@if(isset($side_items))
+							@foreach($side_items as $item)
+							@php
+								if($item['shop']!=0) $url=url('shop-our-store/product/'.$item['id']);
+								else $url=$item['link'];
+							@endphp
+							<div class="p-5">
+								<div class="d-flex justify-content-center">
+									<div class="left-img-container d-flex justify-content-center align-items-center">
+										<a href="{{ $item['link'] }}"><img src="{{ asset('uploads/products/thumb').'/'.$item['thumb'] }}"></a>
+									</div>
+								</div>
+								<div class="d-flex justify-content-center">
+									<div class="text-center">
+										<h4 class="font-size-h5">
+											<a href="{{ $url }}" class="font-weight-bolder sidebar-link">{{ $item['name'] }}</a>
+										</h4>
+										<div class="sidebar-description" style="font-size:14px">{{ $item['description'] }}</div>
+									</div>
+								</div>
+							</div>
+							@endforeach
+							@endif
+						</div>
+					</div>
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Content-->
+		</div>
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop1" class="scrolltop">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+					</g>
+				</svg>
+				<!--end::Svg Icon-->
+			</span>
+		</div>
+		<!--end::Scrolltop-->
+		<script>var HOST_URL = "{{ route('/') }}";</script>
+		<!--begin::Global Config(global config for global JS scripts)-->
+		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Peignot" };</script>
+		<!--end::Global Config-->
+		<!--begin::Global Theme Bundle(used by all pages)-->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+		<script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.6/dist/perfect-scrollbar.min.js"></script>
+		<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+		<!--end::Global Theme Bundle-->
+		{{-- Includable JS --}}
+        @yield('scripts')
+<script>
+jQuery(document).ready(function() {
+	if(window.screen.width<1300){
+		$('#kt_left').remove();
+		$('#main_content').removeClass('col-10');
+		$('#main_content').addClass('col-12');
+	}
+
+	$('.dropdown').hover(function(){
+		$(this).find('.dropdown-menu')
+		.stop(true, true).delay(100).fadeIn(200);
+	}, function(){
+		$(this).find('.dropdown-menu')
+		.stop(true, true).delay(100).fadeOut(200);
+	});
+
+	$('#btn_login').on('click', function(){
+		$('#form_login').submit();
+	});
+
+	$(".custom-description").find("span, p").css({"font-family": "{{ isset($text['description_font_family']) ? $text['description_font_family'] : 'Peignot' }}", "font-size": "{{ isset($text['description_font_size']) ? $text['description_font_size'] : '16' }}px"});
+
+	$('#reset').hide();
+	$('#kt_login_forgot').on('click', function(){
+		$('#reset').show();
+		$('#login').hide();
+	});
+
+	$('#btn_reset').on('click', function(e){
+        e.preventDefault();
+        var btn = KTUtil.getById("btn_reset");
+		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
+		$('.alert-message').text('');
+        $.ajax({
+            url:"{{ route('forget.password.post') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                email: $('#email').val()
+            },
+            dataType: 'json',
+            success: function(result){
+				KTUtil.btnRelease(btn);
+                $('.alert-text').text(result.message);
+				$('.alert-custom').show();
+ 			},
+			error: function (response) {
+				KTUtil.btnRelease(btn);
+                $('#emailError').text(response.responseJSON.errors.email);
+			}
+        });
+    });
+
+	$('#kt_quick_menu_toggle').on('click', function(){
+		if($('#nav_mobile_menu').is(":hidden")){
+			$('#nav_mobile_menu').show();
+		}else{
+			$('#nav_mobile_menu').hide();
+		}
+	});
+
+	$('#btn_email_send').on('click', function(e){
+        e.preventDefault();
+
+		var btn = KTUtil.getById("btn_email_send");
+		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
+
+		var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+		if (!$('#customer_email').val().match(validRegex)) {
+			content.message = 'Invalid email address!';
+			showMessage('danger', content);
+			KTUtil.btnRelease(btn);
+			return;
+		}
+
+        $.ajax({
+            url:"{{ route('save-email') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                customer_email: $('#customer_email').val()
+            },
+            dataType: 'json',
+            success: function(result){
+				KTUtil.btnRelease(btn);
+				if(result.state == 1) {
+					content.message = 'Your email have been sent successfully.';
+					showMessage('success', content);
+					$('#customer_email').val('');
+				}
+ 			},
+			error: function (response) {
+				KTUtil.btnRelease(btn);
+				content.message = response.responseJSON.errors.customer_email;
+				showMessage('danger', content);
+			}
+        });
+    });
+});
+
+</script>
+<script>
+	var content = {};
+	function showMessage(type, content){
+		var notify = $.notify(content, {
+			type: type,
+			allow_dismiss: true,
+			newest_on_top: false,
+			mouse_over:  false,
+			showProgressbar:  false,
+			spacing: 10,
+			timer: 2000,
+			placement: {
+				from: 'top',
+				align: 'right'
+			},
+			offset: {
+				x: 0,
+				y: 60
+			},
+			delay: 2000,
+			z_index: 10000,
+			animate: {
+				enter: 'animate__animated animate__' + 'slideInRight',
+				exit: 'animate__animated animate__' + 'slideOutRight'
+			}
+		});
+	}
+</script>
+	</body>
+	<!--end::Body-->
+</html>
