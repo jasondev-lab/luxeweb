@@ -187,9 +187,10 @@
                                                 <label class="col-xl-3 col-lg-3 col-form-label">Category <span class="text-danger">*</span></label>
                                                 <div class="col-lg-9 col-xl-9">
                                                     <select class="form-control form-control-solid" name="category_id" id="category_id">
-                                                        @foreach($categories as $category)
-                                                        <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
-                                                        @endforeach
+                                                        <option value="1">Pottery</option>
+                                                        <option value="2">Glass</option>
+                                                        <option value="3">Metals</option>
+                                                        <option value="4">Lighting</option>
                                                     </select>
                                                 </div>
                                             </div>

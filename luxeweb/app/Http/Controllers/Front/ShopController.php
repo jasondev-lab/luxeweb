@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Setting;
+use Illuminate\Support\Str;
 use Image;
 use File;
 
@@ -70,11 +71,6 @@ class ShopController extends Controller
         $home['shop']=Setting::where('meta_key', 'shop')->first();
         $home['shop_buttons']=Setting::where('meta_key', 'shop-buttons')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-
         $categories=Category::all();
 
         return view('pages.front.shop-our-store', compact('menu', 'side_items', 'home', 'image_sizes', 'categories'));
@@ -95,11 +91,6 @@ class ShopController extends Controller
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
         $home['shop']=Setting::where('meta_key', 'shop')->first();
         $home['menu']=Setting::where('meta_key', 'menu')->first();
-
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
 
         $category=Category::find($id);
         $products=Product::where('category_id', $id)->get();
@@ -126,16 +117,62 @@ class ShopController extends Controller
         $shop_buttons=Setting::where('meta_key', 'shop-buttons')->first();
         $home['menu']=Setting::where('meta_key', 'menu')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-
         $product=Product::find($id);
         $category=Category::find($product['category_id']);
 
         $categories = Category::all();
 
         return view('pages.front.product-detail', compact('menu', 'side_items', 'product', 'home', 'image_sizes', 'category', 'shop_buttons', 'categories'));
-    }    
+    }
+
+    public function search(Request $request)
+    {
+        $menu = 'search';
+        $home['colors'] = Setting::where('meta_key', 'colors')->first();
+        $home['text'] = Setting::where('meta_key', 'text')->first();
+        $home['mobile'] = Setting::where('meta_key', 'mobile')->first();
+        $home['logos'] = Setting::where('meta_key', 'logos')->first();
+        $home['social'] = Setting::where('meta_key', 'social')->first();
+        $home['background_image'] = Setting::where('meta_key', 'background-image')->first();
+        $home['website'] = Setting::where('meta_key', 'website')->first();
+        $home['copyright'] = Setting::where('meta_key', 'copyright')->first();
+        $home['bottom_navigation'] = Setting::where('meta_key', 'bottom-navigation')->first();
+        $home['shop'] = Setting::where('meta_key', 'shop')->first();
+        $home['menu'] = Setting::where('meta_key', 'menu')->first();
+
+        $q = trim((string) $request->input('q', ''));
+        $products = collect();
+        if ($q !== '') {
+            $like = '%' . addcslashes($q, '%_\\') . '%';
+            $products = Product::where(function ($query) use ($like) {
+                    $query->where('name', 'like', $like)
+                        ->orWhere('short_description', 'like', $like)
+                        ->orWhere('full_description', 'like', $like);
+                })
+                ->orderBy('name')
+                ->get();
+        }
+
+        $results = $products->map(function ($product) {
+            $raw = $product->short_description ?: $product->full_description;
+            $snippet = Str::limit(trim(preg_replace('/\s+/', ' ', strip_tags((string) $raw))), 220);
+
+            $images = $product->images ?? [];
+            $imageUrl = null;
+            if (is_array($images) && count($images) > 0 && ! empty($images[0])) {
+                $imageUrl = asset('uploads/products/' . $images[0]);
+            }
+
+            return [
+                'id' => $product->id,
+                'name' => $product->name,
+                'snippet' => $snippet,
+                'image_url' => $imageUrl,
+            ];
+        });
+
+        // $categories = Category::all();
+
+        return view('pages.front.search', compact('menu', 'home', 'q', 'results'));
+    }
 }

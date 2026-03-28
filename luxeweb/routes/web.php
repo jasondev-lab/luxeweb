@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +23,7 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::post('forget-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::post('forget-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
@@ -63,6 +63,7 @@ Route::get('/advertising', [App\Http\Controllers\Front\AdvertisingController::cl
 Route::get('/policies', [App\Http\Controllers\Front\PoliciesController::class, 'index'])->name('policies');
 Route::get('/contact', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
 Route::post('/send-contact', [App\Http\Controllers\Front\ContactController::class, 'send'])->name('send-contact');
+Route::get('/search', [App\Http\Controllers\Front\ShopController::class, 'search'])->name('search');
 
 //===============Admin routes===============//
 Route::get('/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminSigninPage'])->name('admin-signin');
@@ -85,19 +86,19 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/admin/pages-links-directory', [App\Http\Controllers\Admin\PagesController::class, 'showLinksDirectory'])->name('pages-links-directory');
     Route::get('/admin/pages-policies', [App\Http\Controllers\Admin\PagesController::class, 'showPolicies'])->name('pages-policies');
     Route::get('/admin/pages-contact', [App\Http\Controllers\Admin\PagesController::class, 'showContact'])->name('pages-contact');
-    
+
     Route::get('/admin/dealers', [App\Http\Controllers\Front\DealerController::class, 'showDealers'])->name('dealers');
     Route::get('/admin/get-dealers', [App\Http\Controllers\Front\DealerController::class, 'getDealers'])->name('get-dealers');
     Route::post('/admin/delete-dealer', [App\Http\Controllers\Front\DealerController::class, 'deleteDealer'])->name('delete-dealer');
     Route::get('/admin/get-business', [App\Http\Controllers\Front\DealerController::class, 'getBusiness'])->name('get-business');
     Route::post('/admin/approve-deny', [App\Http\Controllers\Front\DealerController::class, 'setApproved'])->name('approve-deny');
-    
+
     Route::get('/admin/categories', [App\Http\Controllers\Admin\ProductController::class, 'categories'])->name('categories');
     Route::get('/admin/get-categories', [App\Http\Controllers\Admin\ProductController::class, 'getCategories'])->name('get-categories');
     Route::post('/admin/save-category', [App\Http\Controllers\Admin\ProductController::class, 'saveCategory'])->name('save-category');
     Route::get('/admin/get-category', [App\Http\Controllers\Admin\ProductController::class, 'getCategory'])->name('get-category');
     Route::post('/admin/delete-category', [App\Http\Controllers\Admin\ProductController::class, 'deleteCategory'])->name('delete-category');
-    
+
     Route::get('/admin/products', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('products');
     Route::get('/admin/get-products', [App\Http\Controllers\Admin\ProductController::class, 'getProducts'])->name('get-products');
     Route::get('/admin/new-product', [App\Http\Controllers\Admin\ProductController::class, 'newProduct'])->name('new-product');
@@ -106,13 +107,13 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/admin/edit-product/{id}', [App\Http\Controllers\Admin\ProductController::class, 'editProduct'])->name('edit-product');
     Route::post('/admin/update-product', [App\Http\Controllers\Admin\ProductController::class, 'updateProduct'])->name('update-product');
     Route::post('/admin/delete-product', [App\Http\Controllers\Admin\ProductController::class, 'deleteProduct'])->name('delete-product');
-    
+
     Route::get('/admin/links', [App\Http\Controllers\Admin\LinkController::class, 'index'])->name('links');
     Route::get('/admin/get-links', [App\Http\Controllers\Admin\LinkController::class, 'getLinks'])->name('get-links');
     Route::post('/admin/save-link', [App\Http\Controllers\Admin\LinkController::class, 'saveLink'])->name('save-link');
     Route::get('/admin/get-link', [App\Http\Controllers\Admin\LinkController::class, 'getLink'])->name('get-link');
     Route::post('/admin/delete-link', [App\Http\Controllers\Admin\LinkController::class, 'deleteLink'])->name('delete-link');
-    
+
     Route::get('/admin/settings', [App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings');
     Route::post('/admin/save-setting', [App\Http\Controllers\Admin\SettingsController::class, 'saveSetting'])->name('save-setting');
     Route::post('/admin/save-second-setting', [App\Http\Controllers\Admin\SettingsController::class, 'saveSecondSetting'])->name('save-second-setting');
@@ -121,17 +122,17 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::post('/admin/update-contact', [App\Http\Controllers\Admin\SettingsController::class, 'updateContact'])->name('update-contact');
     Route::post('/admin/save-background-image', [App\Http\Controllers\Admin\SettingsController::class, 'saveBackgroundImage'])->name('save-background-image');
     Route::post('/admin/save-background-image-comingsoon', [App\Http\Controllers\Admin\SettingsController::class, 'saveBackgroundImageComingSoon'])->name('save-background-image-comingsoon');
-    
+
     Route::get('/admin/contacts', [App\Http\Controllers\Front\ContactController::class, 'showContacts'])->name('contacts');
     Route::get('/admin/get-contacts', [App\Http\Controllers\Front\ContactController::class, 'getContacts'])->name('get-contacts');
     Route::post('/admin/delete-contact', [App\Http\Controllers\Front\ContactController::class, 'deleteContact'])->name('delete-contact');
-    
+
     Route::get('/admin/items', [App\Http\Controllers\Admin\ProductController::class, 'viewItems'])->name('items');
     Route::get('/admin/get-items', [App\Http\Controllers\Admin\ProductController::class, 'getItems'])->name('get-items');
     Route::post('/admin/add-item', [App\Http\Controllers\Admin\ProductController::class, 'addItem'])->name('add-item');
     Route::get('/admin/get-item', [App\Http\Controllers\Admin\ProductController::class, 'getItem'])->name('get-item');
     Route::post('/admin/save-item', [App\Http\Controllers\Admin\ProductController::class, 'saveItem'])->name('save-item');
-    
+
     Route::get('/admin/emails', [App\Http\Controllers\Admin\EmailsController::class, 'index'])->name('emails');
     Route::get('/admin/get-emails', [App\Http\Controllers\Admin\EmailsController::class, 'getEmails'])->name('get-emails');
     Route::post('/save-email', [App\Http\Controllers\Admin\EmailsController::class, 'saveEmail'])->name('save-email');

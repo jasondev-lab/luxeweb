@@ -74,11 +74,6 @@ class DealerController extends Controller
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-        
         return view('pages.front.dealer-dashboard', compact('menu', 'side_items', 'home', 'image_sizes', 'business_id'));
     }
 
@@ -116,11 +111,6 @@ class DealerController extends Controller
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
         $description=Setting::where('meta_key', 'dealer-directory-description')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-
         return view('pages.front.dealer-directory', compact('menu', 'side_items', 'businesses', 'state', 'keyword', 'home', 'description', 'image_sizes'));
     }
 
@@ -139,11 +129,6 @@ class DealerController extends Controller
         $home['website']=Setting::where('meta_key', 'website')->first();
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
-
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
 
         $business_id=0;
         if (Auth::check()){
@@ -170,11 +155,6 @@ class DealerController extends Controller
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
         $description=Setting::where('meta_key', 'links-directory-description')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-
         return view('pages.front.links-directory', compact('menu', 'side_items', 'links', 'home', 'description', 'image_sizes'));
     }
 
@@ -191,11 +171,6 @@ class DealerController extends Controller
         $home['website']=Setting::where('meta_key', 'website')->first();
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
-
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
 
         return view('pages.front.new-business', compact('menu', 'side_items', 'home', 'image_sizes'));
     }
@@ -215,11 +190,6 @@ class DealerController extends Controller
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
         $description=Setting::where('meta_key', 'dealer-directory-description')->first();
-
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
 
         return view('pages.front.dealer-detail', compact('menu', 'side_items', 'business', 'home', 'description', 'image_sizes'));
     }
@@ -333,11 +303,6 @@ class DealerController extends Controller
         $home['website']=Setting::where('meta_key', 'website')->first();
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
-
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
 
         return view('pages.front.edit-business', compact('menu', 'side_items', 'home', 'image_sizes', 'business'));
     }

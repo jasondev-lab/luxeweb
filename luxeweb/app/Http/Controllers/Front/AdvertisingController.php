@@ -41,11 +41,6 @@ class AdvertisingController extends Controller
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $home['home']=$json['web_state'];
-
         ini_set('memory_limit','256M');
 
         $setting_image_sizes=Setting::where('meta_key', 'image-sizes')->first();

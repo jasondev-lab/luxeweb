@@ -153,10 +153,9 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-item {{ $menu=='Dealers'?'menu-item-active':'' }}" aria-haspopup="true">
+                <!-- <li class="menu-item {{ $menu=='Dealers'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('dealers') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -164,15 +163,13 @@
                                     <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
                                 </g>
                             </svg>
-                            <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text">Dealers</span>
                     </a>
                 </li>
                 <li class="menu-item {{ $menu=='Categories'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('categories') }}" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+                        <span class="svg-icon menu-icon">                            
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -180,11 +177,10 @@
                                     <rect fill="#000000" opacity="0.3" x="2" y="10" width="5" height="10" rx="1"></rect>
                                 </g>
                             </svg>
-                            <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text">Categories</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-item {{ $menu=='Products'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('products') }}" class="menu-link">
                         <span class="svg-icon menu-icon">

@@ -60,7 +60,7 @@
                 left: 0px;
             }
             body {
-                background: {{ isset($colors['background']) ? $colors['background'] : 'white' }};
+                background: {{ isset($colors['background']) ? 'white' : 'white' }};
 				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
             }
             #kt_header {
@@ -148,11 +148,6 @@
 			}
 			.side-link:hover {
 				color: {{ isset($colors['sidelink_hover']) ? $colors['sidelink_hover'] : '#181C32' }};
-			}
-			.left-img-container{
-				padding: 5px;
-				width: {{ $image_sizes['left_side_image_width']+10 }}px;
-				height: {{ $image_sizes['left_side_image_height']+10 }}px;
 			}
 			.sidebar-description {
 				font-family: {{ isset($text['sidebar_description_font_family']) ? $text['sidebar_description_font_family'] : 'Peignot' }}, Helvetica, "sans-serif";
@@ -294,6 +289,98 @@
 			#kt_quick_menu_toggle {
 				display: none;
 			}
+			.form-header {
+				/* margin: 1.5rem 2.5rem 0; */
+				padding: 39px 79px;
+				box-sizing: border-box;
+				/* height: 88px !important; */
+				/* border: 0; */
+				/* border-radius: 0; */
+				/* background: #ffffff !important; */
+				/* background-image: none !important; */
+				/* box-shadow: none; */
+			}
+			.form-header-inner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1.5rem;
+				width: 100%;
+			}
+			.form-brand {
+				display: flex;
+				align-items: center;
+				line-height: 0;
+				text-decoration: none;
+			}
+			.form-brand img {
+				display: block;
+				max-height: 60px;
+				width: auto;
+				height: auto;
+			}
+			.form-header-nav {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 2rem;
+				flex-wrap: wrap;
+			}
+			.form-nav-link {
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				color: #111111;
+				white-space: nowrap;
+			}
+			.form-nav-link:hover {
+				color: #111111;
+				text-decoration: none;
+				opacity: 0.75;
+			}
+			.form-nav-icon {
+				font-size: 11px;
+				color: #111111;
+			}
+			.form-shop {
+				position: relative;
+				display: inline-flex;
+				align-items: center;
+				padding-bottom: 12px;
+				margin-bottom: -12px;
+			}
+			.form-shop-menu {
+				position: absolute;
+				top: 100%;
+				left: -12px;
+				display: none;
+				min-width: 200px;
+				padding: 10px 12px;
+				background: #f3f3f2;
+				box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+				z-index: 1200;
+			}
+			.form-shop:hover .form-shop-menu,
+			.form-shop:focus-within .form-shop-menu {
+				display: block;
+			}
+			.form-shop-menu a {
+				display: block;
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+				font-size: 12px;
+				/* font-weight: 600; */
+				letter-spacing: 0.18em;
+				line-height: 1.55;
+				text-transform: uppercase;
+				color: #111111;
+				white-space: nowrap;
+			}
+			.form-shop-menu a:hover {
+				text-decoration: none;
+				opacity: 0.75;
+			}
 			#img_logo {
 				margin-left: -15%;
 				height: 90%;
@@ -305,9 +392,6 @@
 			}
 			#kt_subheader {
 				display: block;
-			}
-			#main_content {
-				padding: 2.5rem 5rem;
 			}
 			#store_closed {
 				margin-left: -8%;
@@ -441,7 +525,7 @@
 	<!--begin::Body-->
 	<body id="kt_body" class="subheader-enabled page-loading">
 		<!--begin::Main-->
-		<div class="d-flex flex-column flex-root"  style="background-color:{{ $comingsoon_background['value']??'#fffff'; }} !important">
+		<div class="d-flex flex-column flex-root"  style="width: 1430px; margin: 0 auto;">
 			@php
 				if(empty($logos)) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
 				else{
@@ -489,167 +573,62 @@
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 					<!--begin::Header-->
-					<div id="kt_header" class="header mr-10 h-100px align-items-center justify-content-between" style="background-image:url('{{ asset("uploads/home/".$background_image['topbar'])}}');">
-                        <div class="col-2" id="kt_header_left"></div>
+					<div class="d-flex form-header align-items-center">
 						<button class="btn d-none" id="kt_quick_menu_toggle">
 							<i class="icon-2x fas fa-align-right"></i>
 						</button>
-						<!--begin::Container-->
-						<div class="d-flex justify-content-center align-items-center" style="width: 100%;height: 100%;" id="kt_header_right">
-							<a href="{{ route('/') }}" class="brand-logo" style="width: 100%;height: 100%;justify-content:center;display: flex;align-items: center;">
-                                <img alt="Logo" src="{{ $img }}" id="img_logo">
-								<span id="text_logo">{{ $mobile['top_text'] }}</span>
-                            </a>
+						<div class="form-header-inner">
+							<a href="{{ route('/') }}" class="form-brand">
+								<img src="{{ $img }}" alt="{{ $website['title'] ?? 'Home' }}">
+							</a>
+							<nav class="form-header-nav" aria-label="Primary">
+								<a class="form-nav-link" href="{{ route('home') }}">HOME</a>	
+								<div class="form-shop">
+									<a class="form-nav-link" href="#">SHOP</a>
+									<div class="form-shop-menu">
+										<a href="#">Pottery</a>
+										<a href="#">Glass</a>
+										<a href="#">Metals</a>
+										<a href="#">Lighting</a>
+									</div>
+								</div>
+								<a class="form-nav-link" href="#">ABOUT</a>
+								<a class="form-nav-link" href="#">CONTACT</a>
+								<a class="form-nav-link form-nav-icon" href="{{ route('search') }}" aria-label="Search">
+									<i class="fas fa-search"></i>
+								</a>
+							</nav>
 						</div>
-						<!--end::Container-->
-						<button class="btn d-none">
-							<i class="icon-2x fas fa-align-justify"></i>
-						</button>
 					</div>
 					<!--end::Header-->
-                    <!--begin::Subheader-->
-                    <div class="subheader py-2 subheader-solid mx-30 my-0" id="kt_subheader" style="background-image:url('{{ asset("uploads/home/".$background_image['navigationbar']) }}');">
-                        <div class="col-2" id="kt_subheader_left"></div>
-                        <div class="container-fluid d-flex align-items-center flex-wrap flex-sm-nowrap col-10" style="justify-content: center;">
-							<ul class="nav" id="nav_menu">
-								<li class="nav-item d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
-									<a class="nav-link {{ $menu=='home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
-								</li>
-								<li class="nav-item dropdown d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
-									<a class="nav-link dropdown-toggle {{ $menu=='shop-our-store' ? 'active' : '' }}" href="#" data-toggle="dropdown">Shop</a>
-									<div class="dropdown-menu">
-										@foreach($categories as $ctg)
-										<a class="dropdown-item shop-menu-item {{isset($category) && $ctg['id']==$category['id'] ? 'active' : ''}}" href="{{ url('shop-our-store/category/'.$ctg['id']) }}">{{ $ctg['title'] }}</a>
-										@endforeach
-									</div>
-								</li>
-								<li class="nav-item d-flex align-items-center mr-10 font-size-h5 font-weight-bold">
-									<a class="nav-link {{ $menu=='policies' ? 'active' : '' }}" href="{{ route('policies') }}">STORE POLICY</a>
-								</li>
-								<li class="nav-item d-flex align-items-center font-size-h5 font-weight-bold">
-									<a class="nav-link {{ $menu=='contact' ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
-								</li>
-							</ul>
-                        </div>
-                    </div>
-                    <!--end::Subheader-->
-					<div id="kt_logo" class="mb-10">
-						<div class="d-flex">
-							<button class="btn" id="kt_quick_cart_toggle">
-								<i class="icon-2x fas fa-align-justify"></i>
-							</button>
-							<div class="text-center m-auto">
-								<a href="{{ route('/') }}" class="brand-logo" style="width: 100%;height: 100%;justify-content:center;display: flex;align-items: center;">
-									<span id="text_logo" style="opacity: 0;">{{ $mobile['top_text'] }}</span>
-								</a>
-							</div>
-							<div style="width: 52px;"></div>
-						</div>
-						<img alt="Logo" src="{{ $img }}" id="img_logo" class="mt-5">
-					</div>
+										
 					<!--begin::Content-->
-					<div class="content d-flex flex-column flex-column-fluid mx-10" id="kt_content">
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding: 36px 89px;">
 						<!--begin::Entry-->
 						<div class="d-flex flex-column-fluid">
 							<!--begin::Container-->
-                            <div class="col-2 px-10 py-20" id="kt_left" style="background-image:url('{{ asset("uploads/home/".$background_image['sidebar']) }}');">
-								<div>
-									<div class="text-center font-weight-bolder" style="font-family:{{ $text['sidebar_text_font_family'] }}; font-size:{{ $text['sidebar_text_font_size'] }}px; color:{{ $text['sidebar_text_color'] }}">
-										{{ $text['sidebar_text'] }}
-									</div>
-									<div>
-										@if(isset($side_items))
-										@foreach($side_items as $item)
-										@php
-											if($item['shop']!=0) $url=url('shop-our-store/product/'.$item['id']);
-											else $url=$item['link'];
-										@endphp
-										<div class="p-5">
-											<div class="d-flex justify-content-center">
-												<div class="left-img-container d-flex justify-content-center align-items-center">
-													<a href="{{ $item['link'] }}"><img src="{{ asset('uploads/products/thumb').'/'.$item['thumb'] }}"></a>
-												</div>
-											</div>
-											<div class="d-flex justify-content-center">
-												<div class="text-center">
-													<h4 class="font-size-h5">
-														<a href="{{ $url }}" class="font-weight-bolder sidebar-link">{{ $item['name'] }}</a>
-													</h4>
-													<div class="sidebar-description" style="font-size:14px">{{ $item['description'] }}</div>
-												</div>
-											</div>
-										</div>
-										@endforeach
-										@endif
-									</div>
-								</div>
-							</div>
-							<div class="col-10" id="main_content">@yield('content')</div>
+                            
+							<div id="main_content">@yield('content')</div>
 							<!--end::Container-->
 						</div>
 						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
 					<!--begin::Footer-->
-					<div class="d-flex align-items-center justify-content-center py-5 back-to-top">
-						<a href="javascript:void(0)" id="kt_scrolltop2" class="nav_a">Back to top</a>
-					</div>
-					<div class="bottom-navigation">
-						<div class="container py-10">
-							<div class="row">
-								<div class="col-sm d-flex flex-column bottom-nav-logo">
-									<div class="d-flex justify-content-center">
-										<a href="{{ route('/') }}" class="brand-logo">
-											<img alt="Logo" src="{{ $img }}" id="" width="200">
-										</a>
-									</div>
-									<div class="d-flex justify-content-center mt-10" style="gap: 1rem;">
-										<a href="{{ isset($social['facebook']) ? $social['facebook'] : 'https://www.facebook.com' }}" target="_blank" class="nav-link social-link">
-											<span class="label label-xl label-primary p-6">
-												<i class="icon-xl fab fa-facebook-f" style="color:white"></i>
-											</span>
-										</a>
-										<a href="{{ isset($social['twitter']) ? $social['twitter'] : 'https://twitter.com' }}" target="_blank" class="nav-link social-link">
-											<span class="label label-xl label-primary" style="width: 39px; height: 39px; padding: 8px">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-													<path fill="white" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
-												</svg>
-											</span>
-										</a>
-										<a href="{{ isset($social['instagram']) ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" class="nav-link social-link">
-											<span class="label label-xl label-primary p-6">
-												<i class="icon-xl fab fa-instagram" style="color:white"></i>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="col-sm d-none justify-content-center bottom-nav-links">
-									<ul style="padding: 0"  class="bottom-nav-ul">
-										<li class="bottom-nav-ul-li">
-											<a href="{{ route('home') }}" class="nav_a">Home</a>
-										</li>
-										<li  class="bottom-nav-ul-li">
-											<a href="#" class="nav_a">Shop</a>
-										</li>
-										<li  class="bottom-nav-ul-li">
-											<a href="{{ route('policies') }}" class="nav_a">Store Policy</a>
-										</li>
-										<li  class="bottom-nav-ul-li">
-											<a href="{{ route('contact') }}" class="nav_a">Contact</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+					
+					<div class="footer py-8 d-flex flex-lg-column">
 						<!--begin::Container-->
 						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center">
 							<!--begin::Copyright-->
-							<div class="order-2 order-md-1">
-								<span class="font-weight-bold text-uppercase">{{ isset($copyright['text']) ? $copyright['text'] : '© 2024 Facets Inc. All Rights Reserved.' }}</span>
-							</div>
+							<a href="{{ isset($social['instagram']) ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" class="nav-link social-link d-flex justify-content-center align-items-center">
+								<span class="label-xl p-6">
+									<i class="icon-xl fab fa-instagram" style="color:black"></i>
+								</span>
+							</a>
 							<!--end::Copyright-->
+						</div>
+						<div class="order-2 order-md-1 text-center mt-3">
+							<span class="font-weight-bold text-uppercase">{{ isset($copyright['text']) ? $copyright['text'] : '© Copyrights Facets 2026' }}</span>
 						</div>
 						<!--end::Container-->
 					</div>
@@ -674,80 +653,7 @@
 			@endif
 		</div>
 		<!--end::Main-->
-		<div id="kt_quick_cart" class="offcanvas offcanvas-left px-10 pb-10 pt-20">
-			<!--begin::Header-->
-			<a href="#" id="kt_quick_cart_close">
-				<i class="icon-2x ki ki-close icon-xs"></i>
-			</a>
-			<!--end::Header-->
-			<!--begin::Content-->
-			<div class="offcanvas-content">
-				<!--begin::Wrapper-->
-				<div class="offcanvas-wrapper mb-5 scroll-pull">
-					<div class="mb-10" id="nav_mobile_menu" style="width: 100%; text-align: center">
-						<div class="row d-flex justify-content-center">
-							<div class="col-lg-8">
-								<a href="{{ route('home') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Home</a>
-							</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="col-lg-8" id="accordionShop">
-								<a class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button" data-toggle="collapse" href="#collapseShop">Shop</a>
-								<div id="collapseShop" class="collapse" data-parent="#accordionShop">
-									<ul>
-										@foreach($categories as $ctg)
-										<li><a class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button" href="{{ url('shop-our-store/category/'.$ctg['id']) }}">{{ $ctg['title'] }}</a></li>
-										@endforeach
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="col-lg-8">
-								<a href="{{ route('policies') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Store Policy</a>
-							</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="col-lg-8">
-								<a href="{{ route('contact') }}" id="btn_new" class="btn btn-pill px-15 py-5 w-100 mobile-nav-button custom-button">Contact</a>
-							</div>
-						</div>
-					</div>
-					<div id="sidebar_content">
-						<div class="text-center font-weight-bolder" style="font-family:{{ $text['sidebar_text_font_family'] }}; font-size:{{ $text['sidebar_text_font_size'] }}px; color:{{ $text['sidebar_text_color'] }}">
-							{{ $text['sidebar_text'] }}
-						</div>
-						<div style="overflow-y:auto;">
-							@if(isset($side_items))
-							@foreach($side_items as $item)
-							@php
-								if($item['shop']!=0) $url=url('shop-our-store/product/'.$item['id']);
-								else $url=$item['link'];
-							@endphp
-							<div class="p-5">
-								<div class="d-flex justify-content-center">
-									<div class="left-img-container d-flex justify-content-center align-items-center">
-										<a href="{{ $item['link'] }}"><img src="{{ asset('uploads/products/thumb').'/'.$item['thumb'] }}"></a>
-									</div>
-								</div>
-								<div class="d-flex justify-content-center">
-									<div class="text-center">
-										<h4 class="font-size-h5">
-											<a href="{{ $url }}" class="font-weight-bolder sidebar-link">{{ $item['name'] }}</a>
-										</h4>
-										<div class="sidebar-description" style="font-size:14px">{{ $item['description'] }}</div>
-									</div>
-								</div>
-							</div>
-							@endforeach
-							@endif
-						</div>
-					</div>
-				</div>
-				<!--end::Wrapper-->
-			</div>
-			<!--end::Content-->
-		</div>
+		
 		<!--begin::Scrolltop-->
 		<div id="kt_scrolltop1" class="scrolltop">
 			<span class="svg-icon">

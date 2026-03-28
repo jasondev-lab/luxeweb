@@ -152,9 +152,10 @@
                                         <label class="col-xl-3 col-lg-3 col-form-label">Category <span class="text-danger">*</span></label>
                                         <div class="col-lg-9 col-xl-9">
                                             <select class="form-control form-control-solid" name="category_id" id="category_id">
-                                                @foreach($categories as $category)
-                                                <option value="{{ $category['id'] }}" {{ $product['category_id']==$category['id'] ? 'selected' : '' }}>{{ $category['title'] }}</option>
-                                                @endforeach
+                                                <option value="1" {{ $product['category_id']==1 ? 'selected' : '' }}>Pottery</option>
+                                                <option value="2" {{ $product['category_id']==2 ? 'selected' : '' }}>Glass</option>
+                                                <option value="3" {{ $product['category_id']==3 ? 'selected' : '' }}>Metals</option>
+                                                <option value="4" {{ $product['category_id']==4 ? 'selected' : '' }}>Lighting</option>
                                             </select>
                                         </div>
                                     </div>

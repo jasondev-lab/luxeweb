@@ -69,11 +69,6 @@ class SettingsController extends Controller
         $setting=Setting::where('meta_key', 'contact')->first();
         $result['contact']=empty($setting) ? [] : $setting['meta_value'];
 
-        $db_ext = \DB::connection('mysql2');
-        $set= $db_ext->selectOne("SELECT meta_value FROM settings WHERE meta_key='home'");
-        $json=json_decode($set->meta_value, true);
-        $result['web_state']=$json['web_state'];
-
         $user = Auth::user();
         if(!$user->google2fa_enabled){
             $google2fa = new Google2FA();
@@ -84,17 +79,7 @@ class SettingsController extends Controller
 
         return view('pages.admin.settings', compact('menu', 'submenu', 'result', 'user'));
     }
-    public function saveSecondSetting(Request $request){
-        $meta_value=$request->meta_value;
-        $meta_value=json_decode($request->meta_value, true);
-        
-        $field = sprintf('{"web_state":"%u","elegantantiques_state":"0"}',$meta_value['web_state'] );
-        DB::connection('mysql2')->table('settings')
-        ->where('meta_key', 'home')
-        ->update(['meta_value' => $field]);
-        
-        return response()->json(['state'=>1]);
-    }
+    
     public function saveSetting(Request $request){
         $meta_key=$request->meta_key;
         $meta_value=json_decode($request->meta_value, true);
