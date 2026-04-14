@@ -301,11 +301,42 @@
 				/* box-shadow: none; */
 			}
 			.form-header-inner {
-				display: flex;
+				display: grid;
+				grid-template-columns: 1fr auto 1fr;
 				align-items: center;
-				justify-content: space-between;
 				gap: 1.5rem;
 				width: 100%;
+			}
+			.form-header-social {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				gap: 1.125rem;
+			}
+			.form-header-social a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				color: #111111;
+				line-height: 0;
+				text-decoration: none;
+			}
+			.form-header-social a:hover {
+				color: #111111;
+				text-decoration: none;
+				opacity: 0.75;
+			}
+			.form-header-social .fab {
+				font-size: 1.85rem;
+				color: #111111 !important;
+			}
+			.form-header-social-x {
+				display: block;
+				width: 1.625rem;
+				height: 1.625rem;
+			}
+			.form-header-center {
+				justify-self: center;
 			}
 			.form-brand {
 				display: flex;
@@ -315,7 +346,7 @@
 			}
 			.form-brand img {
 				display: block;
-				max-height: 60px;
+				max-height: 64px;
 				width: auto;
 				height: auto;
 			}
@@ -323,6 +354,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
+				justify-self: end;
 				gap: 2rem;
 				flex-wrap: wrap;
 			}
@@ -362,6 +394,10 @@
 				box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 				z-index: 1200;
 			}
+			.form-header-nav .form-shop-menu {
+				left: auto;
+				right: -12px;
+			}
 			.form-shop:hover .form-shop-menu,
 			.form-shop:focus-within .form-shop-menu {
 				display: block;
@@ -380,6 +416,36 @@
 			.form-shop-menu a:hover {
 				text-decoration: none;
 				opacity: 0.75;
+			}
+			/* Left sidebar (inside #kt_content): vertical white / light-gray stripes */
+			#kt_content > .form-page-with-sidebar {
+				flex: 1 1 auto;
+				min-height: 0;
+				min-width: 0;
+			}
+			.form-page-with-sidebar {
+				align-items: stretch;
+				width: 100%;
+			}
+			.form-left-sidebar {
+				flex: 0 0 210px;
+				width: 210px;
+				max-width: 210px;
+				box-sizing: border-box;
+				padding: 1.5rem 1rem;
+				border-right: 1px solid rgba(0, 0, 0, 0.06);
+				background-color: #ffffff;
+				background-image: repeating-linear-gradient(
+					to right,
+					#d3d3d3 0px,
+					#d3d3d3 10px,
+					#ffffff 10px,
+					#ffffff 20px
+				);
+			}
+			.form-main-column {
+				flex: 1 1 auto;
+				min-width: 0;
 			}
 			#img_logo {
 				margin-left: -15%;
@@ -416,6 +482,9 @@
 				}
 				#kt_left {
 					display: none;
+				}
+				.form-left-sidebar {
+					display: none !important;
 				}
 				#kt_quick_cart_toggle {
 					display: block;
@@ -522,96 +591,113 @@
         </style>
 	</head>
 	<!--end::Head-->
+	@php
+		if(empty($logos)) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
+		else{
+			if($logos['active']==1) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
+			else if($logos['active']==2) $img=asset('assets/media/logos/facets_vintage/logo-all-blue.png');
+			else if($logos['active']==3) $img=asset('assets/media/logos/facets_vintage/logo-all-burgundy.png');
+			else if($logos['active']==4) $img=asset('assets/media/logos/facets_vintage/logo-all-darkblue.png');
+			else if($logos['active']==5) $img=asset('assets/media/logos/facets_vintage/logo-all-red.png');
+			else if($logos['active']==6) $img=asset('assets/media/logos/facets_vintage/logo-blue.png');
+			else if($logos['active']==7) $img=asset('assets/media/logos/facets_vintage/logo-red.png');
+			else if($logos['active']==8) $img=asset('assets/media/logos/facets_vintage/logo-blue_white.png');
+			else if($logos['active']==9) $img=asset('assets/media/logos/facets_vintage/logo-red_white.png');
+			else if($logos['active']==10) $img=asset('assets/media/logos/facets/logo-all-white.png');
+			else if($logos['active']==11) $img=asset('assets/media/logos/facets/logo-all-blue.png');
+			else if($logos['active']==12) $img=asset('assets/media/logos/facets/logo-all-burgundy.png');
+			else if($logos['active']==13) $img=asset('assets/media/logos/facets/logo-all-darkblue.png');
+			else if($logos['active']==14) $img=asset('assets/media/logos/facets/logo-all-red.png');
+			else if($logos['active']==15) $img=asset('assets/media/logos/facets/logo-blue.png');
+			else if($logos['active']==16) $img=asset('assets/media/logos/facets/logo-red.png');
+			else if($logos['active']==17) $img=asset('assets/media/logos/facets/logo-blue_white.png');
+			else if($logos['active']==18) $img=asset('assets/media/logos/facets/logo-red_white.png');
+			else if($logos['active']==19) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-white.png');
+			else if($logos['active']==20) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-blue.png');
+			else if($logos['active']==21) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-burgundy.png');
+			else if($logos['active']==22) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-darkblue.png');
+			else if($logos['active']==23) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-red.png');
+			else if($logos['active']==24) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue.png');
+			else if($logos['active']==25) $img=asset('assets/media/logos/facets_vintage_larger/logo-red.png');
+			else if($logos['active']==26) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue_white.png');
+			else if($logos['active']==27) $img=asset('assets/media/logos/facets_vintage_larger/logo-red_white.png');
+			else if($logos['active']==28) $img=asset('assets/media/logos/facets_larger/logo-all-white.png');
+			else if($logos['active']==29) $img=asset('assets/media/logos/facets_larger/logo-all-blue.png');
+			else if($logos['active']==30) $img=asset('assets/media/logos/facets_larger/logo-all-burgundy.png');
+			else if($logos['active']==31) $img=asset('assets/media/logos/facets_larger/logo-all-darkblue.png');
+			else if($logos['active']==32) $img=asset('assets/media/logos/facets_larger/logo-all-red.png');
+			else if($logos['active']==33) $img=asset('assets/media/logos/facets_larger/logo-blue.png');
+			else if($logos['active']==34) $img=asset('assets/media/logos/facets_larger/logo-red.png');
+			else if($logos['active']==35) $img=asset('assets/media/logos/facets_larger/logo-blue_white.png');
+			else if($logos['active']==36) $img=asset('assets/media/logos/facets_larger/logo-red_white.png');
+		}
+	@endphp
 	<!--begin::Body-->
 	<body id="kt_body" class="subheader-enabled page-loading">
+		<!--begin::Header-->
+		<div style="width: 100%; background-color: #d8e5f7;">
+			<div class="d-flex form-header align-items-center" style="width: 1430px; margin: 0 auto;">
+				<button class="btn d-none" id="kt_quick_menu_toggle">
+					<i class="icon-2x fas fa-align-right"></i>
+				</button>
+				<div class="form-header-inner">
+					<div class="form-header-social" aria-label="Social links">
+						<a href="{{ isset($social['instagram']) ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+							<i class="fab fa-instagram" aria-hidden="true"></i>
+						</a>
+						<a href="{{ isset($social['twitter']) && $social['twitter'] !== '' ? $social['twitter'] : 'https://x.com' }}" target="_blank" rel="noopener noreferrer" aria-label="X">
+							<svg class="form-header-social-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+						</a>
+					</div>
+					<div class="form-header-center">
+						<a href="{{ route('/') }}" class="form-brand">
+							<img src="{{ $img }}" alt="{{ $website['title'] ?? 'Home' }}">
+						</a>
+					</div>
+					<nav class="form-header-nav" aria-label="Primary">
+						<a class="form-nav-link" href="{{ route('home') }}">HOME</a>	
+						<div class="form-shop">
+							<a class="form-nav-link" href="#">SHOP</a>
+							<div class="form-shop-menu">
+								<a href="#">Pottery</a>
+								<a href="#">Glass</a>
+								<a href="#">Metals</a>
+								<a href="#">Lighting</a>
+							</div>
+						</div>
+						<a class="form-nav-link" href="#">ABOUT</a>
+						<a class="form-nav-link" href="#">CONTACT</a>
+						<a class="form-nav-link form-nav-icon" href="{{ route('search') }}" aria-label="Search">
+							<i class="fas fa-search"></i>
+						</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!--end::Header-->
 		<!--begin::Main-->
 		<div class="d-flex flex-column flex-root"  style="width: 1430px; margin: 0 auto;">
-			@php
-				if(empty($logos)) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
-				else{
-					if($logos['active']==1) $img=asset('assets/media/logos/facets_vintage/logo-all-white.png');
-					else if($logos['active']==2) $img=asset('assets/media/logos/facets_vintage/logo-all-blue.png');
-					else if($logos['active']==3) $img=asset('assets/media/logos/facets_vintage/logo-all-burgundy.png');
-					else if($logos['active']==4) $img=asset('assets/media/logos/facets_vintage/logo-all-darkblue.png');
-					else if($logos['active']==5) $img=asset('assets/media/logos/facets_vintage/logo-all-red.png');
-					else if($logos['active']==6) $img=asset('assets/media/logos/facets_vintage/logo-blue.png');
-					else if($logos['active']==7) $img=asset('assets/media/logos/facets_vintage/logo-red.png');
-					else if($logos['active']==8) $img=asset('assets/media/logos/facets_vintage/logo-blue_white.png');
-					else if($logos['active']==9) $img=asset('assets/media/logos/facets_vintage/logo-red_white.png');
-					else if($logos['active']==10) $img=asset('assets/media/logos/facets/logo-all-white.png');
-					else if($logos['active']==11) $img=asset('assets/media/logos/facets/logo-all-blue.png');
-					else if($logos['active']==12) $img=asset('assets/media/logos/facets/logo-all-burgundy.png');
-					else if($logos['active']==13) $img=asset('assets/media/logos/facets/logo-all-darkblue.png');
-					else if($logos['active']==14) $img=asset('assets/media/logos/facets/logo-all-red.png');
-					else if($logos['active']==15) $img=asset('assets/media/logos/facets/logo-blue.png');
-					else if($logos['active']==16) $img=asset('assets/media/logos/facets/logo-red.png');
-					else if($logos['active']==17) $img=asset('assets/media/logos/facets/logo-blue_white.png');
-					else if($logos['active']==18) $img=asset('assets/media/logos/facets/logo-red_white.png');
-					else if($logos['active']==19) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-white.png');
-					else if($logos['active']==20) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-blue.png');
-					else if($logos['active']==21) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-burgundy.png');
-					else if($logos['active']==22) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-darkblue.png');
-					else if($logos['active']==23) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-red.png');
-					else if($logos['active']==24) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue.png');
-					else if($logos['active']==25) $img=asset('assets/media/logos/facets_vintage_larger/logo-red.png');
-					else if($logos['active']==26) $img=asset('assets/media/logos/facets_vintage_larger/logo-blue_white.png');
-					else if($logos['active']==27) $img=asset('assets/media/logos/facets_vintage_larger/logo-red_white.png');
-					else if($logos['active']==28) $img=asset('assets/media/logos/facets_larger/logo-all-white.png');
-					else if($logos['active']==29) $img=asset('assets/media/logos/facets_larger/logo-all-blue.png');
-					else if($logos['active']==30) $img=asset('assets/media/logos/facets_larger/logo-all-burgundy.png');
-					else if($logos['active']==31) $img=asset('assets/media/logos/facets_larger/logo-all-darkblue.png');
-					else if($logos['active']==32) $img=asset('assets/media/logos/facets_larger/logo-all-red.png');
-					else if($logos['active']==33) $img=asset('assets/media/logos/facets_larger/logo-blue.png');
-					else if($logos['active']==34) $img=asset('assets/media/logos/facets_larger/logo-red.png');
-					else if($logos['active']==35) $img=asset('assets/media/logos/facets_larger/logo-blue_white.png');
-					else if($logos['active']==36) $img=asset('assets/media/logos/facets_larger/logo-red_white.png');
-				}
-			@endphp	
 			@if($home==1)
 			<!--begin::Page-->
 			<div class="d-flex flex-row flex-column-fluid page">
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-					<!--begin::Header-->
-					<div class="d-flex form-header align-items-center">
-						<button class="btn d-none" id="kt_quick_menu_toggle">
-							<i class="icon-2x fas fa-align-right"></i>
-						</button>
-						<div class="form-header-inner">
-							<a href="{{ route('/') }}" class="form-brand">
-								<img src="{{ $img }}" alt="{{ $website['title'] ?? 'Home' }}">
-							</a>
-							<nav class="form-header-nav" aria-label="Primary">
-								<a class="form-nav-link" href="{{ route('home') }}">HOME</a>	
-								<div class="form-shop">
-									<a class="form-nav-link" href="#">SHOP</a>
-									<div class="form-shop-menu">
-										<a href="#">Pottery</a>
-										<a href="#">Glass</a>
-										<a href="#">Metals</a>
-										<a href="#">Lighting</a>
-									</div>
-								</div>
-								<a class="form-nav-link" href="#">ABOUT</a>
-								<a class="form-nav-link" href="#">CONTACT</a>
-								<a class="form-nav-link form-nav-icon" href="{{ route('search') }}" aria-label="Search">
-									<i class="fas fa-search"></i>
-								</a>
-							</nav>
-						</div>
-					</div>
-					<!--end::Header-->
-										
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding: 36px 89px;">
-						<!--begin::Entry-->
-						<div class="d-flex flex-column-fluid">
-							<!--begin::Container-->
-                            
-							<div id="main_content">@yield('content')</div>
-							<!--end::Container-->
+						<div class="d-flex flex-row align-items-stretch flex-grow-1 w-100 form-page-with-sidebar" style="gap: 1rem;">
+							<aside class="form-left-sidebar" role="complementary" aria-label="Sidebar">
+								@yield('left_sidebar')
+							</aside>
+							<div class="d-flex flex-column flex-row-fluid flex-grow-1 form-main-column">
+								<!--begin::Entry-->
+								<div class="d-flex flex-column-fluid">
+									<!--begin::Container-->
+									<div id="main_content">@yield('content')</div>
+									<!--end::Container-->
+								</div>
+								<!--end::Entry-->
+							</div>
 						</div>
-						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
 					<!--begin::Footer-->
@@ -688,6 +774,7 @@
 jQuery(document).ready(function() {
 	if(window.screen.width<1300){
 		$('#kt_left').remove();
+		$('.form-left-sidebar').hide();
 		$('#main_content').removeClass('col-10');
 		$('#main_content').addClass('col-12');
 	}

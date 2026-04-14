@@ -18,11 +18,11 @@
 .showcase-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 .showcase-card.hero {
-    height: 430px;
+    height: 350px;
 }
 .showcase-split {
     display: grid;
@@ -31,7 +31,7 @@
     margin-bottom: 22px;
 }
 .showcase-card.split {
-    height: 430px;
+    height: 350px;
     margin-bottom: 0;
 }
 .showcase-row {
@@ -41,11 +41,11 @@
     margin-bottom: 22px;
 }
 .showcase-card.half {
-    height: 345px;
+    height: 350px;
     margin-bottom: 0;
 }
 .showcase-card.wide {
-    height: 345px;
+    height: 350px;
 }
 .showcase-btn {
     position: absolute;
@@ -188,33 +188,33 @@
 <div class="home-showcase">
     <div class="showcase-split">
         <div class="showcase-card split">
-            <img src="{{ asset('uploads/products/'.$home['pottery_products_images'][0]) }}" alt="Pottery collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][0]) }}" alt="Pottery collection">
             <a class="showcase-btn" href="#">Shop Pottery</a>
         </div>
         <div class="showcase-card split">
-            <img src="{{ asset('uploads/products/'.$home['pottery_products_images'][1]) }}" alt="Pottery collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][1]) }}" alt="Pottery collection">
             <a class="showcase-btn" href="#">Shop Pottery</a>
         </div>
     </div>
 
     <div class="showcase-row">
         <div class="showcase-card half">
-            <img src="{{ asset('uploads/products/'.$home['glass_products_images'][0]) }}" alt="Glass collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['glass_products_images'][0]) }}" alt="Glass collection">
             <a class="showcase-btn" href="#">Shop Glass</a>
         </div>
         <div class="showcase-card half">
-            <img src="{{ asset('uploads/products/'.$home['metals_products_images'][0]) }}" alt="Metals collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['metals_products_images'][1]) }}" alt="Metals collection">
             <a class="showcase-btn" href="#">Shop Metals</a>
         </div>
     </div>
 
     <div class="showcase-row">
         <div class="showcase-card half">
-            <img src="{{ asset('uploads/products/'.$home['lighting_products_images'][0]) }}" alt="Lighting collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['lighting_products_images'][0]) }}" alt="Lighting collection">
             <a class="showcase-btn" href="#">Shop Lighting</a>
         </div>
         <div class="showcase-card half">
-            <img src="{{ asset('uploads/products/'.$home['lighting_products_images'][1]) }}" alt="Lighting collection">
+            <img src="{{ asset('uploads/home/thumb/'.$home['lighting_products_images'][1]) }}" alt="Lighting collection">
             <a class="showcase-btn" href="#">Shop Lighting</a>
         </div>
     </div>

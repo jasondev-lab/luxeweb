@@ -135,6 +135,69 @@ class HomeController extends Controller
             $lighting_products_images[]=$lighting_products[$i]['images'][0];
         }
 
+        $setting_image_sizes=Setting::where('meta_key', 'image-sizes')->first();
+        $image_sizes=$setting_image_sizes['meta_value'];
+        for($i=0; $i<count($pottery_products_images); $i++){
+            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$pottery_products_images[$i];
+            if(!File::isDirectory(public_path('uploads/home/thumb'))){
+                File::makeDirectory(public_path('uploads/home/thumb'), 0777, true, true);        
+            }
+            
+            if(!File::exists(public_path('uploads/home/thumb').'/'.$thumb_name)){
+                $thumb = Image::make(public_path('uploads/products').'/'.$pottery_products_images[$i]);
+                $thumb->orientate();
+                $thumb->resize($image_sizes['home_bottom_image_width'], $image_sizes['home_bottom_image_height'], function ($const) {
+                    $const->aspectRatio();
+                })->save(public_path('uploads/home/thumb').'/'.$thumb_name);
+            }
+            $pottery_products_images[$i]=$thumb_name;
+        }
+        for($i=0; $i<count($glass_products_images); $i++){
+            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$glass_products_images[$i];
+            if(!File::isDirectory(public_path('uploads/home/thumb'))){
+                File::makeDirectory(public_path('uploads/home/thumb'), 0777, true, true);        
+            }
+            
+            if(!File::exists(public_path('uploads/home/thumb').'/'.$thumb_name)){
+                $thumb = Image::make(public_path('uploads/products').'/'.$glass_products_images[$i]);
+                $thumb->orientate();
+                $thumb->resize($image_sizes['home_bottom_image_width'], $image_sizes['home_bottom_image_height'], function ($const) {
+                    $const->aspectRatio();
+                })->save(public_path('uploads/home/thumb').'/'.$thumb_name);
+            }
+            $glass_products_images[$i]=$thumb_name;
+        }
+        for($i=0; $i<count($metals_products_images); $i++){
+            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$metals_products_images[$i];
+            if(!File::isDirectory(public_path('uploads/home/thumb'))){
+                File::makeDirectory(public_path('uploads/home/thumb'), 0777, true, true);        
+            }
+            
+            if(!File::exists(public_path('uploads/home/thumb').'/'.$thumb_name)){
+                $thumb = Image::make(public_path('uploads/products').'/'.$metals_products_images[$i]);
+                $thumb->orientate();
+                $thumb->resize($image_sizes['home_bottom_image_width'], $image_sizes['home_bottom_image_height'], function ($const) {
+                    $const->aspectRatio();
+                })->save(public_path('uploads/home/thumb').'/'.$thumb_name);
+            }
+            $metals_products_images[$i]=$thumb_name;
+        }
+        for($i=0; $i<count($lighting_products_images); $i++){
+            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$lighting_products_images[$i];
+            if(!File::isDirectory(public_path('uploads/home/thumb'))){
+                File::makeDirectory(public_path('uploads/home/thumb'), 0777, true, true);        
+            }
+            
+            if(!File::exists(public_path('uploads/home/thumb').'/'.$thumb_name)){
+                $thumb = Image::make(public_path('uploads/products').'/'.$lighting_products_images[$i]);
+                $thumb->orientate();
+                $thumb->resize($image_sizes['home_bottom_image_width'], $image_sizes['home_bottom_image_height'], function ($const) {
+                    $const->aspectRatio();
+                })->save(public_path('uploads/home/thumb').'/'.$thumb_name);
+            }
+            $lighting_products_images[$i]=$thumb_name;
+        }
+
         $home['pottery_products']=$pottery_products;
         $home['glass_products']=$glass_products;
         $home['metals_products']=$metals_products;
