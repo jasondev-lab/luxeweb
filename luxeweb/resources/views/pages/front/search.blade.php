@@ -9,6 +9,7 @@
 		font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 		color: #111;
 		background: #fff;
+		padding-top: 20px;
 	}
 	.page-search__form {
 		position: relative;

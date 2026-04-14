@@ -417,36 +417,6 @@
 				text-decoration: none;
 				opacity: 0.75;
 			}
-			/* Left sidebar (inside #kt_content): vertical white / light-gray stripes */
-			#kt_content > .form-page-with-sidebar {
-				flex: 1 1 auto;
-				min-height: 0;
-				min-width: 0;
-			}
-			.form-page-with-sidebar {
-				align-items: stretch;
-				width: 100%;
-			}
-			.form-left-sidebar {
-				flex: 0 0 210px;
-				width: 210px;
-				max-width: 210px;
-				box-sizing: border-box;
-				padding: 1.5rem 1rem;
-				border-right: 1px solid rgba(0, 0, 0, 0.06);
-				background-color: #ffffff;
-				background-image: repeating-linear-gradient(
-					to right,
-					#d3d3d3 0px,
-					#d3d3d3 10px,
-					#ffffff 10px,
-					#ffffff 20px
-				);
-			}
-			.form-main-column {
-				flex: 1 1 auto;
-				min-width: 0;
-			}
 			#img_logo {
 				margin-left: -15%;
 				height: 90%;
@@ -482,9 +452,6 @@
 				}
 				#kt_left {
 					display: none;
-				}
-				.form-left-sidebar {
-					display: none !important;
 				}
 				#kt_quick_cart_toggle {
 					display: block;
@@ -659,14 +626,14 @@
 						<div class="form-shop">
 							<a class="form-nav-link" href="#">SHOP</a>
 							<div class="form-shop-menu">
-								<a href="#">Pottery</a>
-								<a href="#">Glass</a>
-								<a href="#">Metals</a>
-								<a href="#">Lighting</a>
+								<a href="{{ url('shop-our-store/category/1') }}">Pottery</a>
+								<a href="{{ url('shop-our-store/category/2') }}">Glass</a>
+								<a href="{{ url('shop-our-store/category/3') }}">Metals</a>
+								<a href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
 							</div>
 						</div>
 						<a class="form-nav-link" href="#">ABOUT</a>
-						<a class="form-nav-link" href="#">CONTACT</a>
+						<a class="form-nav-link" href="{{ route('contact') }}">CONTACT</a>
 						<a class="form-nav-link form-nav-icon" href="{{ route('search') }}" aria-label="Search">
 							<i class="fas fa-search"></i>
 						</a>
@@ -683,21 +650,14 @@
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 					<!--begin::Content-->
-					<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding: 36px 89px;">
-						<div class="d-flex flex-row align-items-stretch flex-grow-1 w-100 form-page-with-sidebar" style="gap: 1rem;">
-							<aside class="form-left-sidebar" role="complementary" aria-label="Sidebar">
-								@yield('left_sidebar')
-							</aside>
-							<div class="d-flex flex-column flex-row-fluid flex-grow-1 form-main-column">
-								<!--begin::Entry-->
-								<div class="d-flex flex-column-fluid">
-									<!--begin::Container-->
-									<div id="main_content">@yield('content')</div>
-									<!--end::Container-->
-								</div>
-								<!--end::Entry-->
-							</div>
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding: 0px 89px;">
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<div id="main_content">@yield('content')</div>
+							<!--end::Container-->
 						</div>
+						<!--end::Entry-->
 					</div>
 					<!--end::Content-->
 					<!--begin::Footer-->
@@ -774,7 +734,6 @@
 jQuery(document).ready(function() {
 	if(window.screen.width<1300){
 		$('#kt_left').remove();
-		$('.form-left-sidebar').hide();
 		$('#main_content').removeClass('col-10');
 		$('#main_content').addClass('col-12');
 	}

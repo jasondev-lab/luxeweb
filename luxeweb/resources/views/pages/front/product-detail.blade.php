@@ -100,10 +100,10 @@
 $colors=$home['colors']['meta_value'];
 $buttons = $shop_buttons['meta_value'];
 @endphp
-<div class="d-flex align-items-baseline mb-10">
-    <h1 class="custom-title">{{ $category['title'] }}</h1>
-</div>
-<div class="row">
+<!-- <div class="d-flex align-items-baseline mb-10">
+    <h1 class="custom-title">{{ $category }}</h1>
+</div> -->
+<div class="row mt-8">
     <div class="col-12 col-sm-6">
         @php
             if(count($product['images'])==0) $img_url=asset('assets/media/no_image.jpg');
@@ -149,8 +149,7 @@ $buttons = $shop_buttons['meta_value'];
         </a>
         @endif
         <p class="mt-10">{{ $product['full_description'] }}</p>
-    </div>
-    
+    </div>    
 </div>
 
 @endsection

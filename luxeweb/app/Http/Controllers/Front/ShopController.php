@@ -92,12 +92,13 @@ class ShopController extends Controller
         $home['shop']=Setting::where('meta_key', 'shop')->first();
         $home['menu']=Setting::where('meta_key', 'menu')->first();
 
-        $category=Category::find($id);
+        // $category=Category::find($id);
         $products=Product::where('category_id', $id)->get();
 
-        $categories = Category::all();
+        // $categories = Category::all();
+        $title = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Metals' : 'Antique Bottles'));
 
-        return view('pages.front.shop', compact('menu', 'side_items', 'products', 'home', 'image_sizes', 'category', 'categories'));
+        return view('pages.front.shop', compact('menu', 'side_items', 'products', 'home', 'image_sizes', 'title'));
     }
 
     public function showProduct($id)
@@ -118,11 +119,12 @@ class ShopController extends Controller
         $home['menu']=Setting::where('meta_key', 'menu')->first();
 
         $product=Product::find($id);
-        $category=Category::find($product['category_id']);
+        // $category=Category::find($product['category_id']);
 
-        $categories = Category::all();
+        // $categories = Category::all();
+        $category = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Metals' : 'Antique Bottles'));
 
-        return view('pages.front.product-detail', compact('menu', 'side_items', 'product', 'home', 'image_sizes', 'category', 'shop_buttons', 'categories'));
+        return view('pages.front.product-detail', compact('menu', 'side_items', 'product', 'home', 'image_sizes', 'category', 'shop_buttons'));
     }
 
     public function search(Request $request)

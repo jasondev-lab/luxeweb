@@ -9,6 +9,34 @@
     width: 100%;
     margin: 0 auto;
 }
+.home-page-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+    /* padding-top: 20px; */
+}
+.home-left-sidebar {
+    flex: 0 0 210px;
+    width: 210px;
+    max-width: 210px;
+    box-sizing: border-box;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    background-image: repeating-linear-gradient(
+        to right,
+        #d3d3d3 0px,
+        #d3d3d3 10px,
+        #ffffff 10px,
+        #ffffff 20px
+    );
+}
+.home-main-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 20px;
+}
 .showcase-card {
     position: relative;
     overflow: hidden;
@@ -49,9 +77,8 @@
 }
 .showcase-btn {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    right: 16px;
+    bottom: 16px;
     border: 1px solid #ffffff;
     color: #ffffff;
     background: rgba(0, 0, 0, 0.08);
@@ -127,6 +154,9 @@
     padding: 10px 18px;
 }
 @media (max-width: 992px) {
+    .home-left-sidebar {
+        display: none;
+    }
     .home-showcase {
         max-width: 100%;
     }
@@ -185,50 +215,55 @@
     $newsletterImage = isset($latest_addition_images[0]['name']) ? asset('uploads/home/' . $latest_addition_images[0]['name']) : $fallback;
 @endphp -->
 
-<div class="home-showcase">
-    <div class="showcase-split">
-        <div class="showcase-card split">
-            <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][0]) }}" alt="Pottery collection">
-            <a class="showcase-btn" href="#">Shop Pottery</a>
-        </div>
-        <div class="showcase-card split">
-            <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][1]) }}" alt="Pottery collection">
-            <a class="showcase-btn" href="#">Shop Pottery</a>
-        </div>
-    </div>
+<div class="home-page-layout">
+    <aside class="home-left-sidebar" role="complementary" aria-label="Sidebar"></aside>
+    <div class="home-main-content">
+        <div class="home-showcase">
+            <div class="showcase-split">
+                <div class="showcase-card split">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][0]) }}" alt="Pottery collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/1') }}">Pottery</a>
+                </div>
+                <div class="showcase-card split">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][1]) }}" alt="Pottery collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/1') }}">Pottery</a>
+                </div>
+            </div>
 
-    <div class="showcase-row">
-        <div class="showcase-card half">
-            <img src="{{ asset('uploads/home/thumb/'.$home['glass_products_images'][0]) }}" alt="Glass collection">
-            <a class="showcase-btn" href="#">Shop Glass</a>
-        </div>
-        <div class="showcase-card half">
-            <img src="{{ asset('uploads/home/thumb/'.$home['metals_products_images'][1]) }}" alt="Metals collection">
-            <a class="showcase-btn" href="#">Shop Metals</a>
-        </div>
-    </div>
+            <div class="showcase-row">
+                <div class="showcase-card half">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['glass_products_images'][0]) }}" alt="Glass collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/2') }}">Glass</a>
+                </div>
+                <div class="showcase-card half">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['metals_products_images'][1]) }}" alt="Metals collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Metals</a>
+                </div>
+            </div>
 
-    <div class="showcase-row">
-        <div class="showcase-card half">
-            <img src="{{ asset('uploads/home/thumb/'.$home['lighting_products_images'][0]) }}" alt="Lighting collection">
-            <a class="showcase-btn" href="#">Shop Lighting</a>
-        </div>
-        <div class="showcase-card half">
-            <img src="{{ asset('uploads/home/thumb/'.$home['lighting_products_images'][1]) }}" alt="Lighting collection">
-            <a class="showcase-btn" href="#">Shop Lighting</a>
-        </div>
-    </div>
+            <div class="showcase-row">
+                <div class="showcase-card half">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['antique_bottles_products_images'][0]) }}" alt="Antique Bottles collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
+                </div>
+                <div class="showcase-card half">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['antique_bottles_products_images'][1]) }}" alt="Antique Bottles collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
+                </div>
+            </div>
 
-    <div class="newsletter-card">
-        <!-- <img src="{{ $newsletterImage }}" alt="Newsletter background"> -->
-        <div class="newsletter-overlay">
-            <div class="newsletter-box">
-                <!-- <h2>Stay In Touch.</h2> -->
-                <p>Sign up for our email updates to receive arrivals at Facets.</p>
-                <form class="newsletter-form" action="#" method="post">
-                    <input type="email" name="email" placeholder="Email Address">
-                    <button type="button">Sign Up</button>
-                </form>
+            <div class="newsletter-card">
+                <!-- <img src="{{ $newsletterImage }}" alt="Newsletter background"> -->
+                <div class="newsletter-overlay">
+                    <div class="newsletter-box">
+                        <!-- <h2>Stay In Touch.</h2> -->
+                        <p>Sign up for our email updates to receive arrivals at Facets.</p>
+                        <form class="newsletter-form" action="#" method="post">
+                            <input type="email" name="email" placeholder="Email Address">
+                            <button type="button">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

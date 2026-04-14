@@ -115,12 +115,12 @@ class HomeController extends Controller
         $pottery_products=Product::where('category_id', 1)->get();
         $glass_products=Product::where('category_id', 2)->get();
         $metals_products=Product::where('category_id', 3)->get();
-        $lighting_products=Product::where('category_id', 4)->get();
+        $antique_bottles_products=Product::where('category_id', 4)->get();
 
         $pottery_products_images=array();
         $glass_products_images=array();
         $metals_products_images=array();
-        $lighting_products_images=array();
+        $antique_bottles_products_images=array();
 
         for($i=0; $i<count($pottery_products); $i++){
             $pottery_products_images[]=$pottery_products[$i]['images'][0];
@@ -131,8 +131,8 @@ class HomeController extends Controller
         for($i=0; $i<count($metals_products); $i++){
             $metals_products_images[]=$metals_products[$i]['images'][0];
         }
-        for($i=0; $i<count($lighting_products); $i++){
-            $lighting_products_images[]=$lighting_products[$i]['images'][0];
+        for($i=0; $i<count($antique_bottles_products); $i++){
+            $antique_bottles_products_images[]=$antique_bottles_products[$i]['images'][0];
         }
 
         $setting_image_sizes=Setting::where('meta_key', 'image-sizes')->first();
@@ -182,30 +182,30 @@ class HomeController extends Controller
             }
             $metals_products_images[$i]=$thumb_name;
         }
-        for($i=0; $i<count($lighting_products_images); $i++){
-            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$lighting_products_images[$i];
+        for($i=0; $i<count($antique_bottles_products_images); $i++){
+            $thumb_name=$image_sizes['home_bottom_image_width'].'_'.$image_sizes['home_bottom_image_height'].'_'.$antique_bottles_products_images[$i];
             if(!File::isDirectory(public_path('uploads/home/thumb'))){
                 File::makeDirectory(public_path('uploads/home/thumb'), 0777, true, true);        
             }
             
             if(!File::exists(public_path('uploads/home/thumb').'/'.$thumb_name)){
-                $thumb = Image::make(public_path('uploads/products').'/'.$lighting_products_images[$i]);
+                $thumb = Image::make(public_path('uploads/products').'/'.$antique_bottles_products_images[$i]);
                 $thumb->orientate();
                 $thumb->resize($image_sizes['home_bottom_image_width'], $image_sizes['home_bottom_image_height'], function ($const) {
                     $const->aspectRatio();
                 })->save(public_path('uploads/home/thumb').'/'.$thumb_name);
             }
-            $lighting_products_images[$i]=$thumb_name;
+            $antique_bottles_products_images[$i]=$thumb_name;
         }
 
         $home['pottery_products']=$pottery_products;
         $home['glass_products']=$glass_products;
         $home['metals_products']=$metals_products;
-        $home['lighting_products']=$lighting_products;
+        $home['antique_bottles_products']=$antique_bottles_products;
         $home['pottery_products_images']=$pottery_products_images;
         $home['glass_products_images']=$glass_products_images;
         $home['metals_products_images']=$metals_products_images;
-        $home['lighting_products_images']=$lighting_products_images;
+        $home['antique_bottles_products_images']=$antique_bottles_products_images;
 
         $ip = $request->ip();
         $access_log = AccessLog::where('ip', $ip)->first();

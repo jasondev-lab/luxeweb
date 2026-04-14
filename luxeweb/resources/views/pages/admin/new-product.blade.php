@@ -190,7 +190,7 @@
                                                         <option value="1">Pottery</option>
                                                         <option value="2">Glass</option>
                                                         <option value="3">Metals</option>
-                                                        <option value="4">Lighting</option>
+                                                        <option value="4">Antique Bottles</option>
                                                     </select>
                                                 </div>
                                             </div>
