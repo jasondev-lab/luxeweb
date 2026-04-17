@@ -103,7 +103,7 @@ $buttons = $shop_buttons['meta_value'];
 <!-- <div class="d-flex align-items-baseline mb-10">
     <h1 class="custom-title">{{ $category }}</h1>
 </div> -->
-<div class="row mt-8">
+<div class="row mt-8" style="width: 1270px; margin: 0 auto;">
     <div class="col-12 col-sm-6">
         @php
             if(count($product['images'])==0) $img_url=asset('assets/media/no_image.jpg');

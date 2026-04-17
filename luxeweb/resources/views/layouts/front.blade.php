@@ -643,14 +643,14 @@
 		</div>
 		<!--end::Header-->
 		<!--begin::Main-->
-		<div class="d-flex flex-column flex-root"  style="width: 1430px; margin: 0 auto;">
+		<div class="d-flex flex-column flex-root">
 			@if($home==1)
 			<!--begin::Page-->
 			<div class="d-flex flex-row flex-column-fluid page">
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 					<!--begin::Content-->
-					<div class="content d-flex flex-column flex-column-fluid" id="kt_content" style="padding: 0px 89px;">
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<!--begin::Entry-->
 						<div class="d-flex flex-column-fluid">
 							<!--begin::Container-->

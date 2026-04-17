@@ -11,14 +11,15 @@
 }
 /* Match #kt_content horizontal padding in layouts/front.blade.php */
 .home-page-layout {
-    --home-content-pad-x: 328px;
+    /* --home-content-pad-x: 328px; */
     display: flex;
     align-items: stretch;
     gap: 0;
-    width: calc(100% + (2 * var(--home-content-pad-x)));
+    /* width: calc(100% + (2 * var(--home-content-pad-x))); */
+    width: 100%;
     max-width: none;
-    margin-left: calc(-1 * var(--home-content-pad-x));
-    margin-right: calc(-1 * var(--home-content-pad-x));
+    /* margin-left: calc(-1 * var(--home-content-pad-x)); */
+    /* margin-right: calc(-1 * var(--home-content-pad-x)); */
     box-sizing: border-box;
 }
 .home-left-sidebar {
@@ -38,10 +39,11 @@
     );
 }
 .home-main-content {
-    flex: 1 1 auto;
+    /* flex: 1 1 auto; */
     min-width: 0;
+    width: 1270px;
     /* Right inset matches other pages; small gap after stripe column */
-    padding: 20px var(--home-content-pad-x) 0 8.25rem;
+    /* padding: 20px var(--home-content-pad-x) 0 8.25rem; */
 }
 .showcase-card {
     position: relative;
@@ -87,7 +89,7 @@
     bottom: 16px;
     border: 1px solid #ffffff;
     color: #ffffff;
-    background: rgba(0, 0, 0, 1);
+    background: rgb(102, 101, 101);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-size: 10px;
@@ -221,7 +223,9 @@
 @section('content')
 
 <div class="home-page-layout">
-    <aside class="home-left-sidebar" role="complementary" aria-label="Sidebar"></aside>
+    <div style="flex: 1; display: flex; align-items: stretch; box-sizing: border-box;">
+        <aside class="home-left-sidebar" role="complementary" aria-label="Sidebar"></aside>
+    </div>    
     <div class="home-main-content">
         <div class="home-showcase">
             <div class="showcase-split">
@@ -259,6 +263,7 @@
             </div>
         </div>
     </div>
+    <div class="home-right-sidebar" role="complementary" aria-label="Sidebar" style="flex: 1"></div>
 </div>
 @endsection
 

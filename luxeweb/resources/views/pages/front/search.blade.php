@@ -113,7 +113,7 @@
 @endsection
 
 @section('content')
-<div class="page-search">
+<div class="page-search" style="width: 1270px; margin: 0 auto;">
 	<form class="page-search__form" method="get" action="{{ route('search') }}" role="search">
 		<span class="page-search__icon" aria-hidden="true"><i class="fas fa-search"></i></span>
 		<input

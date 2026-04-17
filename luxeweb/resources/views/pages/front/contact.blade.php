@@ -22,6 +22,8 @@
 }
 .contact-page {
     /* background: #e9e9e9; */
+    width: 1270px; 
+    margin: 0 auto;
     border-left: 1px solid #9a9a9a;
     padding: 18px 20px 24px;
     margin-top: 20px;
