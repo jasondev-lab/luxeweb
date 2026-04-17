@@ -628,8 +628,8 @@
 							<div class="form-shop-menu">
 								<a href="{{ url('shop-our-store/category/1') }}">Pottery</a>
 								<a href="{{ url('shop-our-store/category/2') }}">Glass</a>
-								<a href="{{ url('shop-our-store/category/3') }}">Metals</a>
-								<a href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
+								<a href="{{ url('shop-our-store/category/3') }}">Lightings</a>
+								<a href="{{ url('shop-our-store/category/4') }}">Metals</a>
 							</div>
 						</div>
 						<a class="form-nav-link" href="#">ABOUT</a>

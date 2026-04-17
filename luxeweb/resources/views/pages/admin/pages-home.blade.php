@@ -41,11 +41,10 @@
                 <div class="card-toolbar">
                     <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link active" data-toggle="tab" href="#kt_home_description">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -53,16 +52,15 @@
                                                 <path d="M10.504,3.256 L12.466,3.256 L17.956,16 L15.364,16 L14.176,13.084 L8.65000004,13.084 L7.49800004,16 L4.96000004,16 L10.504,3.256 Z M13.384,11.14 L11.422,5.956 L9.42400004,11.14 L13.384,11.14 Z" fill="#000000"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Description</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
-                            <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_2">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_user_edit_tab_2">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
@@ -78,16 +76,15 @@
                                         <!--end::Svg Icon-->
                                     </span>
                                 </span>
-                                <span class="nav-text font-size-lg">Slide Images</span>
+                                <span class="nav-text font-size-lg">Showcase Images</span>
                             </a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_3">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Shield-user.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -97,31 +94,28 @@
                                                 <path d="M18,12 C18.8284271,12 19.5,11.3284271 19.5,10.5 C19.5,9.67157288 18.8284271,9 18,9 C17.1715729,9 16.5,9.67157288 16.5,10.5 C16.5,11.3284271 17.1715729,12 18,12 Z" fill="#000000" opacity="0.3"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Latest Addition Images</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_4">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Shield-user.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
                                                 <path d="M18.5,6 C19.3284271,6 20,6.67157288 20,7.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 C17.6715729,20 17,19.3284271 17,18.5 L17,7.5 C17,6.67157288 17.6715729,6 18.5,6 Z M12.5,11 C13.3284271,11 14,11.6715729 14,12.5 L14,18.5 C14,19.3284271 13.3284271,20 12.5,20 C11.6715729,20 11,19.3284271 11,18.5 L11,12.5 C11,11.6715729 11.6715729,11 12.5,11 Z M6.5,15 C7.32842712,15 8,15.6715729 8,16.5 L8,18.5 C8,19.3284271 7.32842712,20 6.5,20 C5.67157288,20 5,19.3284271 5,18.5 L5,16.5 C5,15.6715729 5.67157288,15 6.5,15 Z" fill="#000000"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Slide Speed</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->                        
                     </ul>
                 </div>
@@ -133,7 +127,7 @@
                 <form class="form" id="kt_form">
                     <div class="tab-content">
                         <!--begin::Tab-->
-                        <div class="tab-pane show px-7 active" id="kt_home_description" role="tabpanel">
+                        <div class="tab-pane px-7" id="kt_home_description" role="tabpanel">
                             <!--begin::Row-->
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9 my-2">
@@ -161,7 +155,7 @@
                         </div>
                         <!--end::Tab-->
                         <!--begin::Tab-->
-                        <div class="tab-pane px-7" id="kt_user_edit_tab_2" role="tabpanel">
+                        <div class="tab-pane px-7 show active" id="kt_user_edit_tab_2" role="tabpanel">
                             <!--begin::Row-->
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9">
@@ -186,8 +180,8 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Image</th>
-                                                <th scope="col">Link</th>
-                                                <th scope="col">Location</th>
+                                                <!-- <th scope="col">Link</th> -->
+                                                <th scope="col">Category</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -198,8 +192,8 @@
                                                 <td>
                                                     <img src="{{ asset('uploads/home').'/'.$image['name'] }}" class="w-100px h-100px">
                                                 </td>
-                                                <td>{{ isset($image['link']) ? $image['link'] : '' }}</td>
-                                                <td>{{ isset($image['location']) ? $image['location'] : '' }}</td>
+                                                <!-- <td>{{ isset($image['link']) ? $image['link'] : '' }}</td> -->
+                                                <td>{{ isset($image['category']) ? $image['category'] : '' }}</td>
                                                 <td>
                                                     <a href="#" class="btn btn-sm btn-clean btn-icon slide-image" value="{{ $image['id'] }}" title="Delete">
                                                         <span class="svg-icon svg-icon-md">
@@ -355,20 +349,20 @@
                         </div>
                     </div>
                     <div class="alert-message" id="imageError" style="text-align: center;"></div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label class="col-xl-2 col-lg-2 col-form-label">Link</label>
                         <div class="col-10">
                             <input type="text" class="form-control" id="link" name="link" value="">
                         </div>
-                    </div>
-                    <div class="form-group row" id="location_div">
-                        <label class="col-xl-2 col-lg-2 col-form-label">Location</label>
+                    </div> -->
+                    <div class="form-group row" id="category_div">
+                        <label class="col-xl-2 col-lg-2 col-form-label">Category</label>
                         <div class="col-10">
-                            <select class="form-control form-control-solid" name="location" id="location">
-                                <option value="top-left">Top Left</option>
-                                <option value="top-right">Top Right</option>
-                                <option value="bottom-left">Bottom Left</option>
-                                <option value="bottom-right">Bottom Right</option>
+                            <select class="form-control form-control-solid" name="category" id="category">
+                                <option value="pottery">Pottery</option>
+                                <option value="glass">Glass</option>
+                                <option value="lightings">Lightings</option>
+                                <option value="metals">Metals</option>
                             </select>
                         </div>
                     </div>
@@ -431,7 +425,7 @@ jQuery(document).ready(function() {
 		var url="{{ asset('assets/media/no_image.jpg') }}";
 		$('#kt_image').css('background-image', "url(" + url + ")");
         $('#meta_key').val('home-slide-images');
-        $('#location_div').show();
+        $('#category_div').show();
         $('#modal_new_image').modal('show');
     });
 
@@ -442,7 +436,7 @@ jQuery(document).ready(function() {
 		var url="{{ asset('assets/media/no_image.jpg') }}";
 		$('#kt_image').css('background-image', "url(" + url + ")");
         $('#meta_key').val('home-latest-addition-images');
-        $('#location_div').hide();
+        $('#category_div').hide();
         $('#modal_new_image').modal('show');
     });
 
@@ -478,10 +472,9 @@ jQuery(document).ready(function() {
                                 <th scope="row">'+img.id+'</th>\
                                 <td>\
                                     <img src="'+HOST_URL+'/uploads/home/'+img.name+'" class="w-100px h-100px">\
-                                </td>\
-                                <td>'+img.link+'</td>';
+                                </td>';
 
-                    if(meta_key=='home-slide-images') html+='<td>'+img.location+'</td>';
+                    if(meta_key=='home-slide-images') html+='<td>'+img.category+'</td>';
                                 
                     html+='<td>\
                                 <a href="#" class="btn btn-sm btn-clean btn-icon '+cls+'" value="'+img.id+'" title="Delete">\
@@ -550,8 +543,7 @@ jQuery(document).ready(function() {
                                 <td>\
                                     <img src="'+HOST_URL+'/uploads/home/'+img.name+'" class="w-100px h-100px">\
                                 </td>\
-                                <td>'+img.link+'</td>\
-                                <td>'+img.location+'</td>\
+                                <td>'+img.category+'</td>\
                                 <td>\
                                     <a href="#" class="btn btn-sm btn-clean btn-icon slide-image" value="'+img.id+'" title="Delete">\
                                         <span class="svg-icon svg-icon-md">\

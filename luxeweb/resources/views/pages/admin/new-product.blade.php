@@ -189,8 +189,8 @@
                                                     <select class="form-control form-control-solid" name="category_id" id="category_id">
                                                         <option value="1">Pottery</option>
                                                         <option value="2">Glass</option>
-                                                        <option value="3">Metals</option>
-                                                        <option value="4">Antique Bottles</option>
+                                                        <option value="3">Lightings</option>
+                                                        <option value="4">Metals</option>
                                                     </select>
                                                 </div>
                                             </div>

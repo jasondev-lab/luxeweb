@@ -154,8 +154,8 @@
                                             <select class="form-control form-control-solid" name="category_id" id="category_id">
                                                 <option value="1" {{ $product['category_id']==1 ? 'selected' : '' }}>Pottery</option>
                                                 <option value="2" {{ $product['category_id']==2 ? 'selected' : '' }}>Glass</option>
-                                                <option value="3" {{ $product['category_id']==3 ? 'selected' : '' }}>Metals</option>
-                                                <option value="4" {{ $product['category_id']==4 ? 'selected' : '' }}>Antique Bottles</option>
+                                                <option value="3" {{ $product['category_id']==3 ? 'selected' : '' }}>Lightings</option>
+                                                <option value="4" {{ $product['category_id']==4 ? 'selected' : '' }}>Metals</option>
                                             </select>
                                         </div>
                                     </div>

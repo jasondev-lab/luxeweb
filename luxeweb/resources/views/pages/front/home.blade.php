@@ -9,12 +9,17 @@
     width: 100%;
     margin: 0 auto;
 }
+/* Match #kt_content horizontal padding in layouts/front.blade.php */
 .home-page-layout {
+    --home-content-pad-x: 328px;
     display: flex;
     align-items: stretch;
-    gap: 1rem;
-    width: 100%;
-    /* padding-top: 20px; */
+    gap: 0;
+    width: calc(100% + (2 * var(--home-content-pad-x)));
+    max-width: none;
+    margin-left: calc(-1 * var(--home-content-pad-x));
+    margin-right: calc(-1 * var(--home-content-pad-x));
+    box-sizing: border-box;
 }
 .home-left-sidebar {
     flex: 0 0 210px;
@@ -35,7 +40,8 @@
 .home-main-content {
     flex: 1 1 auto;
     min-width: 0;
-    padding-top: 20px;
+    /* Right inset matches other pages; small gap after stripe column */
+    padding: 20px var(--home-content-pad-x) 0 8.25rem;
 }
 .showcase-card {
     position: relative;
@@ -81,7 +87,7 @@
     bottom: 16px;
     border: 1px solid #ffffff;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 1);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     font-size: 10px;
@@ -154,6 +160,15 @@
     padding: 10px 18px;
 }
 @media (max-width: 992px) {
+    .home-page-layout {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .home-main-content {
+        padding: 20px 0 0 0;
+    }
     .home-left-sidebar {
         display: none;
     }
@@ -204,16 +219,6 @@
 
 {{-- Content --}}
 @section('content')
-<!-- @php
-    $homeSlides = is_array($slide_images ?? null) ? array_values($slide_images) : [];
-    $fallback = asset('assets/media/no_image.jpg');
-
-    $potteryImage = isset($homeSlides[0]['name']) ? asset('uploads/home/' . $homeSlides[0]['name']) : $fallback;
-    $glassImage = isset($homeSlides[1]['name']) ? asset('uploads/home/' . $homeSlides[1]['name']) : $fallback;
-    $metalsImage = isset($homeSlides[2]['name']) ? asset('uploads/home/' . $homeSlides[2]['name']) : $fallback;
-    $lightingImage = isset($homeSlides[3]['name']) ? asset('uploads/home/' . $homeSlides[3]['name']) : $fallback;
-    $newsletterImage = isset($latest_addition_images[0]['name']) ? asset('uploads/home/' . $latest_addition_images[0]['name']) : $fallback;
-@endphp -->
 
 <div class="home-page-layout">
     <aside class="home-left-sidebar" role="complementary" aria-label="Sidebar"></aside>
@@ -221,39 +226,26 @@
         <div class="home-showcase">
             <div class="showcase-split">
                 <div class="showcase-card split">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][0]) }}" alt="Pottery collection">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['pottery_images'][0]) }}" alt="Pottery collection">
                     <a class="showcase-btn" href="{{ url('shop-our-store/category/1') }}">Pottery</a>
                 </div>
                 <div class="showcase-card split">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['pottery_products_images'][1]) }}" alt="Pottery collection">
-                    <a class="showcase-btn" href="{{ url('shop-our-store/category/1') }}">Pottery</a>
-                </div>
-            </div>
-
-            <div class="showcase-row">
-                <div class="showcase-card half">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['glass_products_images'][0]) }}" alt="Glass collection">
+                    <img src="{{ asset('uploads/home/thumb/'.$home['glass_images'][0]) }}" alt="Glass collection">
                     <a class="showcase-btn" href="{{ url('shop-our-store/category/2') }}">Glass</a>
                 </div>
-                <div class="showcase-card half">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['metals_products_images'][1]) }}" alt="Metals collection">
-                    <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Metals</a>
-                </div>
             </div>
 
             <div class="showcase-row">
                 <div class="showcase-card half">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['antique_bottles_products_images'][0]) }}" alt="Antique Bottles collection">
-                    <a class="showcase-btn" href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
+                    <img src="{{ asset('uploads/home/thumb/'.$home['lightings_images'][0]) }}" alt="Lightings collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Lightings</a>
                 </div>
                 <div class="showcase-card half">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['antique_bottles_products_images'][1]) }}" alt="Antique Bottles collection">
-                    <a class="showcase-btn" href="{{ url('shop-our-store/category/4') }}">Antique Bottles</a>
+                    <img src="{{ asset('uploads/home/thumb/'.$home['metals_images'][0]) }}" alt="Metals collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/4') }}">Metals</a>
                 </div>
             </div>
-
             <div class="newsletter-card">
-                <!-- <img src="{{ $newsletterImage }}" alt="Newsletter background"> -->
                 <div class="newsletter-overlay">
                     <div class="newsletter-box">
                         <!-- <h2>Stay In Touch.</h2> -->

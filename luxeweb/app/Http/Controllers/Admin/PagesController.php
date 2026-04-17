@@ -127,13 +127,13 @@ class PagesController extends Controller
                     $setting=new Setting();
                     $setting['meta_key']=$meta_key;
                     $values=array();
-                    $values[]=array('id'=>1, 'name'=>$image, 'link'=>$request->link, 'location'=>isset($request->location) ? $request->location : '');
+                    $values[]=array('id'=>1, 'name'=>$image, 'category'=>isset($request->category) ? $request->category : '');
                     $setting['meta_value']=$values;
                     $setting->save();
                 }else{
                     $values=$setting['meta_value'];
                     $id=count($values)==0 ? 1 : $values[count($values)-1]['id']+1;
-                    $values[]=array('id'=>$id, 'name'=>$image, 'link'=>$request->link, 'location'=>isset($request->location) ? $request->location : '');
+                    $values[]=array('id'=>$id, 'name'=>$image, 'category'=>isset($request->category) ? $request->category : '');
                     $setting['meta_value']=$values;
                     $setting->save();
                 }
@@ -156,7 +156,7 @@ class PagesController extends Controller
             $idx=1;
             foreach($olds as $val){
                 if($deleted_id!=$val['id']){
-                    $values[]=array('id'=>$idx, 'name'=>$val['name'], 'link'=>isset($val['link']) ? $val['link'] : '', 'location'=>isset($val['location']) ? $val['location'] : '');
+                    $values[]=array('id'=>$idx, 'name'=>$val['name'], 'category'=>isset($val['category']) ? $val['category'] : '');
                     $idx++;
                 }                    
             }            

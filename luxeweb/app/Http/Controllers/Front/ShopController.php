@@ -96,7 +96,7 @@ class ShopController extends Controller
         $products=Product::where('category_id', $id)->get();
 
         // $categories = Category::all();
-        $title = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Metals' : 'Antique Bottles'));
+        $title = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Lightings' : 'Metals'));
 
         return view('pages.front.shop', compact('menu', 'side_items', 'products', 'home', 'image_sizes', 'title'));
     }
@@ -122,7 +122,7 @@ class ShopController extends Controller
         // $category=Category::find($product['category_id']);
 
         // $categories = Category::all();
-        $category = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Metals' : 'Antique Bottles'));
+        $category = $id == 1 ? 'Pottery' : ($id == 2 ? 'Glass' : ($id == 3 ? 'Lightings' : 'Metals'));
 
         return view('pages.front.product-detail', compact('menu', 'side_items', 'product', 'home', 'image_sizes', 'category', 'shop_buttons'));
     }
