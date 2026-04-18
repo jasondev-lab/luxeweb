@@ -241,8 +241,8 @@
 
             <div class="showcase-row">
                 <div class="showcase-card half">
-                    <img src="{{ asset('uploads/home/thumb/'.$home['lightings_images'][0]) }}" alt="Lightings collection">
-                    <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Lightings</a>
+                    <img src="{{ asset('uploads/home/thumb/'.$home['lighting_images'][0]) }}" alt="Lighting collection">
+                    <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Lighting</a>
                 </div>
                 <div class="showcase-card half">
                     <img src="{{ asset('uploads/home/thumb/'.$home['metals_images'][0]) }}" alt="Metals collection">

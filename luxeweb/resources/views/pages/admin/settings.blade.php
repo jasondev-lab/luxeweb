@@ -70,11 +70,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                 <div class="card-toolbar">
                     <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link active" data-toggle="tab" href="#kt_colors">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -82,19 +81,17 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <circle fill="#000000" cx="12" cy="9" r="5"></circle>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Colors</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_text">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -102,32 +99,29 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M10.504,3.256 L12.466,3.256 L17.956,16 L15.364,16 L14.176,13.084 L8.65000004,13.084 L7.49800004,16 L4.96000004,16 L10.504,3.256 Z M13.384,11.14 L11.422,5.956 L9.42400004,11.14 L13.384,11.14 Z" fill="#000000"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Text</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_mobile">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                                             <path d="M16 64C16 28.7 44.7 0 80 0L304 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64L80 512c-35.3 0-64-28.7-64-64L16 64zM224 448a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM304 64L80 64l0 320 224 0 0-320z" style="fill: #7E8299;"/>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Mobile</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
-                            <a class="nav-link" data-toggle="tab" href="#kt_admin">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_admin">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
@@ -146,11 +140,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_dev">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <polygon points="0 0 24 0 24 24 0 24"/>
@@ -158,12 +151,11 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Dev</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
@@ -206,11 +198,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_image_size">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -220,12 +211,11 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M18,12 C18.8284271,12 19.5,11.3284271 19.5,10.5 C19.5,9.67157288 18.8284271,9 18,9 C17.1715729,9 16.5,9.67157288 16.5,10.5 C16.5,11.3284271 17.1715729,12 18,12 Z" fill="#000000" opacity="0.3"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Image Size</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
@@ -267,11 +257,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_signup">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -279,19 +268,17 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">SignUp</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_background">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -301,38 +288,34 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M18,12 C18.8284271,12 19.5,11.3284271 19.5,10.5 C19.5,9.67157288 18.8284271,9 18,9 C17.1715729,9 16.5,9.67157288 16.5,10.5 C16.5,11.3284271 17.1715729,12 18,12 Z" fill="#000000" opacity="0.3"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Background Image</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_shop_toggle">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
                                                 <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Shop Toggle</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_website_message">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"/>
@@ -340,19 +323,17 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <path d="M11.7357634,20.9961946 C6.88740052,20.8563914 3,16.8821712 3,12 C3,11.9168367 3.00112797,11.8339369 3.00336944,11.751315 C3.66233009,11.8143341 4.85636818,11.9573854 4.91262842,12.4204038 C4.9904938,13.0609191 4.91262842,13.8615942 5.45804656,14.101772 C6.00346469,14.3419498 6.15931561,13.1409372 6.6267482,13.4612567 C7.09418079,13.7815761 8.34086797,14.0899175 8.34086797,14.6562185 C8.34086797,15.222396 8.10715168,16.1034596 8.34086797,16.2636193 C8.57458427,16.423779 9.5089688,17.54465 9.50920913,17.7048097 C9.50956962,17.8649694 9.83857487,18.6793513 9.74040201,18.9906563 C9.65905192,19.2487394 9.24857641,20.0501554 8.85059781,20.4145589 C9.75315358,20.7620621 10.7235846,20.9657742 11.7357634,20.9960544 L11.7357634,20.9961946 Z M8.28272988,3.80112099 C9.4158415,3.28656421 10.6744554,3 12,3 C15.5114513,3 18.5532143,5.01097452 20.0364482,7.94408274 C20.069657,8.72412177 20.0638332,9.39135321 20.2361262,9.6327358 C21.1131932,10.8600506 18.0995147,11.7043158 18.5573343,13.5605384 C18.7589671,14.3794892 16.5527814,14.1196773 16.0139722,14.886394 C15.4748026,15.6527403 14.1574598,15.137809 13.8520064,14.9904917 C13.546553,14.8431744 12.3766497,15.3341497 12.4789081,14.4995164 C12.5805657,13.664636 13.2922889,13.6156126 14.0555619,13.2719546 C14.8184743,12.928667 15.9189236,11.7871741 15.3781918,11.6380045 C12.8323064,10.9362407 11.963771,8.47852395 11.963771,8.47852395 C11.8110443,8.44901109 11.8493762,6.74109366 11.1883616,6.69207022 C10.5267462,6.64279981 10.170464,6.88841096 9.20435656,6.69207022 C8.23764828,6.49572949 8.44144409,5.85743687 8.2887174,4.48255778 C8.25453994,4.17415686 8.25619136,3.95717082 8.28272988,3.80112099 Z M20.9991771,11.8770357 C20.9997251,11.9179585 21,11.9589471 21,12 C21,16.9406923 17.0188468,20.9515364 12.0895088,20.9995641 C16.970233,20.9503326 20.9337111,16.888438 20.9991771,11.8770357 Z" fill="#000000" opacity="0.3"/>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Website</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="nav-item mr-3">
+                        <!-- <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_bottom_navigation">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"/>
@@ -360,12 +341,11 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <rect fill="#000000" x="4" y="13" width="16" height="6" rx="1.5"/>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="nav-text font-size-lg">Bottom Section</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
@@ -395,7 +375,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
             <div class="card-body">
                 <div class="tab-content">
                     <!--begin::Tab-->
-                    <div class="tab-pane show px-7 active" id="kt_colors" role="tabpanel">
+                    <div class="tab-pane px-7" id="kt_colors" role="tabpanel">
                         <!--begin::Row-->
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-12 my-2">
@@ -975,7 +955,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                     </div>
                     <!--end::Tab-->
                     <!--begin::Tab-->
-                    <div class="tab-pane px-7" id="kt_admin" role="tabpanel">
+                    <div class="tab-pane px-7 show active" id="kt_admin" role="tabpanel">
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-9 my-2">
                                 <div class="form-group row">

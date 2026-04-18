@@ -117,7 +117,7 @@ class HomeController extends Controller
         $pottery_images=array();
         $glass_images=array();
         $metals_images=array();
-        $lightings_images=array();
+        $lighting_images=array();
 
         for($i=0; $i<count($slide_images); $i++){
             if($slide_images[$i]['category']=='pottery'){
@@ -126,15 +126,15 @@ class HomeController extends Controller
                 $glass_images[]=$slide_images[$i]['thumb'];
             }elseif($slide_images[$i]['category']=='metals'){
                 $metals_images[]=$slide_images[$i]['thumb'];
-            }elseif($slide_images[$i]['category']=='lightings'){
-                $lightings_images[]=$slide_images[$i]['thumb'];
+            }elseif($slide_images[$i]['category']=='lighting'){
+                $lighting_images[]=$slide_images[$i]['thumb'];
             }
         }
 
         $home['pottery_images']=$pottery_images;
         $home['glass_images']=$glass_images;
         $home['metals_images']=$metals_images;
-        $home['lightings_images']=$lightings_images;
+        $home['lighting_images']=$lighting_images;
 
         $ip = $request->ip();
         $access_log = AccessLog::where('ip', $ip)->first();

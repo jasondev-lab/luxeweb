@@ -86,7 +86,7 @@
                                     <span class="menu-text">Home</span>
                                 </a>
                             </li>
-                            <li class="menu-item {{ $submenu=='Dealer Directory'?'menu-item-active':'' }}" aria-haspopup="true">
+                            <!-- <li class="menu-item {{ $submenu=='Dealer Directory'?'menu-item-active':'' }}" aria-haspopup="true">
                                 <a href="{{ route('pages-dealer-directory') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
@@ -109,7 +109,7 @@
                                     </i>
                                     <span class="menu-text">Shop Our Store</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <!--<li class="menu-item {{ $submenu=='Web Design'?'menu-item-active':'' }}" aria-haspopup="true">
                                 <a href="{{ route('pages-web-design') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
@@ -118,7 +118,7 @@
                                     <span class="menu-text">Web Design</span>
                                 </a>
                             </li>-->
-                            <li class="menu-item {{ $submenu=='Advertising'?'menu-item-active':'' }}" aria-haspopup="true">
+                            <!-- <li class="menu-item {{ $submenu=='Advertising'?'menu-item-active':'' }}" aria-haspopup="true">
                                 <a href="{{ route('pages-advertising') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
@@ -141,7 +141,7 @@
                                     </i>
                                     <span class="menu-text">Policies</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="menu-item {{ $submenu=='Contact'?'menu-item-active':'' }}" aria-haspopup="true">
                                 <a href="{{ route('pages-contact') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
@@ -197,10 +197,9 @@
                         <span class="menu-text">Products</span>
                     </a>
                 </li>
-                <li class="menu-item {{ $menu=='Links'?'menu-item-active':'' }}" aria-haspopup="true">
+                <!-- <li class="menu-item {{ $menu=='Links'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('links') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -210,11 +209,10 @@
                                     <path d="M6,7 C7.1045695,7 8,6.1045695 8,5 C8,3.8954305 7.1045695,3 6,3 C4.8954305,3 4,3.8954305 4,5 C4,6.1045695 4.8954305,7 6,7 Z M6,9 C3.790861,9 2,7.209139 2,5 C2,2.790861 3.790861,1 6,1 C8.209139,1 10,2.790861 10,5 C10,7.209139 8.209139,9 6,9 Z" fill="#000000" fill-rule="nonzero"></path>
                                 </g>
                             </svg>
-                            <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text">Links</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-item {{ $menu=='Contacts'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('contacts') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
@@ -231,10 +229,9 @@
                         <span class="menu-text">Contacts</span>
                     </a>
                 </li>
-                <li class="menu-item {{ $menu=='Items'?'menu-item-active':'' }}" aria-haspopup="true">
+                <!-- <li class="menu-item {{ $menu=='Items'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('items') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -242,11 +239,10 @@
                                     <rect fill="#000000" opacity="0.3" x="2" y="5" width="5" height="14" rx="1"></rect>
                                 </g>
                             </svg>
-                            <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text">Left Items</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-item {{ $menu=='Settings'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('settings') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
@@ -262,21 +258,19 @@
                         <span class="menu-text">Settings</span>
                     </a>
                 </li>
-                <li class="menu-item {{ $menu=='Send Emails'?'menu-item-active':'' }}" aria-haspopup="true">
+                <!-- <li class="menu-item {{ $menu=='Send Emails'?'menu-item-active':'' }}" aria-haspopup="true">
                     <a href="{{ route('emails') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24"></rect>
                                     <path d="M3,13.5 L19,12 L3,10.5 L3,3.7732928 C3,3.70255344 3.01501031,3.63261921 3.04403925,3.56811047 C3.15735832,3.3162903 3.45336217,3.20401298 3.70518234,3.31733205 L21.9867539,11.5440392 C22.098181,11.5941815 22.1873901,11.6833905 22.2375323,11.7948177 C22.3508514,12.0466378 22.2385741,12.3426417 21.9867539,12.4559608 L3.70518234,20.6826679 C3.64067359,20.7116969 3.57073936,20.7267072 3.5,20.7267072 C3.22385763,20.7267072 3,20.5028496 3,20.2267072 L3,13.5 Z" fill="#000000"></path>
                                 </g>
                             </svg>
-                            <!--end::Svg Icon-->
                         </span>
                         <span class="menu-text">Send Emails</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <!--end::Menu Nav-->
         </div>

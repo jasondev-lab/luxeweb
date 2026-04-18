@@ -361,7 +361,7 @@
                             <select class="form-control form-control-solid" name="category" id="category">
                                 <option value="pottery">Pottery</option>
                                 <option value="glass">Glass</option>
-                                <option value="lightings">Lightings</option>
+                                <option value="lighting">Lighting</option>
                                 <option value="metals">Metals</option>
                             </select>
                         </div>

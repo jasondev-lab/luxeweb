@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function getProducts(){
         $products=Product::where('category_id', '<>', 0)->get();
         for($i=0; $i<count($products); $i++){
-            $products[$i]['category']=$products[$i]['category_id']==1 ? 'Pottery' : ($products[$i]['category_id']==2 ? 'Glass' : ($products[$i]['category_id']==3 ? 'Lightings' : 'Metals'));
+            $products[$i]['category']=$products[$i]['category_id']==1 ? 'Pottery' : ($products[$i]['category_id']==2 ? 'Glass' : ($products[$i]['category_id']==3 ? 'Lighting' : 'Metals'));
         }
         $result['data']=$products;
         for($i=0; $i<count($products); $i++){

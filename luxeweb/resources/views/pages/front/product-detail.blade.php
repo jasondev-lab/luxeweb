@@ -136,9 +136,9 @@ $buttons = $shop_buttons['meta_value'];
         {{ '$'.$product['price'] }}
         </h2>
         @if($product['etsy_button'] == 1)
-        <a href="{{ isset($product['etsy_link']) ? $product['etsy_link'] : '#' }}" class="btn btn-pill mt-5 custom-button">
+        <a href="{{ isset($product['etsy_link']) ? $product['etsy_link'] : '#' }}" class="btn mt-5 custom-button">
             <i class="fas fa-cart-plus fa-lg mr-2"></i>
-            Purchase This Item At Our Etsy Store
+            Enquire about this item
         </a>
         @endif
         <br>

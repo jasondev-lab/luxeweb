@@ -609,7 +609,7 @@
 				</button>
 				<div class="form-header-inner">
 					<div class="form-header-social" aria-label="Social links">
-						<a href="{{ isset($social['instagram']) ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<a href="{{ isset($social['instagram']) && $social['instagram'] !== '' ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
 							<i class="fab fa-instagram" aria-hidden="true"></i>
 						</a>
 						<a href="{{ isset($social['twitter']) && $social['twitter'] !== '' ? $social['twitter'] : 'https://x.com' }}" target="_blank" rel="noopener noreferrer" aria-label="X">
@@ -628,7 +628,7 @@
 							<div class="form-shop-menu">
 								<a href="{{ url('shop-our-store/category/1') }}">Pottery</a>
 								<a href="{{ url('shop-our-store/category/2') }}">Glass</a>
-								<a href="{{ url('shop-our-store/category/3') }}">Lightings</a>
+								<a href="{{ url('shop-our-store/category/3') }}">Lighting</a>
 								<a href="{{ url('shop-our-store/category/4') }}">Metals</a>
 							</div>
 						</div>
@@ -674,7 +674,7 @@
 							<!--end::Copyright-->
 						</div>
 						<div class="order-2 order-md-1 text-center mt-3">
-							<span class="font-weight-bold text-uppercase">{{ isset($copyright['text']) ? $copyright['text'] : '© Copyrights Facets 2026' }}</span>
+							<span class="font-weight-bold text-uppercase">{{ isset($copyright['text']) ? $copyright['text'] : '© Copyright Facets 2026' }}</span>
 						</div>
 						<!--end::Container-->
 					</div>
