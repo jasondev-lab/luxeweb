@@ -617,7 +617,7 @@
 						</a>
 					</div>
 					<div class="form-header-center">
-						<a href="{{ route('/') }}" class="form-brand">
+						<a href="{{ route('home') }}" class="form-brand">
 							<img src="{{ $img }}" alt="{{ $website['title'] ?? 'Home' }}">
 						</a>
 					</div>

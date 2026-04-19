@@ -136,18 +136,18 @@ $buttons = $shop_buttons['meta_value'];
         {{ '$'.$product['price'] }}
         </h2>
         @if($product['etsy_button'] == 1)
-        <a href="{{ isset($product['etsy_link']) ? $product['etsy_link'] : '#' }}" class="btn mt-5 custom-button">
-            <i class="fas fa-cart-plus fa-lg mr-2"></i>
-            Enquire about this item
+        <a href="{{ isset($product['etsy_link']) ? $product['etsy_link'] : '#' }}" class="btn mt-5 custom-button" style="background: #000000;">
+            <!-- <i class="fas fa-cart-plus fa-lg mr-2"></i> -->
+            Inquire about this item
         </a>
         @endif
         <br>
-        @if($product['email_button'] == 1)
+        <!-- @if($product['email_button'] == 1)
         <a href="{{ route('contact') }}" class="btn btn-pill mt-5 custom-button">
             <i class="fas fa-cart-plus fa-lg mr-2"></i> 
             Email Us For Purchasing Info
         </a>
-        @endif
+        @endif -->
         <p class="mt-10">{{ $product['full_description'] }}</p>
     </div>    
 </div>

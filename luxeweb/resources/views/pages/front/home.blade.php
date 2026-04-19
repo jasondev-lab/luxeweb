@@ -3,6 +3,13 @@
 
 {{-- Style Section --}}
 @section('styles')
+@php
+	$sidebarBgStyle = (int) (
+		data_get($home, 'sidebar_style.meta_value.style')
+		?? data_get($home, 'sidebar_style.style')
+		?? 1
+	);
+@endphp
 <style>
 .home-showcase {
     /* max-width: 980px; */
@@ -28,8 +35,14 @@
     max-width: 210px;
     box-sizing: border-box;
     padding: 1.5rem 1rem;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    /* border-right: 1px solid rgba(0, 0, 0, 0.06); */
     background-color: #ffffff;
+@if($sidebarBgStyle === 2)
+    background-image: url('{{ asset("assets/media/door.png") }}');
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+@else
     background-image: repeating-linear-gradient(
         to right,
         #d3d3d3 0px,
@@ -37,6 +50,10 @@
         #ffffff 10px,
         #ffffff 20px
     );
+    background-size: auto;
+    background-position: left top;
+    background-repeat: repeat;
+@endif
 }
 .home-main-content {
     /* flex: 1 1 auto; */

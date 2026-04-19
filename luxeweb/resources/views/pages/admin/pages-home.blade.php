@@ -42,7 +42,7 @@
                     <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
                         <!--begin::Item-->
                         <!-- <li class="nav-item mr-3">
-                            <a class="nav-link active" data-toggle="tab" href="#kt_home_description">
+                            <a class="nav-link" data-toggle="tab" href="#kt_home_description">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -81,7 +81,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <!-- <li class="nav-item mr-3">
+                        <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_3">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
@@ -96,9 +96,9 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="nav-text font-size-lg">Latest Addition Images</span>
+                                <span class="nav-text font-size-lg">SideBar</span>
                             </a>
-                        </li> -->
+                        </li>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <!-- <li class="nav-item mr-3">
@@ -224,64 +224,28 @@
                             <!--begin::Row-->
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9">
-                                    @if(!isset($result['latest_addition_images']) || count($result['latest_addition_images'])<4)
-                                    <div class="d-flex justify-content-end">
-                                        <a href="#" class="btn btn-light-primary font-weight-bolder" id="btn_new_image2">
-                                        <span class="svg-icon svg-icon-md">
-                                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <polygon points="0 0 24 0 24 24 0 24"></polygon>
-                                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"></rect>
-                                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"></polygon>
-                                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"></polygon>
-                                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"></circle>
-                                                </g>
-                                            </svg>
-                                            <!--end::Svg Icon-->
-                                        </span>New Image</a>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-xl-4 col-lg-4 col-form-label">SideBar Style</label>
+                                                <div class="col-xl-8 col-lg-8">
+                                                    <div class="radio-list">
+                                                        <label class="radio">
+                                                        <input type="radio" name="sidebar" value="1" {{ isset($result['sidebar_style']['style']) && $result['sidebar_style']['style']==1 ? 'checked' : '' }}>
+                                                        <span></span>Stripes</label>
+                                                        <label class="radio">
+                                                        <input type="radio" name="sidebar" value="2" {{ isset($result['sidebar_style']['style']) && $result['sidebar_style']['style']==2 ? 'checked' : '' }}>
+                                                        <span></span>Door Image</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    @endif
-                                    <table class="table" id="table_latest_addition_images">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Image</th>                                                
-                                                <th scope="col">Link</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        @if(isset($result['latest_addition_images']))
-                                            @foreach($result['latest_addition_images'] as $image)
-                                            <tr>
-                                                <th scope="row">{{ $image['id'] }}</th>
-                                                <td>
-                                                    <img src="{{ asset('uploads/home').'/'.$image['name'] }}" class="w-100px h-100px">
-                                                </td>
-                                                <td>{{ isset($image['link']) ? $image['link'] : '' }}</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-clean btn-icon latest-addition-image" value="{{ $image['id'] }}" title="Delete">
-                                                        <span class="svg-icon svg-icon-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
-                                                                        <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
-                                                                </g>
-                                                            </svg>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        @endif
-                                        </tbody>
-                                    </table>
-                                    @if(count($result['latest_addition_images'])==0)
-                                    <div style="text-align: center;" id="no_images2">No images</div>
-                                    @endif
                                 </div>
+                            </div>
+                            <div class="separator separator-solid"></div>
+                            <div class="row d-flex justify-content-center py-5">
+                                <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_sidebar">Save</a>
                             </div>
                             <!--end::Row-->
                         </div>
@@ -644,6 +608,32 @@ jQuery(document).ready(function() {
                 _token: "{{ csrf_token() }}",
                 meta_key: 'slide-speed',
                 meta_value: JSON.stringify({ speed:$('#kt_slider').val() })
+            },
+            dataType: 'json',
+            success: function(result){
+				KTUtil.btnRelease(btn);				
+                content.message = 'Your action is success!';
+				showMessage('success', content);
+ 			},
+			error: function (response) {
+				KTUtil.btnRelease(btn);	
+                content.message = 'Your action is failed!';
+				showMessage('danger', content);		
+			}			
+        });
+    });
+
+    $('#btn_save_sidebar').on('click', function(e){
+        e.preventDefault();
+        var btn = KTUtil.getById("btn_save_sidebar");
+		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
+        $.ajax({
+            url:"{{ route('save-sidebar-style') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                meta_key: 'sidebar-style',
+                meta_value: JSON.stringify({ style:$("input[name='sidebar']:checked").val() })
             },
             dataType: 'json',
             success: function(result){
