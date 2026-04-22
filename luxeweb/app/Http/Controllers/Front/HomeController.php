@@ -44,7 +44,7 @@ class HomeController extends Controller
         $home['website']=Setting::where('meta_key', 'website')->first();
         $home['copyright']=Setting::where('meta_key', 'copyright')->first();
         $home['slide_speed']=Setting::where('meta_key', 'slide-speed')->first();
-        $home['sidebar_style']=Setting::where('meta_key', 'sidebar-style')->first();
+        $home['sidebar']=Setting::where('meta_key', 'sidebar')->first();
         $home['bottom_navigation']=Setting::where('meta_key', 'bottom-navigation')->first();
         $home['background_image_comingsoon']=Setting::where('meta_key', 'background-image-comingsoon')->first();
         $home['comingsoon_font_color']=Setting::where('meta_key', 'comingsoon_font_color')->first();

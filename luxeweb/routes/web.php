@@ -76,7 +76,7 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::post('/admin/save-description', [App\Http\Controllers\Admin\PagesController::class, 'saveDescription'])->name('save-description');
     Route::post('/admin/save-image', [App\Http\Controllers\Admin\PagesController::class, 'saveImage'])->name('save-image');
     Route::post('/admin/save-slide-speed', [App\Http\Controllers\Admin\PagesController::class, 'saveSlideSpeed'])->name('save-slide-speed');
-    Route::post('/admin/save-sidebar-style', [App\Http\Controllers\Admin\PagesController::class, 'saveSidebarStyle'])->name('save-sidebar-style');
+    Route::post('/admin/save-sidebar', [App\Http\Controllers\Admin\PagesController::class, 'saveSidebar'])->name('save-sidebar');
     Route::post('/admin/save-shop-buttons', [App\Http\Controllers\Admin\PagesController::class, 'saveShopButtons'])->name('save-shop-buttons');
     Route::get('/admin/delete-image', [App\Http\Controllers\Admin\PagesController::class, 'deleteImage'])->name('delete-image');
     Route::get('/admin/pages-join-directory', [App\Http\Controllers\Admin\PagesController::class, 'showJoinDirectory'])->name('pages-join-directory');

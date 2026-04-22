@@ -10,6 +10,8 @@
 		color: #111;
 		background: #fff;
 		padding-top: 20px;
+		width: 1270px;
+		margin: 0 auto;
 	}
 	.page-search__form {
 		position: relative;
@@ -109,11 +111,16 @@
 		font-size: 0.95rem;
 		color: #555;
 	}
+	@media (max-width: 1200px) {
+		.page-search {
+			width: 100% !important;
+		}
+	}
 </style>
 @endsection
 
 @section('content')
-<div class="page-search" style="width: 1270px; margin: 0 auto;">
+<section class="page-search">
 	<form class="page-search__form" method="get" action="{{ route('search') }}" role="search">
 		<span class="page-search__icon" aria-hidden="true"><i class="fas fa-search"></i></span>
 		<input
@@ -151,5 +158,5 @@
 			@endforeach
 		@endif
 	</div>
-</div>
+</section>
 @endsection

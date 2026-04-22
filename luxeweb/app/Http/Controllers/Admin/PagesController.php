@@ -75,8 +75,8 @@ class PagesController extends Controller
         $result['latest_addition_images']=empty($setting) ? [] : $setting['meta_value'];
         $setting=Setting::where('meta_key', 'slide-speed')->first();
         $result['slide_speed']=empty($setting) ? [] : $setting['meta_value'];
-        $setting=Setting::where('meta_key', 'sidebar-style')->first();
-        $result['sidebar_style']=empty($setting) ? [] : $setting['meta_value'];
+        $setting=Setting::where('meta_key', 'sidebar')->first();
+        $result['sidebar']=empty($setting) ? [] : $setting['meta_value'];
         return view('pages.admin.pages-home', compact('menu', 'submenu', 'result'));
     }
 
@@ -112,7 +112,7 @@ class PagesController extends Controller
         return response()->json(['state'=>1]);
     }
 
-    public function saveSidebarStyle(Request $request){
+    public function saveSidebar(Request $request){
         $meta_key=$request->meta_key;
         $meta_value=json_decode($request->meta_value, true);
         $setting=Setting::where('meta_key', $meta_key)->first();

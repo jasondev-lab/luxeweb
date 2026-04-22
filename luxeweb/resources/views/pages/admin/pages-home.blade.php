@@ -224,6 +224,23 @@
                             <!--begin::Row-->
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9">
+                                    <div class="row mb-5">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-xl-4 col-lg-4 col-form-label">SideBar On/Off</label>
+                                                <div class="col-xl-8 col-lg-8">
+                                                    <div class="radio-list">
+                                                        <label class="radio">
+                                                        <input type="radio" name="sidebar_state" value="1" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==1 ? 'checked' : '' }}>
+                                                        <span></span>On</label>
+                                                        <label class="radio">
+                                                        <input type="radio" name="sidebar_state" value="0" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==0 ? 'checked' : '' }}>
+                                                        <span></span>Off</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
@@ -231,10 +248,10 @@
                                                 <div class="col-xl-8 col-lg-8">
                                                     <div class="radio-list">
                                                         <label class="radio">
-                                                        <input type="radio" name="sidebar" value="1" {{ isset($result['sidebar_style']['style']) && $result['sidebar_style']['style']==1 ? 'checked' : '' }}>
+                                                        <input type="radio" name="sidebar_style" value="1" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==1 ? 'checked' : '' }}>
                                                         <span></span>Stripes</label>
                                                         <label class="radio">
-                                                        <input type="radio" name="sidebar" value="2" {{ isset($result['sidebar_style']['style']) && $result['sidebar_style']['style']==2 ? 'checked' : '' }}>
+                                                        <input type="radio" name="sidebar_style" value="2" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==2 ? 'checked' : '' }}>
                                                         <span></span>Door Image</label>
                                                     </div>
                                                 </div>
@@ -628,12 +645,12 @@ jQuery(document).ready(function() {
         var btn = KTUtil.getById("btn_save_sidebar");
 		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
         $.ajax({
-            url:"{{ route('save-sidebar-style') }}",
+            url:"{{ route('save-sidebar') }}",
             type: "POST",
             data: {
                 _token: "{{ csrf_token() }}",
-                meta_key: 'sidebar-style',
-                meta_value: JSON.stringify({ style:$("input[name='sidebar']:checked").val() })
+                meta_key: 'sidebar',
+                meta_value: JSON.stringify({ state:$("input[name='sidebar_state']:checked").val(), style:$("input[name='sidebar_style']:checked").val() })
             },
             dataType: 'json',
             success: function(result){

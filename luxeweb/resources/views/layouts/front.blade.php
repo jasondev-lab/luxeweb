@@ -372,6 +372,121 @@
 				text-decoration: none;
 				opacity: 0.75;
 			}
+			.mobile-nav-menu {
+				display: none;
+			}
+			.mobile-nav-menu-panel {
+				display: none;
+				background-color: #d8e5f7;
+				border-top: 1px solid rgba(17, 17, 17, 0.1);
+				padding: 0.75rem 1rem 1rem;
+			}
+			.mobile-nav-link {
+				display: block;
+				padding: 0.55rem 0;
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+				font-size: 12px;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: #111111;
+				text-decoration: none;
+			}
+			.mobile-nav-group {
+				border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+			}
+			.mobile-nav-link-toggle {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				padding: 0.55rem 0;
+				border: 0;
+				background: transparent;
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+				font-size: 12px;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: #111111;
+				text-align: left;
+			}
+			.mobile-nav-link-toggle:focus {
+				outline: none;
+			}
+			.mobile-nav-link-toggle-icon {
+				font-size: 10px;
+				transition: transform 0.2s ease;
+			}
+			.mobile-nav-link-toggle[aria-expanded="true"] .mobile-nav-link-toggle-icon {
+				transform: rotate(180deg);
+			}
+			.mobile-shop-submenu {
+				display: none;
+				padding: 0 0 0.4rem 0.9rem;
+			}
+			.mobile-shop-submenu a {
+				display: block;
+				padding: 0.38rem 0;
+				font-size: 11px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #111111;
+				text-decoration: none;
+			}
+			.mobile-shop-submenu a:hover {
+				color: #111111;
+				opacity: 0.75;
+				text-decoration: none;
+			}
+			.mobile-nav-link:hover {
+				color: #111111;
+				opacity: 0.75;
+				text-decoration: none;
+			}
+			.mobile-instagram-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				margin-top: 0.65rem;
+				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
+				font-size: 12px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #111111;
+				text-decoration: none;
+			}
+			.mobile-instagram-link:hover {
+				color: #111111;
+				opacity: 0.75;
+				text-decoration: none;
+			}
+			.mobile-social-links {
+				display: flex;
+				align-items: center;
+				gap: 1.125rem;
+				margin-top: 0.65rem;
+			}
+			.mobile-social-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				color: #111111;
+				text-decoration: none;
+				line-height: 1;
+			}
+			.mobile-social-btn:hover {
+				color: #111111;
+				opacity: 0.75;
+				text-decoration: none;
+			}
+			.mobile-social-btn .fab {
+				font-size: 1.85rem;
+				color: #111111 !important;
+			}
+			.mobile-social-btn .mobile-social-x {
+				display: block;
+				width: 1.625rem;
+				height: 1.625rem;
+			}
 			.form-nav-icon {
 				font-size: 11px;
 				color: #111111;
@@ -442,8 +557,42 @@
 				width: 39px;
 				height: 39px;
 			}
-
+			
 			@media (max-width: 1200px) {
+				.form-header {
+					padding: 14px 16px;
+				}
+				.form-header-inner {
+					grid-template-columns: 1fr;
+					gap: 0;
+					position: relative;
+				}
+				.form-header-center {
+					justify-self: center;
+				}
+				.form-brand img {
+					max-height: 54px;
+				}
+				.form-header-social,
+				.form-header-nav {
+					display: none;
+				}
+				.mobile-nav-menu {
+					display: block;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				#kt_quick_menu_toggle {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0;
+					border: 0;
+					background: transparent;
+					color: #111111;
+				}
 				#kt_header_left {
 					display: none;
 				}
@@ -473,6 +622,18 @@
 				}
 				#main_content {
 					padding: 2.5rem 5rem;
+				}
+				#main_content > .row,
+				#main_content .shop-gallery,
+				#main_content .home-main-content {
+					width: 100% !important;
+					max-width: 100% !important;
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+				}
+				#main_content img {
+					max-width: 100%;
+					height: auto;
 				}
 				#store_closed {
 					margin-left: 0;
@@ -524,7 +685,26 @@
 					width: 90%;
 				}
 				#main_content {
-					padding: 5px;
+					padding: 8px;
+				}
+				.form-brand img {
+					max-height: 48px;
+				}
+				.mobile-nav-menu-panel {
+					padding: 0.7rem 0.9rem 0.85rem;
+				}
+				.product-image,
+				.shop-gallery-item img {
+					width: 100%;
+					height: auto;
+				}
+				.product-image {
+					max-height: 420px;
+					object-fit: contain;
+				}
+				.product-image-thumbs {
+					flex-wrap: wrap;
+					gap: 0.5rem;
 				}
 				#store_closed {
 					margin-left: 0;
@@ -553,6 +733,16 @@
 				}
 				.bottom-nav-ul {
 					display: block;
+				}
+				.form-brand img {
+					max-height: 42px;
+				}
+				.mobile-nav-link {
+					padding: 0.45rem 0;
+					font-size: 11px;
+				}
+				.mobile-social-links {
+					gap: 0.95rem;
 				}
 			}
         </style>
@@ -603,11 +793,13 @@
 	<body id="kt_body" class="subheader-enabled page-loading">
 		<!--begin::Header-->
 		<div style="width: 100%; background-color: #d8e5f7;">
-			<div class="d-flex form-header align-items-center" style="width: 1430px; margin: 0 auto;">
-				<button class="btn d-none" id="kt_quick_menu_toggle">
-					<i class="icon-2x fas fa-align-right"></i>
-				</button>
+			<div class="d-flex form-header align-items-center" style="width: 1430px; margin: 0 auto; max-width: 100%;">
 				<div class="form-header-inner">
+					<div class="mobile-nav-menu">
+						<button class="btn" id="kt_quick_menu_toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav_mobile_menu">
+							<i class="icon-xl fas fa-bars"></i>
+						</button>
+					</div>
 					<div class="form-header-social" aria-label="Social links">
 						<a href="{{ isset($social['instagram']) && $social['instagram'] !== '' ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
 							<i class="fab fa-instagram" aria-hidden="true"></i>
@@ -640,6 +832,32 @@
 					</nav>
 				</div>
 			</div>
+			<div id="nav_mobile_menu" class="mobile-nav-menu-panel" aria-label="Mobile navigation">
+				<a class="mobile-nav-link" href="{{ route('home') }}">Home</a>
+				<div class="mobile-nav-group">
+					<button class="mobile-nav-link-toggle" id="mobile_shop_toggle" aria-expanded="false" aria-controls="mobile_shop_submenu" type="button">
+						<span>Shop</span>
+						<i class="fas fa-chevron-down mobile-nav-link-toggle-icon" aria-hidden="true"></i>
+					</button>
+					<div class="mobile-shop-submenu" id="mobile_shop_submenu">
+						<a href="{{ url('shop-our-store/category/1') }}">Pottery</a>
+						<a href="{{ url('shop-our-store/category/2') }}">Glass</a>
+						<a href="{{ url('shop-our-store/category/3') }}">Lighting</a>
+						<a href="{{ url('shop-our-store/category/4') }}">Metals</a>
+					</div>
+				</div>
+				<a class="mobile-nav-link" href="#">About</a>
+				<a class="mobile-nav-link" href="{{ route('contact') }}">Contact</a>
+				<a class="mobile-nav-link" href="{{ route('search') }}">Search</a>
+				<div class="mobile-social-links" aria-label="Social links">
+					<a class="mobile-social-btn" href="{{ isset($social['instagram']) && $social['instagram'] !== '' ? $social['instagram'] : 'https://www.instagram.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<i class="fab fa-instagram" aria-hidden="true"></i>
+					</a>
+					<a class="mobile-social-btn" href="{{ isset($social['twitter']) && $social['twitter'] !== '' ? $social['twitter'] : 'https://x.com' }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+						<svg class="mobile-social-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+					</a>
+				</div>
+			</div>
 		</div>
 		<!--end::Header-->
 		<!--begin::Main-->
@@ -662,7 +880,7 @@
 					<!--end::Content-->
 					<!--begin::Footer-->
 					
-					<div class="footer py-8 d-flex flex-lg-column">
+					<div class="footer py-8 d-flex flex-column">
 						<!--begin::Container-->
 						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center">
 							<!--begin::Copyright-->
@@ -786,9 +1004,19 @@ jQuery(document).ready(function() {
 	$('#kt_quick_menu_toggle').on('click', function(){
 		if($('#nav_mobile_menu').is(":hidden")){
 			$('#nav_mobile_menu').show();
+			$(this).attr('aria-expanded', 'true');
 		}else{
 			$('#nav_mobile_menu').hide();
+			$('#mobile_shop_submenu').hide();
+			$('#mobile_shop_toggle').attr('aria-expanded', 'false');
+			$(this).attr('aria-expanded', 'false');
 		}
+	});
+
+	$('#mobile_shop_toggle').on('click', function() {
+		const isOpen = $(this).attr('aria-expanded') === 'true';
+		$(this).attr('aria-expanded', isOpen ? 'false' : 'true');
+		$('#mobile_shop_submenu').stop(true, true).slideToggle(150);
 	});
 
 	$('#btn_email_send').on('click', function(e){

@@ -66,6 +66,7 @@
     }
     .contact-page {
         padding: 14px 14px 18px;
+        width: 100%;
     }
 }
 </style>

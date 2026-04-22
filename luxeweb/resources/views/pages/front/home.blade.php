@@ -5,8 +5,13 @@
 @section('styles')
 @php
 	$sidebarBgStyle = (int) (
-		data_get($home, 'sidebar_style.meta_value.style')
-		?? data_get($home, 'sidebar_style.style')
+		data_get($home, 'sidebar.meta_value.style')
+		?? data_get($home, 'sidebar.style')
+		?? 1
+	);
+	$sidebarState = (int) (
+		data_get($home, 'sidebar.meta_value.state')
+		?? data_get($home, 'sidebar.state')
 		?? 1
 	);
 @endphp
@@ -37,6 +42,7 @@
     padding: 1.5rem 1rem;
     /* border-right: 1px solid rgba(0, 0, 0, 0.06); */
     background-color: #ffffff;
+@if($sidebarState === 1)
 @if($sidebarBgStyle === 2)
     background-image: url('{{ asset("assets/media/door.png") }}');
     background-size: 100% 100%;
@@ -53,6 +59,7 @@
     background-size: auto;
     background-position: left top;
     background-repeat: repeat;
+@endif
 @endif
 }
 .home-main-content {
