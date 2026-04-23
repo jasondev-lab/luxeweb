@@ -633,7 +633,7 @@
 				}
 				#main_content img {
 					max-width: 100%;
-					height: auto;
+					/* height: auto; */
 				}
 				#store_closed {
 					margin-left: 0;
@@ -696,7 +696,7 @@
 				.product-image,
 				.shop-gallery-item img {
 					width: 100%;
-					height: auto;
+					/* height: auto; */
 				}
 				.product-image {
 					max-height: 420px;
