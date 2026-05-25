@@ -16,7 +16,7 @@ class EmailsController extends Controller
 
     public function index()
     {
-        $menu='Send Emails';
+        $menu='Subscribed Emails';
         $submenu='';
         return view('pages.admin.emails', compact('menu', 'submenu'));
     }

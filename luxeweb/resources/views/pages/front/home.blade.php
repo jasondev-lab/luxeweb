@@ -185,6 +185,18 @@
     letter-spacing: 0.1em;
     padding: 10px 18px;
 }
+.newsletter-message {
+    margin-top: 10px;
+    min-height: 20px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+.newsletter-message.success {
+    color: #1f7a3f;
+}
+.newsletter-message.error {
+    color: #b42318;
+}
 @media (max-width: 992px) {
     .home-page-layout {
         width: 100%;
@@ -277,11 +289,12 @@
                 <div class="newsletter-overlay">
                     <div class="newsletter-box">
                         <!-- <h2>Stay In Touch.</h2> -->
-                        <p>Sign up for our email updates to receive arrivals at Facets.</p>
-                        <form class="newsletter-form" action="#" method="post">
-                            <input type="email" name="email" placeholder="Email Address">
-                            <button type="button">Sign Up</button>
+                        <p>Sign up for our email updates to receive new arrivals at Facets.</p>
+                        <form class="newsletter-form" id="newsletter_form" action="#" method="post">
+                            <input type="email" id="newsletter_email" name="email" placeholder="Email Address" required>
+                            <button type="submit" id="newsletter_submit_btn">Sign Up</button>
                         </form>
+                        <div id="newsletter_message" class="newsletter-message" role="status" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
@@ -293,4 +306,63 @@
 
 {{-- Scripts Section --}}
 @section('scripts')
+<script>
+jQuery(document).ready(function() {
+    function setNewsletterMessage(type, message) {
+        var $message = $('#newsletter_message');
+        $message.removeClass('success error');
+
+        if (!message) {
+            $message.text('');
+            return;
+        }
+
+        $message.addClass(type === 'success' ? 'success' : 'error');
+        $message.text(message);
+    }
+
+    $('#newsletter_form').on('submit', function(e) {
+        e.preventDefault();
+        setNewsletterMessage('', '');
+
+        var email = $('#newsletter_email').val().trim();
+        if (email === '') {
+            setNewsletterMessage('error', 'Please enter your email address.');
+            return;
+        }
+
+        var $btn = $('#newsletter_submit_btn');
+        $btn.prop('disabled', true);
+
+        $.ajax({
+            url: "{{ route('save-email') }}",
+            type: "POST",
+            dataType: "json",
+            data: {
+                _token: "{{ csrf_token() }}",
+                customer_email: email
+            },
+            success: function(result) {
+                if (result.state === 1) {
+                    setNewsletterMessage('success', 'Thank you for signing up.');
+                    $('#newsletter_email').val('');
+                } else {
+                    setNewsletterMessage('error', result.message.includes('already been taken') ? 'You have already signed up.' : (result.message || 'Unable to subscribe right now.'));
+                }
+            },
+            error: function(xhr) {
+                var message = 'Unable to subscribe right now.';
+                if (xhr.responseJSON && xhr.responseJSON.errors && xhr.responseJSON.errors.customer_email) {
+                    message = xhr.responseJSON.errors.customer_email[0];
+                }
+                setNewsletterMessage('error', message.includes('already been taken') ? 'You have already signed up.' : message);
+                // setNewsletterMessage('error', message);
+            },
+            complete: function() {
+                $btn.prop('disabled', false);
+            }
+        });
+    });
+});
+</script>
 @endsection

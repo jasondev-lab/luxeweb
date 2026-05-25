@@ -37,11 +37,9 @@
                 <h3 class="card-title align-items-start flex-column">
                     <span class="card-label font-weight-bolder font-size-h3 text-dark">Customer Emails</span>
                 </h3>
-                <div class="card-toolbar">
-                    <!--begin::Button-->
+                <!-- <div class="card-toolbar">
                     <a href="#" class="btn btn-primary font-weight-bolder mr-2" id="btn_new">
                     <span class="svg-icon svg-icon-md">
-                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <rect x="0" y="0" width="24" height="24" />
@@ -49,23 +47,17 @@
                                 <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
                             </g>
                         </svg>
-                        <!--end::Svg Icon-->
                     </span>Add Email Address</a>
-                    <!--end::Button-->
-                    <!--begin::Button-->
                     <a href="#" class="btn btn-light-primary font-weight-bolder" id="btn_send_emails">
                     <span class="svg-icon svg-icon-md">
-                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <rect x="0" y="0" width="24" height="24"/>
                                 <path d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z" fill="#000000"/>
                             </g>
                         </svg>
-                        <!--end::Svg Icon-->
                     </span>Send Emails</a>
-                    <!--end::Button-->
-                </div>
+                </div> -->
             </div>
             <!--end::Header-->
             <!--begin::Body-->
@@ -307,13 +299,18 @@
                     title: 'Actions',
                     orderable: false,
                     render: function(data, type, full, meta) {
+                        // return '\
+                        //     <a href="#" class="btn btn-sm btn-clean btn-icon send" title="Send" data-toggle="modal" data-target="modal_email" id="'+data+'" data-email="'+full.email+'">\
+                        //         <i class="la la-envelope"></i>\
+                        //     </a>\
+                        //     <a href="#" class="btn btn-sm btn-clean btn-icon edit" title="Edit" id="'+data+'">\
+                        //         <i class="la la-edit"></i>\
+                        //     </a>\
+                        //     <a href="#" class="btn btn-sm btn-clean btn-icon delete" title="Delete" data-toggle="modal" data-target="modal_delete" id="'+data+'">\
+                        //         <i class="la la-trash"></i>\
+                        //     </a>\
+                        // ';
                         return '\
-                            <a href="#" class="btn btn-sm btn-clean btn-icon send" title="Send" data-toggle="modal" data-target="modal_email" id="'+data+'" data-email="'+full.email+'">\
-                                <i class="la la-envelope"></i>\
-                            </a>\
-                            <a href="#" class="btn btn-sm btn-clean btn-icon edit" title="Edit" id="'+data+'">\
-                                <i class="la la-edit"></i>\
-                            </a>\
                             <a href="#" class="btn btn-sm btn-clean btn-icon delete" title="Delete" data-toggle="modal" data-target="modal_delete" id="'+data+'">\
                                 <i class="la la-trash"></i>\
                             </a>\

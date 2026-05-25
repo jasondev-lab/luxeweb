@@ -64,6 +64,7 @@ Route::get('/policies', [App\Http\Controllers\Front\PoliciesController::class, '
 Route::get('/contact', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
 Route::post('/send-contact', [App\Http\Controllers\Front\ContactController::class, 'send'])->name('send-contact');
 Route::get('/search', [App\Http\Controllers\Front\ShopController::class, 'search'])->name('search');
+Route::post('/save-email', [App\Http\Controllers\Admin\EmailsController::class, 'saveEmail'])->name('save-email');
 
 //===============Admin routes===============//
 Route::get('/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminSigninPage'])->name('admin-signin');
@@ -136,7 +137,6 @@ Route::middleware(['auth', '2fa'])->group(function () {
 
     Route::get('/admin/emails', [App\Http\Controllers\Admin\EmailsController::class, 'index'])->name('emails');
     Route::get('/admin/get-emails', [App\Http\Controllers\Admin\EmailsController::class, 'getEmails'])->name('get-emails');
-    Route::post('/save-email', [App\Http\Controllers\Admin\EmailsController::class, 'saveEmail'])->name('save-email');
     Route::get('/get-email', [App\Http\Controllers\Admin\EmailsController::class, 'getEmail'])->name('get-email');
     Route::post('/delete-email', [App\Http\Controllers\Admin\EmailsController::class, 'deleteEmail'])->name('delete-email');
     Route::post('/sendEmail', [App\Http\Controllers\Admin\EmailsController::class, 'sendEmail'])->name('send-email');
