@@ -85,6 +85,25 @@ $img=isset($preview['logo']) ? asset('uploads/home').'/'.$preview['logo'] : asse
                             <div class="row d-flex justify-content-center">
                                 <div class="col-xl-9 my-2">
                                     <!--begin::Group-->
+                                    <h4 class="mb-4">Turn On/Off:</h4>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-xl-4 col-lg-4 col-form-label">Turn On/Off</label>
+                                                <div class="col-xl-8 col-lg-8">
+                                                    <div class="radio-list">
+                                                        <label class="radio">
+                                                        <input type="radio" name="preview_state" value="1" {{ isset($preview['state']) && $preview['state']==1 ? 'checked' : '' }}>
+                                                        <span></span>On</label>
+                                                        <label class="radio">
+                                                        <input type="radio" name="preview_state" value="2" {{ isset($preview['state']) && $preview['state']==2 ? 'checked' : '' }}>
+                                                        <span></span>Off</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider-simple"></div>
                                     <h4 class="mb-4">Logo:</h4>
                                     <div class="row">
                                         <div class="col-xl-6">
@@ -292,6 +311,7 @@ jQuery(document).ready(function() {
 
         var form = document.getElementById('kt_form');
         var form_data = new FormData(form);
+        form_data.set('state', $("input[name='preview_state']:checked").val());
         form_data.set('logo_width', $('#logo_width').val());
         form_data.set('logo_height', $('#logo_height').val());
         form_data.set('background_color', $('#colorpicker_background').spectrum('get').toHexString());

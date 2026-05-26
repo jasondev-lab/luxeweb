@@ -60,7 +60,7 @@ Route::get('/shop-our-store/product/{id}', [App\Http\Controllers\Front\ShopContr
 
 Route::get('/webdesign', [App\Http\Controllers\Front\WebdesignController::class, 'index'])->name('webdesign');
 Route::get('/advertising', [App\Http\Controllers\Front\AdvertisingController::class, 'index'])->name('advertising');
-Route::get('/policies', [App\Http\Controllers\Front\PoliciesController::class, 'index'])->name('policies');
+Route::get('/about', [App\Http\Controllers\Front\PoliciesController::class, 'index'])->name('about');
 Route::get('/contact', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
 Route::post('/send-contact', [App\Http\Controllers\Front\ContactController::class, 'send'])->name('send-contact');
 Route::get('/search', [App\Http\Controllers\Front\ShopController::class, 'search'])->name('search');
@@ -86,7 +86,7 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/admin/pages-web-design', [App\Http\Controllers\Admin\PagesController::class, 'showWebDesign'])->name('pages-web-design');
     Route::get('/admin/pages-dealer-directory', [App\Http\Controllers\Admin\PagesController::class, 'showDealerDirectory'])->name('pages-dealer-directory');
     Route::get('/admin/pages-links-directory', [App\Http\Controllers\Admin\PagesController::class, 'showLinksDirectory'])->name('pages-links-directory');
-    Route::get('/admin/pages-policies', [App\Http\Controllers\Admin\PagesController::class, 'showPolicies'])->name('pages-policies');
+    Route::get('/admin/pages-about', [App\Http\Controllers\Admin\PagesController::class, 'showPolicies'])->name('pages-about');
     Route::get('/admin/pages-contact', [App\Http\Controllers\Admin\PagesController::class, 'showContact'])->name('pages-contact');
 
     Route::get('/admin/dealers', [App\Http\Controllers\Front\DealerController::class, 'showDealers'])->name('dealers');

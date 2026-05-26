@@ -3,6 +3,7 @@
 
 {{-- Style Section --}}
 @section('styles')
+<link href="{{ asset('assets/plugins/custom/spectrum-colorpicker/spectrum.css') }}" rel="stylesheet" type="text/css" />
 <style>
 .table td, .table th {
     vertical-align: middle;
@@ -12,6 +13,14 @@
 
 {{-- Content --}}
 @section('content')
+@php
+$no_image = asset('assets/media/no_image.jpg');
+if(isset($result['sidebar']['texture_image'])){
+    $texture_img=asset('uploads/home').'/'.$result['sidebar']['texture_image'];
+}else{
+    $texture_img=asset('assets/media/no_image.jpg');
+}
+@endphp
 <!--begin::Subheader-->
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -116,7 +125,25 @@
                                 <span class="nav-text font-size-lg">Slide Speed</span>
                             </a>
                         </li> -->
-                        <!--end::Item-->                        
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" data-toggle="tab" href="#kt_user_edit_tab_5">
+                                <span class="nav-icon">
+                                    <span class="svg-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="nav-text font-size-lg">SignUp Section</span>
+                            </a>
+                        </li>
+                        <!--end::Item-->
                     </ul>
                 </div>
                 <!--end::Toolbar-->
@@ -124,175 +151,246 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body">
-                <form class="form" id="kt_form">
-                    <div class="tab-content">
-                        <!--begin::Tab-->
-                        <div class="tab-pane px-7" id="kt_home_description" role="tabpanel">
-                            <!--begin::Row-->
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-xl-9 my-2">
-                                    <!--begin::Group-->
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Title</label>
-                                        <div class="col-9">
-                                            <input type="text" class="form-control" id="title" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Description</label>
-                                        <div class="col-9">
-                                            <div class="summernote" id="kt_summernote"></div>
-                                        </div>
-                                    </div>
-                                    <!--end::Group-->                                    
-                                </div>
-                            </div>
-                            <!--end::Row-->
-                            <div class="separator separator-solid"></div>
-                            <div class="row d-flex justify-content-center py-5">
-                                <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_description">Save</a>
-                            </div>
-                        </div>
-                        <!--end::Tab-->
-                        <!--begin::Tab-->
-                        <div class="tab-pane px-7 show active" id="kt_user_edit_tab_2" role="tabpanel">
-                            <!--begin::Row-->
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-xl-9">
-                                    <div class="d-flex justify-content-end">
-                                        <a href="#" class="btn btn-light-primary font-weight-bolder" id="btn_new_image1">
-                                        <span class="svg-icon svg-icon-md">
-                                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <polygon points="0 0 24 0 24 24 0 24"></polygon>
-                                                    <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"></rect>
-                                                    <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"></polygon>
-                                                    <polygon fill="#000000" points="11 20 15.5 14 20 20"></polygon>
-                                                    <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"></circle>
-                                                </g>
-                                            </svg>
-                                            <!--end::Svg Icon-->
-                                        </span>New Image</a>
-                                    </div>
-                                    <table class="table" id="table_slide_images">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Image</th>
-                                                <!-- <th scope="col">Link</th> -->
-                                                <th scope="col">Category</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($result['slide_images'] as $image)
-                                            <tr>
-                                                <th scope="row">{{ $image['id'] }}</th>
-                                                <td>
-                                                    <img src="{{ asset('uploads/home').'/'.$image['name'] }}" class="w-100px h-100px">
-                                                </td>
-                                                <!-- <td>{{ isset($image['link']) ? $image['link'] : '' }}</td> -->
-                                                <td>{{ isset($image['category']) ? $image['category'] : '' }}</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-clean btn-icon slide-image" value="{{ $image['id'] }}" title="Delete">
-                                                        <span class="svg-icon svg-icon-md">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
-                                                                        <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
-                                                                </g>
-                                                            </svg>
-                                                        </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                    @if(count($result['slide_images'])==0)
-                                    <div style="text-align: center;" id="no_images1">No images</div>
-                                    @endif
-                                </div>
-                            </div>
-                            <!--end::Row-->                            
-                        </div>
-                        <!--end::Tab-->
-                        <!--begin::Tab-->
-                        <div class="tab-pane px-7" id="kt_user_edit_tab_3" role="tabpanel">
-                            <!--begin::Row-->
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-xl-9">
-                                    <div class="row mb-5">
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-xl-4 col-lg-4 col-form-label">SideBar On/Off</label>
-                                                <div class="col-xl-8 col-lg-8">
-                                                    <div class="radio-list">
-                                                        <label class="radio">
-                                                        <input type="radio" name="sidebar_state" value="1" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==1 ? 'checked' : '' }}>
-                                                        <span></span>On</label>
-                                                        <label class="radio">
-                                                        <input type="radio" name="sidebar_state" value="0" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==0 ? 'checked' : '' }}>
-                                                        <span></span>Off</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-xl-4 col-lg-4 col-form-label">SideBar Style</label>
-                                                <div class="col-xl-8 col-lg-8">
-                                                    <div class="radio-list">
-                                                        <label class="radio">
-                                                        <input type="radio" name="sidebar_style" value="1" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==1 ? 'checked' : '' }}>
-                                                        <span></span>Stripes</label>
-                                                        <label class="radio">
-                                                        <input type="radio" name="sidebar_style" value="2" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==2 ? 'checked' : '' }}>
-                                                        <span></span>Door Image</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="tab-content">
+                    <!--begin::Tab-->
+                    <div class="tab-pane px-7" id="kt_home_description" role="tabpanel">
+                        <!--begin::Row-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-9 my-2">
+                                <!--begin::Group-->
+                                <div class="form-group row">
+                                    <label class="col-xl-3 col-lg-3 col-form-label">Title</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" id="title" value="">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="separator separator-solid"></div>
-                            <div class="row d-flex justify-content-center py-5">
-                                <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_sidebar">Save</a>
-                            </div>
-                            <!--end::Row-->
-                        </div>
-                        <!--end::Tab-->
-                        <!--begin::Tab-->
-                        <div class="tab-pane show px-7" id="kt_user_edit_tab_4" role="tabpanel">
-                            <!--begin::Row-->
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-xl-9 my-2">
-                                    <!--begin::Group-->
-                                    <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Speed</label>
-                                        <div class="col-9">
-                                            <div class="ion-range-slider">
-                                                <input type="hidden" id="kt_slider" />
-                                            </div>
-                                        </div>
+                                <div class="form-group row">
+                                    <label class="col-xl-3 col-lg-3 col-form-label">Description</label>
+                                    <div class="col-9">
+                                        <div class="summernote" id="kt_summernote"></div>
                                     </div>
-                                    <!--end::Group-->                                    
                                 </div>
-                            </div>
-                            <!--end::Row-->
-                            <div class="separator separator-solid"></div>
-                            <div class="row d-flex justify-content-center py-5">
-                                <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_speed">Save</a>
+                                <!--end::Group-->                                    
                             </div>
                         </div>
-                        <!--end::Tab-->                        
+                        <!--end::Row-->
+                        <div class="separator separator-solid"></div>
+                        <div class="row d-flex justify-content-center py-5">
+                            <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_description">Save</a>
+                        </div>
                     </div>
-                </form>
+                    <!--end::Tab-->
+                    <!--begin::Tab-->
+                    <div class="tab-pane px-7 show active" id="kt_user_edit_tab_2" role="tabpanel">
+                        <!--begin::Row-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-9">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#" class="btn btn-light-primary font-weight-bolder" id="btn_new_image1">
+                                    <span class="svg-icon svg-icon-md">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <rect fill="#000000" opacity="0.3" x="2" y="4" width="20" height="16" rx="2"></rect>
+                                                <polygon fill="#000000" opacity="0.3" points="4 20 10.5 11 17 20"></polygon>
+                                                <polygon fill="#000000" points="11 20 15.5 14 20 20"></polygon>
+                                                <circle fill="#000000" opacity="0.3" cx="18.5" cy="8.5" r="1.5"></circle>
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>New Image</a>
+                                </div>
+                                <table class="table" id="table_slide_images">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Image</th>
+                                            <!-- <th scope="col">Link</th> -->
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($result['slide_images'] as $image)
+                                        <tr>
+                                            <th scope="row">{{ $image['id'] }}</th>
+                                            <td>
+                                                <img src="{{ asset('uploads/home').'/'.$image['name'] }}" class="w-100px h-100px">
+                                            </td>
+                                            <!-- <td>{{ isset($image['link']) ? $image['link'] : '' }}</td> -->
+                                            <td>{{ isset($image['category']) ? $image['category'] : '' }}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-clean btn-icon slide-image" value="{{ $image['id'] }}" title="Delete">
+                                                    <span class="svg-icon svg-icon-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                                    <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
+                                                                    <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                @if(count($result['slide_images'])==0)
+                                <div style="text-align: center;" id="no_images1">No images</div>
+                                @endif
+                            </div>
+                        </div>
+                        <!--end::Row-->                            
+                    </div>
+                    <!--end::Tab-->
+                    <!--begin::Tab-->
+                    <div class="tab-pane px-7" id="kt_user_edit_tab_3" role="tabpanel">
+                        <!--begin::Row-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-9">
+                                <div class="row mb-5">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">SideBar On/Off</label>
+                                            <div class="col-xl-8 col-lg-8">
+                                                <div class="radio-list">
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_state" value="1" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==1 ? 'checked' : '' }}>
+                                                    <span></span>On</label>
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_state" value="0" {{ isset($result['sidebar']['state']) && $result['sidebar']['state']==0 ? 'checked' : '' }}>
+                                                    <span></span>Off</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">SideBar Style</label>
+                                            <div class="col-xl-8 col-lg-8">
+                                                <div class="radio-list">
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_style" value="1" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==1 ? 'checked' : '' }}>
+                                                    <span></span>Stripes</label>
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_style" value="2" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==2 ? 'checked' : '' }}>
+                                                    <span></span>Door Image</label>
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_style" value="3" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==3 ? 'checked' : '' }}>
+                                                    <span></span>Solid Bar</label>
+                                                    <label class="radio">
+                                                    <input type="radio" name="sidebar_style" value="4" {{ isset($result['sidebar']['style']) && $result['sidebar']['style']==4 ? 'checked' : '' }}>
+                                                    <span></span>Texture</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Solid Color</label>
+                                            <div class="col-xl-3 col-lg-3">
+                                                <input type="text" id="colorpicker_solid_color">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_solid_color_hex" value="{{ isset($result['sidebar']['solid_color'])?$result['sidebar']['solid_color']:'#ffffff' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-xl-6">
+                                        <form enctype="multipart/form-data" method="post" id="form_image_sidebar">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="meta_key" value="sidebar">
+                                            <div class="form-group row">
+                                                <div class="col-xl-4 col-lg-4 col-form-label">Texture Image</div>
+                                                <div class="image-input image-input-outline col-xl-4 col-lg-4" id="kt_image_sidebar" style="background-image: url({{ $no_image }})">
+                                                    <div class="image-input-wrapper" style="background-image: url({{ $texture_img }});"></div>
+                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change Image">
+                                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                                        <input type="file" id="file_image_sidebar" name="image_sidebar" accept=".png, .jpg, .jpeg">
+                                                        <input type="hidden" name="image_sidebar_remove">
+                                                    </label>
+                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="" data-original-title="Cancel Image">
+                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                    </span>
+                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="" data-original-title="Remove Image">
+                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-solid"></div>
+                        <div class="row d-flex justify-content-center py-5">
+                            <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_sidebar">Save</a>
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Tab-->
+                    <!--begin::Tab-->
+                    <div class="tab-pane show px-7" id="kt_user_edit_tab_4" role="tabpanel">
+                        <!--begin::Row-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-9 my-2">
+                                <!--begin::Group-->
+                                <div class="form-group row">
+                                    <label class="col-xl-3 col-lg-3 col-form-label">Speed</label>
+                                    <div class="col-9">
+                                        <div class="ion-range-slider">
+                                            <input type="hidden" id="kt_slider" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Group-->                                    
+                            </div>
+                        </div>
+                        <!--end::Row-->
+                        <div class="separator separator-solid"></div>
+                        <div class="row d-flex justify-content-center py-5">
+                            <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_speed">Save</a>
+                        </div>
+                    </div>
+                    <!--end::Tab-->
+                    <!--begin::Tab-->
+                    <div class="tab-pane show px-7" id="kt_user_edit_tab_5" role="tabpanel">
+                        <!--begin::Row-->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-9 my-2">
+                                <!--begin::Group-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Background</label>
+                                            <div class="col-xl-3 col-lg-3">
+                                                <input type="text" id="colorpicker_signup_background">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_signup_background_hex" value="{{ isset($result['signup']['background'])?$result['signup']['background']:'#ffffff' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Group-->                                    
+                            </div>
+                        </div>
+                        <!--end::Row-->
+                        <div class="separator separator-solid"></div>
+                        <div class="row d-flex justify-content-center py-5">
+                            <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_signup">Save</a>
+                        </div>
+                    </div>
+                    <!--end::Tab-->
+                </div>
             </div>
             <!--begin::Card body-->
         </div>
@@ -360,6 +458,7 @@
 
 {{-- Scripts Section --}}
 @section('scripts')
+<script src="{{ asset('assets/plugins/custom/spectrum-colorpicker/spectrum.js') }}"></script>
 <script>
 var result=@json($result);
 jQuery(document).ready(function() {
@@ -369,9 +468,32 @@ jQuery(document).ready(function() {
     });
 
     var avatar = new KTImageInput('kt_image');
+    var img_sidebar = new KTImageInput('kt_image_sidebar');
 
     $('#title').val(result.description.title);
     $('#kt_summernote').summernote('code', result.description.block1);
+
+    $('#colorpicker_signup_background').spectrum({
+        color: result.signup.background==null ? '#ffffff' : result.signup.background,
+        change: function(color) { $('#colorpicker_signup_background_hex').val(color.toHexString()); }
+    });
+
+    $('#colorpicker_signup_background_hex').on('input', function(){
+        $('#colorpicker_signup_background').spectrum({
+            color: $(this).val()
+        });
+    });
+
+    $('#colorpicker_solid_color').spectrum({
+        color: result.sidebar.solid_color==null ? '#ffffff' : result.sidebar.solid_color,
+        change: function(color) { $('#colorpicker_solid_color_hex').val(color.toHexString()); }
+    });
+
+    $('#colorpicker_solid_color_hex').on('input', function(){
+        $('#colorpicker_solid_color').spectrum({
+            color: $(this).val()
+        });
+    });
 
     $('#btn_save_description').on('click', function(e){
         e.preventDefault();
@@ -644,15 +766,30 @@ jQuery(document).ready(function() {
         e.preventDefault();
         var btn = KTUtil.getById("btn_save_sidebar");
 		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
+
+        var form = document.getElementById('form_image_sidebar');
+        var form_data = new FormData(form);
+        // form_data.set('meta_key', 'sidebar');
+        form_data.append('state', $("input[name='sidebar_state']:checked").val());
+        form_data.append('style', $("input[name='sidebar_style']:checked").val());
+        form_data.append('solid_color', $('#colorpicker_solid_color').spectrum('get').toHexString());
+        
         $.ajax({
             url:"{{ route('save-sidebar') }}",
             type: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                meta_key: 'sidebar',
-                meta_value: JSON.stringify({ state:$("input[name='sidebar_state']:checked").val(), style:$("input[name='sidebar_style']:checked").val() })
-            },
-            dataType: 'json',
+            // data: {
+            //     _token: "{{ csrf_token() }}",
+            //     meta_key: 'sidebar',
+            //     meta_value: JSON.stringify({ 
+            //         state: $("input[name='sidebar_state']:checked").val(), 
+            //         style: $("input[name='sidebar_style']:checked").val(), 
+            //         solid_color: $('#colorpicker_solid_color').spectrum('get').toHexString() 
+            //     })
+            // },
+            // dataType: 'json',
+            data: form_data,
+            processData: false,
+            contentType: false,
             success: function(result){
 				KTUtil.btnRelease(btn);				
                 content.message = 'Your action is success!';
@@ -663,6 +800,32 @@ jQuery(document).ready(function() {
                 content.message = 'Your action is failed!';
 				showMessage('danger', content);		
 			}			
+        });
+    });
+
+    $('#btn_save_signup').on('click', function(e){
+        e.preventDefault();
+        var btn = KTUtil.getById("btn_save_signup");
+		KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "");
+        $.ajax({
+            url:"{{ route('save-setting') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                meta_key: 'signup',
+                meta_value: JSON.stringify({ background:$('#colorpicker_signup_background').spectrum('get').toHexString() })
+            },
+            dataType: 'json',
+            success: function(result){
+                KTUtil.btnRelease(btn);
+                content.message = 'Your action is success!';
+                showMessage('success', content);
+            },
+            error: function (response) {
+                KTUtil.btnRelease(btn);
+                content.message = 'Your action is failed!';
+                showMessage('danger', content);
+            }
         });
     });
 });

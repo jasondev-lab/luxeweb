@@ -14,6 +14,11 @@
 		?? data_get($home, 'sidebar.state')
 		?? 1
 	);
+	$sidebarTextureImage = data_get($home, 'sidebar.meta_value.texture_image') ?? data_get($home, 'sidebar.texture_image') ?? '';
+	if(!empty($sidebarTextureImage)){
+		$sidebarTextureImage = asset('uploads/home').'/'.$sidebarTextureImage;
+	}
+    $sidebarSolidColor = data_get($home, 'sidebar.meta_value.solid_color') ?? data_get($home, 'sidebar.solid_color') ?? '#ffffff';
 @endphp
 <style>
 .home-showcase {
@@ -41,14 +46,14 @@
     box-sizing: border-box;
     padding: 1.5rem 1rem;
     /* border-right: 1px solid rgba(0, 0, 0, 0.06); */
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 @if($sidebarState === 1)
 @if($sidebarBgStyle === 2)
     background-image: url('{{ asset("assets/media/door.png") }}');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
-@else
+@elseif($sidebarBgStyle === 1)
     background-image: repeating-linear-gradient(
         to right,
         #d3d3d3 0px,
@@ -59,6 +64,15 @@
     background-size: auto;
     background-position: left top;
     background-repeat: repeat;
+@elseif($sidebarBgStyle === 3)
+    background-color: {{ $sidebarSolidColor }};
+@elseif($sidebarBgStyle === 4)
+    background-image: url('{{ $sidebarTextureImage }}');
+    background-repeat: repeat;
+    background-position: top left;
+    /* background-size: 100% 100%; */
+    /* background-position: center center; */
+    /* background-repeat: no-repeat;    */
 @endif
 @endif
 }
@@ -72,8 +86,9 @@
 .showcase-card {
     position: relative;
     overflow: hidden;
-    margin-bottom: 22px;
-    background: #efefef;
+    /* margin-bottom: 22px; */
+    /* background: #efefef; */
+    padding: 22px;
 }
 .showcase-card img {
     width: 100%;
@@ -87,8 +102,9 @@
 .showcase-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-bottom: 22px;
+    /* gap: 18px; */
+    /* margin-bottom: 22px; */
+    border-bottom: 1px solid {{ isset($colors['topbar']) ? $colors['topbar'] : '#d8e5f7' }};
 }
 .showcase-card.split {
     height: 350px;
@@ -97,7 +113,7 @@
 .showcase-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    /* gap: 18px; */
     margin-bottom: 22px;
 }
 .showcase-card.half {
@@ -106,6 +122,9 @@
 }
 .showcase-card.wide {
     height: 350px;
+}
+.showcase-card.left {
+    border-right: 1px solid {{ isset($colors['topbar']) ? $colors['topbar'] : '#d8e5f7' }};
 }
 .showcase-btn {
     position: absolute;
@@ -132,7 +151,7 @@
     margin-top: 14px;
     height: 230px;
     overflow: hidden;
-    background: #e6e6e6;
+    background: {{ isset($home['signup']['meta_value']['background']) ? $home['signup']['meta_value']['background'] : '#e6e6e6' }};
 }
 .newsletter-card img {
     width: 100%;
@@ -238,12 +257,16 @@
     .showcase-split {
         grid-template-columns: 1fr;
         gap: 22px;
+        border: none;
     }
     .showcase-card.hero,
     .showcase-card.split,
     .showcase-card.half,
     .showcase-card.wide {
         height: 240px;
+    }
+    .showcase-card.left {
+        border: none;
     }
     .newsletter-card {
         height: 300px;
@@ -265,7 +288,7 @@
     <div class="home-main-content">
         <div class="home-showcase">
             <div class="showcase-split">
-                <div class="showcase-card split">
+                <div class="showcase-card split left">
                     <img src="{{ asset('uploads/home/thumb/'.$home['pottery_images'][0]) }}" alt="Pottery collection">
                     <a class="showcase-btn" href="{{ url('shop-our-store/category/1') }}">Pottery</a>
                 </div>
@@ -276,7 +299,7 @@
             </div>
 
             <div class="showcase-row">
-                <div class="showcase-card half">
+                <div class="showcase-card half left">
                     <img src="{{ asset('uploads/home/thumb/'.$home['lighting_images'][0]) }}" alt="Lighting collection">
                     <a class="showcase-btn" href="{{ url('shop-our-store/category/3') }}">Lighting</a>
                 </div>

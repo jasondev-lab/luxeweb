@@ -50,6 +50,7 @@ class HomeController extends Controller
         $home['comingsoon_font_color']=Setting::where('meta_key', 'comingsoon_font_color')->first();
         $home['comingsoon_background']=Setting::where('meta_key', 'comingsoon_background')->first();
         $home['menu']=Setting::where('meta_key', 'menu')->first();
+        $home['signup']=Setting::where('meta_key', 'signup')->first();
         // $user=User::create([
         //     'name' => 'admin',
         //     'email' => 'admin@gmail.com',
@@ -191,6 +192,8 @@ class HomeController extends Controller
         $categories = Category::all();
         $preview=Setting::where('meta_key', 'preview')->first();
         $preview_data=empty($preview) ? [] : $preview['meta_value'];
+
+        if (isset($preview_data['state']) && $preview_data['state'] == 2) return redirect()->route('home');
 
         return view('pages.front.preview', compact('menu', 'side_items', 'home', 'description', 'image_sizes', 'categories', 'preview_data'));
     }

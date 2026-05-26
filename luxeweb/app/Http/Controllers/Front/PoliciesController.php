@@ -45,27 +45,27 @@ class PoliciesController extends Controller
 
         ini_set('memory_limit','256M');
 
-        $setting_image_sizes=Setting::where('meta_key', 'image-sizes')->first();
-        $image_sizes=$setting_image_sizes['meta_value'];
-        for($i=0; $i<count($side_items); $i++){
-            $image=isset($side_items[$i]['images']) && count($side_items[$i]['images'])>0 ? $side_items[$i]['images'][0] : 'no_image.jpg';
-            $thumb_name=$image_sizes['left_side_image_width'].'_'.$image_sizes['left_side_image_height'].'_'.$image;
-            if(!File::isDirectory(public_path('uploads/products/thumb'))){
-                File::makeDirectory(public_path('uploads/products/thumb'), 0777, true, true);        
-            }
-            if(!File::exists(public_path('uploads/products/thumb').'/'.$thumb_name)){
-                $thumb = Image::make(public_path('uploads/products').'/'.$image);
-                $thumb->orientate();
-                $thumb->resize($image_sizes['left_side_image_width'], $image_sizes['left_side_image_height'], function ($const) {
-                    $const->aspectRatio();
-                })->save(public_path('uploads/products/thumb').'/'.$thumb_name);
-            }
-            $side_items[$i]['thumb']=$thumb_name;
-            $side_items[$i]['description']=strlen($side_items[$i]['short_description'])>80 ? mb_substr($side_items[$i]['short_description'], 0, 80).' ...' : $side_items[$i]['short_description'];
-        }
+        // $setting_image_sizes=Setting::where('meta_key', 'image-sizes')->first();
+        // $image_sizes=$setting_image_sizes['meta_value'];
+        // for($i=0; $i<count($side_items); $i++){
+        //     $image=isset($side_items[$i]['images']) && count($side_items[$i]['images'])>0 ? $side_items[$i]['images'][0] : 'no_image.jpg';
+        //     $thumb_name=$image_sizes['left_side_image_width'].'_'.$image_sizes['left_side_image_height'].'_'.$image;
+        //     if(!File::isDirectory(public_path('uploads/products/thumb'))){
+        //         File::makeDirectory(public_path('uploads/products/thumb'), 0777, true, true);        
+        //     }
+        //     if(!File::exists(public_path('uploads/products/thumb').'/'.$thumb_name)){
+        //         $thumb = Image::make(public_path('uploads/products').'/'.$image);
+        //         $thumb->orientate();
+        //         $thumb->resize($image_sizes['left_side_image_width'], $image_sizes['left_side_image_height'], function ($const) {
+        //             $const->aspectRatio();
+        //         })->save(public_path('uploads/products/thumb').'/'.$thumb_name);
+        //     }
+        //     $side_items[$i]['thumb']=$thumb_name;
+        //     $side_items[$i]['description']=strlen($side_items[$i]['short_description'])>80 ? mb_substr($side_items[$i]['short_description'], 0, 80).' ...' : $side_items[$i]['short_description'];
+        // }
 
-        $categories = Category::all();
+        // $categories = Category::all();
 
-        return view('pages.front.policies', compact('menu', 'side_items', 'description', 'home', 'image_sizes', 'categories'));
+        return view('pages.front.policies', compact('menu', 'description', 'home'));
     }
 }

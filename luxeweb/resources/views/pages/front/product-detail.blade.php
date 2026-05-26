@@ -4,43 +4,52 @@
 {{-- Style Section --}}
 @section('styles')
 <style>
-.product-image {
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-}
-.product-image-thumbs {
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 2rem;
-}
-.product-image-thumb {
-    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
-    border-radius: .25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    display: -ms-flexbox;
-    display: flex;
-    margin-right: 1rem;
-    max-width: 10rem;
-    padding: .5rem;
-}
-.product-image-thumbs .active {
-    border: 2px solid #3699FF;    
-}
-.product-image-thumb img {
-    max-width: 100%;
-    height: auto;
-    -ms-flex-item-align: center;
-    align-self: center;
-}
-.product-image-thumb:hover {
-    opacity: 0.5;
-}
-
-.ribbon {
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+    }
+    .product-image-thumbs {
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 2rem;
+    }
+    .product-image-thumb {
+        box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+        border-radius: .25rem;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: 1rem;
+        max-width: 10rem;
+        padding: .5rem;
+    }
+    .product-image-thumbs .active {
+        border: 2px solid #3699FF;    
+    }
+    .product-image-thumb img {
+        max-width: 100%;
+        height: auto;
+        -ms-flex-item-align: center;
+        align-self: center;
+    }
+    .product-image-thumb:hover {
+        opacity: 0.5;
+    }
+    .product-button {
+        min-width: 120px;
+        border: 0;
+        background: #111111;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        padding: 10px 18px;
+    }
+    .ribbon {
         width: 150px;
         height: 150px;
         overflow: hidden;
@@ -132,11 +141,11 @@ $buttons = $shop_buttons['meta_value'];
     <div class="col-12 col-sm-6">
         <h2 class="my-10">{{ $product['name'] }}</h2>
         <p>{{ $product['short_description'] }}</p>
-        <h2 class="my-5">
+        <h2 class="mt-5 mb-10">
         {{ '$'.$product['price'] }}
         </h2>
         @if($product['etsy_button'] == 1)
-        <a href="{{ isset($product['etsy_link']) ? $product['etsy_link'] : '#' }}" class="btn mt-5 custom-button" style="background: #000000;">
+        <a href="{{ route('contact') }}" class="product-button">
             <!-- <i class="fas fa-cart-plus fa-lg mr-2"></i> -->
             Inquire about this item
         </a>

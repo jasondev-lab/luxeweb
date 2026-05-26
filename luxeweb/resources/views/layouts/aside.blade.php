@@ -133,15 +133,15 @@
                                     </i>
                                     <span class="menu-text">Links Directory</span>
                                 </a>
-                            </li>
-                            <li class="menu-item {{ $submenu=='Policies'?'menu-item-active':'' }}" aria-haspopup="true">
-                                <a href="{{ route('pages-policies') }}" class="menu-link">
+                            </li>-->
+                            <li class="menu-item {{ $submenu=='About'?'menu-item-active':'' }}" aria-haspopup="true">
+                                <a href="{{ route('pages-about') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">Policies</span>
+                                    <span class="menu-text">About</span>
                                 </a>
-                            </li> -->
+                            </li>
                             <li class="menu-item {{ $submenu=='Contact'?'menu-item-active':'' }}" aria-haspopup="true">
                                 <a href="{{ route('pages-contact') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">

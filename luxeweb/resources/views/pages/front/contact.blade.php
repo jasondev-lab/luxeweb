@@ -53,6 +53,16 @@
     min-height: 180px;
     resize: vertical;
 }
+.contact-button {
+    min-width: 120px;
+    border: 0;
+    background: #111111;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding: 10px 18px;
+}
 @media (max-width: 1200px) {
     .contact.custom-title {
         font-family: {{ $description['meta_value']['title_font_family_mobile'] }};
@@ -101,8 +111,10 @@
             <div class="message-error" id="recaptchaError"></div>
         </div>
         <div class="contact-actions">
-            <button type="button" id="btn_send" class="btn btn-pill font-weight-bold px-10 py-3 custom-button">Submit</button>
-            <button type="button" id="btn_reset" class="btn btn-pill custom-button font-weight-bold px-10 py-3">Reset</button>
+            <!-- <button type="button" id="btn_send" class="btn btn-pill font-weight-bold px-10 py-3 custom-button">Submit</button>
+            <button type="button" id="btn_reset" class="btn btn-pill custom-button font-weight-bold px-10 py-3">Reset</button> -->
+            <button type="button" id="btn_send" class="contact-button">Submit</button>
+            <button type="button" id="btn_reset" class="contact-button">Reset</button>
         </div>
     </form>
 </section>

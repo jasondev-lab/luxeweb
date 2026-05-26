@@ -82,23 +82,23 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Description 1</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Paragraph 1</label>
                                         <div class="col-9">
                                             <div class="summernote" id="kt_summernote1"></div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">Description 2</label>
+                                        <label class="col-xl-3 col-lg-3 col-form-label">Paragraph 2</label>
                                         <div class="col-9">
                                             <div class="summernote" id="kt_summernote2"></div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label class="col-xl-3 col-lg-3 col-form-label">Description 3</label>
                                         <div class="col-9">
                                             <div class="summernote" id="kt_summernote3"></div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!--end::Group-->                                    
                                 </div>
                             </div>
@@ -131,10 +131,10 @@ jQuery(document).ready(function() {
         tabsize: 2
     });
 
-    $('#title').val(result.description.title);
-    $('#kt_summernote1').summernote('code', result.description.block1);
-    $('#kt_summernote2').summernote('code', result.description.block2);
-    $('#kt_summernote3').summernote('code', result.description.block3);
+    $('#title').val(result.description && result.description.title ? result.description.title : '');
+    $('#kt_summernote1').summernote('code', result.description && result.description.block1 ? result.description.block1 : '');
+    $('#kt_summernote2').summernote('code', result.description && result.description.block2 ? result.description.block2 : '');
+    // $('#kt_summernote3').summernote('code', result.description.block3);
 
     $('#btn_save_description').on('click', function(e){
         e.preventDefault();
@@ -146,11 +146,10 @@ jQuery(document).ready(function() {
             data: {
                 _token: "{{ csrf_token() }}",
                 meta_key: 'policies-description',
-                meta_value: JSON.stringify({ 
-                    title:$('#title').val(),
-                    block1:$('#kt_summernote1').summernote('code'),
-                    block2:$('#kt_summernote2').summernote('code'),
-                    block3:$('#kt_summernote3').summernote('code')
+                meta_value: JSON.stringify({
+                    title: $('#title').val(),
+                    block1: $('#kt_summernote1').summernote('code'),
+                    block2: $('#kt_summernote2').summernote('code')
                 })
             },
             dataType: 'json',

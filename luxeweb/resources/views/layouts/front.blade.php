@@ -42,7 +42,7 @@
 			$comingsoon_font_color=isset($home['comingsoon_font_color']) ? $home['comingsoon_font_color']['meta_value'] : [];
 			$comingsoon_background=isset($home['comingsoon_background']) ? $home['comingsoon_background']['meta_value'] : [];
 			$menu_styles=isset($home['menu']) ? $home['menu']['meta_value'] : [];
-			$home=isset($home['home']) ? $home['home'] : 1;
+			$home=isset($website['web_state']) ? $website['web_state'] : 1;
 		@endphp
         <style>
 			@font-face
@@ -360,18 +360,18 @@
 			}
 			.form-nav-link {
 				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
-				font-size: 12px;
+				font-size: {{ isset($text['menu_font_size']) ? $text['menu_font_size'] : '12' }}px;
 				font-weight: 500;
 				letter-spacing: 0.2em;
 				text-transform: uppercase;
-				color: #111111;
+				color: {{ isset($text['menu_text_color']) ? $text['menu_text_color'] : '#111111' }};
 				white-space: nowrap;
 			}
-			.form-nav-link:hover {
+			/* .form-nav-link:hover {
 				color: #111111;
 				text-decoration: none;
 				opacity: 0.75;
-			}
+			} */
 			.mobile-nav-menu {
 				display: none;
 			}
@@ -520,18 +520,18 @@
 			.form-shop-menu a {
 				display: block;
 				font-family: Verdana, Peignot, Poppins, Helvetica, "sans-serif";
-				font-size: 12px;
+				font-size: {{ isset($text['dropdown_font_size']) ? $text['dropdown_font_size'] : '12' }}px;
 				/* font-weight: 600; */
 				letter-spacing: 0.18em;
 				line-height: 1.55;
 				text-transform: uppercase;
-				color: #111111;
+				color: {{ isset($text['dropdown_text_color']) ? $text['dropdown_text_color'] : '#111111' }};
 				white-space: nowrap;
 			}
-			.form-shop-menu a:hover {
+			/* .form-shop-menu a:hover {
 				text-decoration: none;
 				opacity: 0.75;
-			}
+			} */
 			#img_logo {
 				margin-left: -15%;
 				height: 90%;
@@ -790,9 +790,10 @@
 		}
 	@endphp
 	<!--begin::Body-->
-	<body id="kt_body" class="subheader-enabled page-loading">
+	<body id="kt_body" class="subheader-enabled page-loading" style="background-color: {{ isset($colors['background']) ? $colors['background'] : '#ffffff' }};">
 		<!--begin::Header-->
-		<div style="width: 100%; background-color: #d8e5f7;">
+		@if($home==1)
+		<div style="width: 100%; background-color: {{ isset($colors['topbar']) ? $colors['topbar'] : '#d8e5f7' }};">
 			<div class="d-flex form-header align-items-center" style="width: 1430px; margin: 0 auto; max-width: 100%;">
 				<div class="form-header-inner">
 					<div class="mobile-nav-menu">
@@ -824,7 +825,7 @@
 								<a href="{{ url('shop-our-store/category/4') }}">Metals</a>
 							</div>
 						</div>
-						<a class="form-nav-link" href="#">ABOUT</a>
+						<a class="form-nav-link" href="{{ route('about') }}">ABOUT</a>
 						<a class="form-nav-link" href="{{ route('contact') }}">CONTACT</a>
 						<a class="form-nav-link form-nav-icon" href="{{ route('search') }}" aria-label="Search">
 							<i class="fas fa-search"></i>
@@ -846,7 +847,7 @@
 						<a href="{{ url('shop-our-store/category/4') }}">Metals</a>
 					</div>
 				</div>
-				<a class="mobile-nav-link" href="#">About</a>
+				<a class="mobile-nav-link" href="{{ route('about') }}">ABOUT</a>
 				<a class="mobile-nav-link" href="{{ route('contact') }}">Contact</a>
 				<a class="mobile-nav-link" href="{{ route('search') }}">Search</a>
 				<div class="mobile-social-links" aria-label="Social links">
@@ -859,6 +860,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 		<!--end::Header-->
 		<!--begin::Main-->
 		<div class="d-flex flex-column flex-root">

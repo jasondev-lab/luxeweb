@@ -70,7 +70,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                 <div class="card-toolbar">
                     <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
                         <!--begin::Item-->
-                        <!-- <li class="nav-item mr-3">
+                        <li class="nav-item mr-3">
                             <a class="nav-link active" data-toggle="tab" href="#kt_colors">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
@@ -85,10 +85,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                 </span>
                                 <span class="nav-text font-size-lg">Colors</span>
                             </a>
-                        </li> -->
+                        </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <!-- <li class="nav-item mr-3">
+                        <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_text">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
@@ -103,7 +103,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                 </span>
                                 <span class="nav-text font-size-lg">Text</span>
                             </a>
-                        </li> -->
+                        </li>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <!-- <li class="nav-item mr-3">
@@ -121,7 +121,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="nav-item mr-3">
-                            <a class="nav-link active" data-toggle="tab" href="#kt_admin">
+                            <a class="nav-link" data-toggle="tab" href="#kt_admin">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
@@ -312,7 +312,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         </li> -->
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <!-- <li class="nav-item mr-3">
+                        <li class="nav-item mr-3">
                             <a class="nav-link" data-toggle="tab" href="#kt_website_message">
                                 <span class="nav-icon">
                                     <span class="svg-icon">
@@ -327,7 +327,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                 </span>
                                 <span class="nav-text font-size-lg">Website</span>
                             </a>
-                        </li> -->
+                        </li>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <!-- <li class="nav-item mr-3">
@@ -375,7 +375,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
             <div class="card-body">
                 <div class="tab-content">
                     <!--begin::Tab-->
-                    <div class="tab-pane px-7" id="kt_colors" role="tabpanel">
+                    <div class="tab-pane px-7 show active" id="kt_colors" role="tabpanel">
                         <!--begin::Row-->
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-12 my-2">
@@ -392,7 +392,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Footer</label>
                                             <div class="col-xl-2 col-lg-2">
@@ -402,7 +402,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <input type="text" class="form-control" id="colorpicker_footer_hex" value="{{ isset($result['colors']['footer'])?$result['colors']['footer']:'#ffffff' }}">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="divider-simple"></div>
                                 <div class="row">
@@ -417,7 +417,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Top Bar Border</label>
                                             <div class="col-xl-2 col-lg-2">
@@ -427,10 +427,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <input type="text" class="form-control" id="colorpicker_topbar_border_hex" value="{{ isset($result['colors']['topbar_border'])?$result['colors']['topbar_border']:'#969494' }}">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="divider-simple"></div>
-                                <div class="row">
+                                <!-- <div class="divider-simple"></div> -->
+                                <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Side Bar</label>
@@ -454,8 +454,8 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divider-simple"></div>
-                                <div class="row">
+                                <div class="divider-simple"></div> -->
+                                <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Navigation Bar</label>
@@ -478,11 +478,11 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                </div> -->
+                                <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-xl-4 col-lg-4 col-form-label">Navigation Link</label>
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Menu Link</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <input type="text" id="colorpicker_navigationlink">
                                             </div>
@@ -493,7 +493,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-xl-4 col-lg-4 col-form-label">Navigation Link Hover</label>
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Menu Link Hover</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <input type="text" id="colorpicker_navigationlink_hover">
                                             </div>
@@ -503,8 +503,8 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divider-simple"></div>
-                                <div class="row">
+                                <div class="divider-simple"></div> -->
+                                <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Buttons</label>
@@ -552,11 +552,11 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divider-simple"></div>
-                                <div class="row">
+                                <div class="divider-simple"></div> -->
+                                <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-xl-4 col-lg-4 col-form-label">Side Link</label>
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Dropdown Link</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <input type="text" id="colorpicker_sidelink">
                                             </div>
@@ -567,7 +567,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-xl-4 col-lg-4 col-form-label">Side Link Hover</label>
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Dropdown Link Hover</label>
                                             <div class="col-xl-2 col-lg-2">
                                                 <input type="text" id="colorpicker_sidelink_hover">
                                             </div>
@@ -576,7 +576,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>                                 -->
                                 <!--end::Group-->
                             </div>
                         </div>
@@ -592,7 +592,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                         <!--begin::Row-->
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-9 my-2">
-                                <h4>Main:</h4>
+                                <!-- <h4>Main:</h4>
                                 <div class="row mb-10">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -613,18 +613,18 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <h4>Title:</h4>
+                                </div> -->
+                                <h4>Menu:</h4>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Font Family</label>
                                             <div class="col-xl-6 col-lg-6">
                                                 <input type="text" class="form-control" id="title_font_family" value="">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-6">
+                                    </div> -->
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Font Size</label>
                                             <div class="col-xl-6 col-lg-6">
@@ -634,6 +634,30 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                         <span class="input-group-text">px</span>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Font Size</label>
+                                            <div class="col-xl-6 col-lg-6">
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" placeholder="" id="menu_font_size">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">px</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Color</label>
+                                            <div class="col-xl-2 col-lg-2">
+                                                <input type="text" id="colorpicker_menu_text">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_menu_text_hex" value="{{ isset($result['colors']['background'])?$result['colors']['background']:'#ffffff' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -647,7 +671,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div> -->
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Color</label>
                                             <div class="col-xl-2 col-lg-2">
@@ -657,19 +681,19 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <input type="text" class="form-control" id="colorpicker_title_text_hex" value="{{ isset($result['colors']['background'])?$result['colors']['background']:'#ffffff' }}">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <h4>Description:</h4>
+                                <h4>Dropdown Menu:</h4>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Font Family</label>
                                             <div class="col-xl-6 col-lg-6">
                                                 <input type="text" class="form-control" id="description_font_family" value="">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-6">
+                                    </div> -->
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Font Size</label>
                                             <div class="col-xl-6 col-lg-6">
@@ -681,9 +705,33 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 </div>
                                             </div>
                                         </div>
+                                    </div> -->
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Font Size</label>
+                                            <div class="col-xl-6 col-lg-6">
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" placeholder="" id="dropdown_font_size">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">px</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Color</label>
+                                            <div class="col-xl-2 col-lg-2">
+                                                <input type="text" id="colorpicker_dropdown_text">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_dropdown_text_hex" value="{{ isset($result['colors']['background'])?$result['colors']['background']:'#ffffff' }}">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row mb-10">
+                                <!-- <div class="row mb-10">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Color</label>
@@ -695,8 +743,8 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <h4>Feature Selection (in sidebar):</h4>
+                                </div> -->
+                                <!-- <h4>Feature Selection (in sidebar):</h4>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -795,7 +843,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <!--end::Row-->
@@ -955,7 +1003,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                     </div>
                     <!--end::Tab-->
                     <!--begin::Tab-->
-                    <div class="tab-pane px-7 show active" id="kt_admin" role="tabpanel">
+                    <div class="tab-pane px-7" id="kt_admin" role="tabpanel">
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-9 my-2">
                                 <div class="form-group row">
@@ -1532,10 +1580,10 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div> -->
                                         <div class="radio-list">
                                             <label class="radio">
-                                            <input type="radio" name="web_state" value="1" {{ isset($result['web_state']) && $result['web_state']==1 ? 'checked' : '' }}>
+                                            <input type="radio" name="web_state" value="1" {{ isset($result['website']['web_state']) && $result['website']['web_state']==1 ? 'checked' : '' }}>
                                             <span></span>On</label>
                                             <label class="radio">
-                                            <input type="radio" name="web_state" value="0" {{ isset($result['web_state']) && $result['web_state']==0 ? 'checked' : '' }}>
+                                            <input type="radio" name="web_state" value="0" {{ isset($result['website']['web_state']) && $result['website']['web_state']==0 ? 'checked' : '' }}>
                                             <span></span>Off</label>
                                         </div>
                                     </div>
@@ -1545,12 +1593,12 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                     <div class="col-xl-9 col-lg-9">
                                         <textarea class="form-control" id="website_message" name="website_message" rows="3"></textarea>
                                         <div class="alert-message" id="error_website_message"></div>
-                                        <div class="row d-flex justify-content-left py-5 pl-5">
+                                        <!-- <div class="row d-flex justify-content-left py-5 pl-5">
                                             <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_website_message">Save</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label class="col-xl-3 col-lg-3 col-form-label">Font Color</label>
                                     <div class="col-xl-2 col-lg-2">
                                         <input type="text" id="colorpicker_comingsoon_font">
@@ -1601,13 +1649,13 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
 
                                     </form>
 
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <!-- <div class="separator separator-solid"></div>
+                        <div class="separator separator-solid"></div>
                         <div class="row d-flex justify-content-center py-5">
                             <a href="#" class="btn btn-primary font-weight-bold px-10" id="btn_save_website_message">Save</a>
-                        </div> -->
+                        </div>
                     </div>
                     <!--end::Tab-->
                     <!--begin::Tab-->
@@ -2028,6 +2076,28 @@ jQuery(document).ready(function() {
             color: $(this).val()
         });
     });
+    
+    $('#colorpicker_menu_text').spectrum({
+        color: text.menu_text_color==null ? '#3F4254' : text.menu_text_color,
+        change: function(color) { $('#colorpicker_menu_text_hex').val(color.toHexString()); }
+    });
+
+    $('#colorpicker_menu_text_hex').on('input', function(){
+        $('#colorpicker_menu_text').spectrum({
+            color: $(this).val()
+        });
+    });
+
+    $('#colorpicker_dropdown_text').spectrum({
+        color: text.dropdown_text_color==null ? '#3F4254' : text.dropdown_text_color,
+        change: function(color) { $('#colorpicker_dropdown_text_hex').val(color.toHexString()); }
+    });
+
+    $('#colorpicker_dropdown_text_hex').on('input', function(){
+        $('#colorpicker_dropdown_text').spectrum({
+            color: $(this).val()
+        });
+    });
 
     $('#colorpicker_description').spectrum({
         color: text.description_color==null ? '#3F4254' : text.description_color,
@@ -2242,21 +2312,21 @@ jQuery(document).ready(function() {
                 meta_key: 'colors',
                 meta_value: JSON.stringify({
                     background: $('#colorpicker_background').spectrum('get').toHexString(),
-                    footer: $('#colorpicker_footer').spectrum('get').toHexString(),
+                    // footer: $('#colorpicker_footer').spectrum('get').toHexString(),
                     topbar: $('#colorpicker_topbar').spectrum('get').toHexString(),
-                    topbar_border: $('#colorpicker_topbar_border').spectrum('get').toHexString(),
-                    sidebar: $('#colorpicker_sidebar').spectrum('get').toHexString(),
-                    sidebar_border: $('#colorpicker_sidebar_border').spectrum('get').toHexString(),
-                    navigationbar: $('#colorpicker_navigationbar').spectrum('get').toHexString(),
-                    navigationbar_border: $('#colorpicker_navigationbar_border').spectrum('get').toHexString(),
-                    navigationlink: $('#colorpicker_navigationlink').spectrum('get').toHexString(),
-                    navigationlink_hover: $('#colorpicker_navigationlink_hover').spectrum('get').toHexString(),
-                    buttons: $('#colorpicker_buttons').spectrum('get').toHexString(),
-                    buttons_border: $('#colorpicker_buttons_border').spectrum('get').toHexString(),
-                    button_text: $('#colorpicker_button_text').spectrum('get').toHexString(),
-                    button_text_hover: $('#colorpicker_button_text_hover').spectrum('get').toHexString(),
-                    sidelink: $('#colorpicker_sidelink').spectrum('get').toHexString(),
-                    sidelink_hover: $('#colorpicker_sidelink_hover').spectrum('get').toHexString(),
+                    // topbar_border: $('#colorpicker_topbar_border').spectrum('get').toHexString(),
+                    // sidebar: $('#colorpicker_sidebar').spectrum('get').toHexString(),
+                    // sidebar_border: $('#colorpicker_sidebar_border').spectrum('get').toHexString(),
+                    // navigationbar: $('#colorpicker_navigationbar').spectrum('get').toHexString(),
+                    // navigationbar_border: $('#colorpicker_navigationbar_border').spectrum('get').toHexString(),
+                    // navigationlink: $('#colorpicker_navigationlink').spectrum('get').toHexString(),
+                    // navigationlink_hover: $('#colorpicker_navigationlink_hover').spectrum('get').toHexString(),
+                    // buttons: $('#colorpicker_buttons').spectrum('get').toHexString(),
+                    // buttons_border: $('#colorpicker_buttons_border').spectrum('get').toHexString(),
+                    // button_text: $('#colorpicker_button_text').spectrum('get').toHexString(),
+                    // button_text_hover: $('#colorpicker_button_text_hover').spectrum('get').toHexString(),
+                    // sidelink: $('#colorpicker_sidelink').spectrum('get').toHexString(),
+                    // sidelink_hover: $('#colorpicker_sidelink_hover').spectrum('get').toHexString(),
                 })
             },
             dataType: 'json',
@@ -2279,6 +2349,9 @@ jQuery(document).ready(function() {
     $('#title_text').val(text.title_text);
     $('#description_font_family').val(text.description_font_family);
     $('#description_font_size').val(text.description_font_size);
+
+    $('#menu_font_size').val(text.menu_font_size);
+    $('#dropdown_font_size').val(text.dropdown_font_size);
 
     $('#sidebar_text').val(text.sidebar_text);
     $('#sidebar_text_font_family').val(text.sidebar_text_font_family);
@@ -2325,24 +2398,28 @@ jQuery(document).ready(function() {
                 _token: "{{ csrf_token() }}",
                 meta_key: 'text',
                 meta_value: JSON.stringify({
-                    main_text_font_family: $('#main_text_font_family').val(),
-                    main_text_color: $('#colorpicker_main_text').spectrum('get').toHexString(),
-                    title_font_family: $('#title_font_family').val(),
-                    title_font_size: $('#title_font_size').val(),
-                    title_text: $('#title_text').val(),
-                    title_text_color: $('#colorpicker_title_text').spectrum('get').toHexString(),
-                    description_font_family: $('#description_font_family').val(),
-                    description_font_size: $('#description_font_size').val(),
-                    description_color: $('#colorpicker_description').spectrum('get').toHexString(),
-                    sidebar_text: $('#sidebar_text').val(),
-                    sidebar_text_color: $('#colorpicker_sidebar_text').spectrum('get').toHexString(),
-                    sidebar_text_font_family: $('#sidebar_text_font_family').val(),
-                    sidebar_text_font_size: $('#sidebar_text_font_size').val(),
-                    sidebar_link_font_family: $('#sidebar_link_font_family').val(),
-                    sidebar_link_color: $('#colorpicker_sidebar_link').spectrum('get').toHexString(),
-                    sidebar_description_font_family: $('#sidebar_description_font_family').val(),
-                    sidebar_description_color: $('#colorpicker_sidebar_description').spectrum('get').toHexString(),
-                    navigation_font_family: $('#navigation_font_family').val(),
+                    // main_text_font_family: $('#main_text_font_family').val(),
+                    // main_text_color: $('#colorpicker_main_text').spectrum('get').toHexString(),
+                    // title_font_family: $('#title_font_family').val(),
+                    // title_font_size: $('#title_font_size').val(),
+                    // title_text: $('#title_text').val(),
+                    // title_text_color: $('#colorpicker_title_text').spectrum('get').toHexString(),
+                    // description_font_family: $('#description_font_family').val(),
+                    // description_font_size: $('#description_font_size').val(),
+                    // description_color: $('#colorpicker_description').spectrum('get').toHexString(),
+                    // sidebar_text: $('#sidebar_text').val(),
+                    // sidebar_text_color: $('#colorpicker_sidebar_text').spectrum('get').toHexString(),
+                    // sidebar_text_font_family: $('#sidebar_text_font_family').val(),
+                    // sidebar_text_font_size: $('#sidebar_text_font_size').val(),
+                    // sidebar_link_font_family: $('#sidebar_link_font_family').val(),
+                    // sidebar_link_color: $('#colorpicker_sidebar_link').spectrum('get').toHexString(),
+                    // sidebar_description_font_family: $('#sidebar_description_font_family').val(),
+                    // sidebar_description_color: $('#colorpicker_sidebar_description').spectrum('get').toHexString(),
+                    // navigation_font_family: $('#navigation_font_family').val(),
+                    menu_font_size: $('#menu_font_size').val(),
+                    dropdown_font_size: $('#dropdown_font_size').val(),
+                    menu_text_color: $('#colorpicker_menu_text').spectrum('get').toHexString(),
+                    dropdown_text_color: $('#colorpicker_dropdown_text').spectrum('get').toHexString(),
                 })
             },
             dataType: 'json',
@@ -2835,31 +2912,31 @@ jQuery(document).ready(function() {
 
     $('#website_message').val(website.message);
 
-    $("input[name='web_state']").on('change', function(e) {
-        e.preventDefault();
-        $('.alert-message').text('');
+    // $("input[name='web_state']").on('change', function(e) {
+    //     e.preventDefault();
+    //     $('.alert-message').text('');
 
 
-        $.ajax({
-            url: "{{ route('save-second-setting') }}",
-            type: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                meta_value: JSON.stringify({
-                    web_state: $("input[name='web_state']:checked").val()
-                }),
-            },
-            dataType: 'json',
-            success: function(result) {
-                var content = { message: 'Your action is successful!' };
-                showMessage('success', content);
-            },
-            error: function(response) {
-                var content = { message: 'Your action failed!' };
-                showMessage('danger', content);
-            }
-        });
-    });
+    //     $.ajax({
+    //         url: "{{ route('save-second-setting') }}",
+    //         type: "POST",
+    //         data: {
+    //             _token: "{{ csrf_token() }}",
+    //             meta_value: JSON.stringify({
+    //                 web_state: $("input[name='web_state']:checked").val()
+    //             }),
+    //         },
+    //         dataType: 'json',
+    //         success: function(result) {
+    //             var content = { message: 'Your action is successful!' };
+    //             showMessage('success', content);
+    //         },
+    //         error: function(response) {
+    //             var content = { message: 'Your action failed!' };
+    //             showMessage('danger', content);
+    //         }
+    //     });
+    // });
 
     $('#btn_save_website_message').on('click', function(e){
         e.preventDefault();
@@ -2875,7 +2952,7 @@ jQuery(document).ready(function() {
                 meta_key: 'website',
                 meta_value: JSON.stringify({
                     message: $('#website_message').val(),
-                    webdesign_state: "0"
+                    web_state: $("input[name='web_state']:checked").val()
                 }),
             },
             dataType: 'json',

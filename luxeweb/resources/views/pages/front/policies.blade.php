@@ -3,66 +3,56 @@
 
 {{-- Style Section --}}
 @section('styles')
-
+<style>
+    .policies-page {
+        width: 1270px;
+        margin: 0 auto;
+        border-left: 1px solid #9a9a9a;
+        padding: 18px 20px 24px;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+    .policies-custom-title {
+        margin: 0 0 20px;
+        /* font-size: 32px; */
+        line-height: 1.1;
+        font-weight: 500;
+        color: #111111;
+        text-transform: none;
+    }
+    .policies-block {
+        margin-bottom: 0;
+    }
+    .policies-block + .policies-block {
+        margin-top: 18px;
+    }
+    .policies-block p {
+        margin: 0 0 12px;
+        line-height: 1.6;
+    }
+    .policies-block p:last-child {
+        margin-bottom: 0;
+    }
+    @media (max-width: 1200px) {
+        .policies-page {
+            padding: 14px 14px 18px;
+            width: 100%;
+        }
+    }
+</style>
 @endsection
 
 {{-- Content --}}
 @section('content')
-<div class="d-flex align-items-baseline mb-10">
-    <h1 class="custom-title">{{ $description['meta_value']['title'] }}</h1>
-</div>
-<div class="row d-flex justify-content-center">
-    <div class="col-lg-9">
-        <!--begin::Card-->
-        <div class="card mb-8">
-            <div class="card-body custom-background">
-                <div class="p-4">
-                    <!--begin::Content-->
-                    <div class="custom-description">
-                        {!! $description['meta_value']['block1'] !!}
-                    </div>
-                    <!--end::Content-->
-                </div>
-            </div>
-        </div>
-        <!--begin::Card-->
-    </div>    
-</div>
-<div class="row d-flex justify-content-center">
-    <div class="col-lg-9">
-        <!--begin::Card-->
-        <div class="card mb-8">
-            <div class="card-body custom-background">
-                <div class="p-4">
-                    <!--begin::Content-->
-                    <div class="custom-description">
-                    {!! $description['meta_value']['block2'] !!}
-                    </div>
-                    <!--end::Content-->
-                </div>
-            </div>
-        </div>
-        <!--end::Card-->
+<section class="policies-page">
+    <h1 class="policies-custom-title">{{ data_get($description, 'meta_value.title', 'About') }}</h1>
+    <div class="policies-block custom-description">
+        {!! data_get($description, 'meta_value.block1', '') !!}
     </div>
-</div>
-<div class="row d-flex justify-content-center">
-    <div class="col-lg-9">
-        <!--begin::Card-->
-        <div class="card mb-8">
-            <div class="card-body custom-background">
-                <div class="p-4">
-                    <!--begin::Content-->
-                    <div class="custom-description">
-                    {!! $description['meta_value']['block3'] !!}
-                    </div>
-                    <!--end::Content-->
-                </div>
-            </div>
-        </div>
-        <!--end::Card-->
+    <div class="policies-block custom-description">
+        {!! data_get($description, 'meta_value.block2', '') !!}
     </div>
-</div>
-
+</section>
 @endsection
 
 {{-- Scripts Section --}}

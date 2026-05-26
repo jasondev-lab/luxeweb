@@ -33,6 +33,7 @@ class PagesController extends Controller
             $setting=new Setting();
             $setting['meta_key']=$meta_key;
             $setting['meta_value']=array(
+                'state'=>$request->state,
                 'logo_width'=>$request->logo_width, 
                 'logo_height'=>$request->logo_height, 
                 'background_color'=>$request->background_color,
@@ -48,6 +49,7 @@ class PagesController extends Controller
         }else{
             $preview=$setting['meta_value'];
             $setting['meta_value']=array(
+                'state'=>$request->state,
                 'logo_width'=>$request->logo_width, 
                 'logo_height'=>$request->logo_height, 
                 'background_color'=>$request->background_color, 
@@ -77,6 +79,8 @@ class PagesController extends Controller
         $result['slide_speed']=empty($setting) ? [] : $setting['meta_value'];
         $setting=Setting::where('meta_key', 'sidebar')->first();
         $result['sidebar']=empty($setting) ? [] : $setting['meta_value'];
+        $setting=Setting::where('meta_key', 'signup')->first();
+        $result['signup']=empty($setting) ? [] : $setting['meta_value'];
         return view('pages.admin.pages-home', compact('menu', 'submenu', 'result'));
     }
 
@@ -113,16 +117,42 @@ class PagesController extends Controller
     }
 
     public function saveSidebar(Request $request){
+        $request->validate([
+            'image_sidebar' => 'mimes:jpg,jpeg,png|max:20480'
+        ]);
+
         $meta_key=$request->meta_key;
-        $meta_value=json_decode($request->meta_value, true);
         $setting=Setting::where('meta_key', $meta_key)->first();
+        if(empty($setting)){
+            $image_sidebar='';
+        }else{
+            $image_sidebar=isset($setting['meta_value']['texture_image']) && $request->image_sidebar_remove !=1 ? $setting['meta_value']['texture_image'] : '';
+        }
+
+        if ($request->hasFile('image_sidebar')) {
+            if ($request->file('image_sidebar')->isValid()) {
+                $image_sidebar = 'sidebar'.time().'.'.$request->image_sidebar->extension();
+                $request->image_sidebar->move(public_path('uploads/home'), $image_sidebar);                
+            }
+        }
+
         if(empty($setting)){
             $setting=new Setting();
             $setting['meta_key']=$meta_key;
-            $setting['meta_value']=$meta_value;
+            $setting['meta_value']=array(
+                'state'=>$request->state, 
+                'style'=>$request->style, 
+                'solid_color'=>$request->solid_color, 
+                'texture_image'=>$image_sidebar
+            );
             $setting->save();
         }else{
-            $setting['meta_value']=$meta_value;
+            $setting['meta_value']=array(
+                'state'=>$request->state, 
+                'style'=>$request->style, 
+                'solid_color'=>$request->solid_color, 
+                'texture_image'=>$image_sidebar
+            );
             $setting->save();
         }
         return response()->json(['state'=>1]);
@@ -236,7 +266,7 @@ class PagesController extends Controller
 
     public function showPolicies(){
         $menu='Pages';
-        $submenu='Policies';
+        $submenu='About';
         $setting=Setting::where('meta_key', 'policies-description')->first();
         $result['description']=empty($setting) ? [] : $setting['meta_value'];
         return view('pages.admin.pages-policies', compact('menu', 'submenu', 'result'));
