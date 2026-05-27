@@ -42,12 +42,15 @@
     .product-button {
         min-width: 120px;
         border: 0;
-        background: #111111;
-        color: #ffffff;
+        background: {{ isset($home['colors']['meta_value']['buttons']) ? $home['colors']['meta_value']['buttons'] : '#3699FF' }};
+        color: {{ isset($home['colors']['meta_value']['button_text']) ? $home['colors']['meta_value']['button_text'] : '#ffffff' }};
         text-transform: uppercase;
         font-size: 12px;
         letter-spacing: 0.1em;
         padding: 10px 18px;
+    }
+    .product-button:hover {
+        color: {{ isset($home['colors']['meta_value']['button_text_hover']) ? $home['colors']['meta_value']['button_text_hover'] : '#ffffff' }};
     }
     .ribbon {
         width: 150px;

@@ -179,7 +179,7 @@
 .newsletter-box p {
     font-size: 12px;
     letter-spacing: 0.1em;
-    color: #333333;
+    color: {{ isset($home['signup']['meta_value']['text']) ? $home['signup']['meta_value']['text'] : '#000000' }};
     margin-bottom: 18px;
 }
 .newsletter-form {

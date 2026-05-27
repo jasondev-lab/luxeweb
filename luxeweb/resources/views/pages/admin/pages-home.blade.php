@@ -367,7 +367,7 @@ if(isset($result['sidebar']['texture_image'])){
                         <div class="row d-flex justify-content-center">
                             <div class="col-xl-9 my-2">
                                 <!--begin::Group-->
-                                <div class="row">
+                                <div class="row mb-5">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Background</label>
@@ -376,6 +376,19 @@ if(isset($result['sidebar']['texture_image'])){
                                             </div>
                                             <div class="col-xl-4 col-lg-4">
                                                 <input type="text" class="form-control" id="colorpicker_signup_background_hex" value="{{ isset($result['signup']['background'])?$result['signup']['background']:'#ffffff' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Text</label>
+                                            <div class="col-xl-3 col-lg-3">
+                                                <input type="text" id="colorpicker_signup_text">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_signup_text_hex" value="{{ isset($result['signup']['text'])?$result['signup']['text']:'#ffffff' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -480,6 +493,17 @@ jQuery(document).ready(function() {
 
     $('#colorpicker_signup_background_hex').on('input', function(){
         $('#colorpicker_signup_background').spectrum({
+            color: $(this).val()
+        });
+    });
+
+    $('#colorpicker_signup_text').spectrum({
+        color: result.signup.text==null ? '#000000' : result.signup.text,
+        change: function(color) { $('#colorpicker_signup_text_hex').val(color.toHexString()); }
+    });
+
+    $('#colorpicker_signup_text_hex').on('input', function(){
+        $('#colorpicker_signup_text').spectrum({
             color: $(this).val()
         });
     });
@@ -813,7 +837,10 @@ jQuery(document).ready(function() {
             data: {
                 _token: "{{ csrf_token() }}",
                 meta_key: 'signup',
-                meta_value: JSON.stringify({ background:$('#colorpicker_signup_background').spectrum('get').toHexString() })
+                meta_value: JSON.stringify({ 
+                    background:$('#colorpicker_signup_background').spectrum('get').toHexString(),
+                    text:$('#colorpicker_signup_text').spectrum('get').toHexString()
+                })
             },
             dataType: 'json',
             success: function(result){

@@ -787,6 +787,18 @@
 			else if($logos['active']==34) $img=asset('assets/media/logos/facets_larger/logo-red.png');
 			else if($logos['active']==35) $img=asset('assets/media/logos/facets_larger/logo-blue_white.png');
 			else if($logos['active']==36) $img=asset('assets/media/logos/facets_larger/logo-red_white.png');
+			else if($logos['active']==37) $img=asset('assets/media/logos/facets_vintage/logo-all-black.png');
+			else if($logos['active']==38) $img=asset('assets/media/logos/facets_vintage/logo-all-mediumbrown.png');
+			else if($logos['active']==39) $img=asset('assets/media/logos/facets_vintage/logo-all-darkbrown.png');
+			else if($logos['active']==40) $img=asset('assets/media/logos/facets/logo-all-black.png');
+			else if($logos['active']==41) $img=asset('assets/media/logos/facets/logo-all-mediumbrown.png');
+			else if($logos['active']==42) $img=asset('assets/media/logos/facets/logo-all-darkbrown.png');
+			else if($logos['active']==43) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-black.png');
+			else if($logos['active']==44) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-mediumbrown.png');
+			else if($logos['active']==45) $img=asset('assets/media/logos/facets_vintage_larger/logo-all-darkbrown.png');
+			else if($logos['active']==46) $img=asset('assets/media/logos/facets_larger/logo-all-black.png');
+			else if($logos['active']==47) $img=asset('assets/media/logos/facets_larger/logo-all-mediumbrown.png');
+			else if($logos['active']==48) $img=asset('assets/media/logos/facets_larger/logo-all-darkbrown.png');
 		}
 	@endphp
 	<!--begin::Body-->

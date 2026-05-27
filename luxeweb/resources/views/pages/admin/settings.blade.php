@@ -429,7 +429,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div>
                                     </div> -->
                                 </div>
-                                <!-- <div class="divider-simple"></div> -->
+                                <div class="divider-simple"></div>
                                 <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -504,7 +504,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                     </div>
                                 </div>
                                 <div class="divider-simple"></div> -->
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Buttons</label>
@@ -516,7 +516,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <!-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Buttons Border</label>
                                             <div class="col-xl-2 col-lg-2">
@@ -526,9 +526,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                                 <input type="text" class="form-control" id="colorpicker_buttons_border_hex" value="{{ isset($result['colors']['buttons_border'])?$result['colors']['buttons_border']:'#3699FF' }}">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
+                                    </div> -->
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Button Text</label>
@@ -540,6 +538,19 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <!-- <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-xl-4 col-lg-4 col-form-label">Button Text</label>
+                                            <div class="col-xl-2 col-lg-2">
+                                                <input type="text" id="colorpicker_button_text">
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4">
+                                                <input type="text" class="form-control" id="colorpicker_button_text_hex" value="{{ isset($result['colors']['button_text'])?$result['colors']['button_text']:'#3699FF' }}">
+                                            </div>
+                                        </div>
+                                    </div> -->
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-xl-4 col-lg-4 col-form-label">Button Text Hover</label>
@@ -552,7 +563,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="divider-simple"></div> -->
+                                <!-- <div class="divider-simple"></div> -->
                                 <!-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -576,7 +587,7 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                 -->
+                                </div>-->
                                 <!--end::Group-->
                             </div>
                         </div>
@@ -1286,6 +1297,15 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             <label class="radio">
                                             <input type="radio" name="logo" value="9" {{ isset($result['logos']) && $result['logos']['active']==9 ? 'checked' : '' }}>
                                             <span></span>Red White Lines Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="37" {{ isset($result['logos']) && $result['logos']['active']==37 ? 'checked' : '' }}>
+                                            <span></span>All Black Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="38" {{ isset($result['logos']) && $result['logos']['active']==38 ? 'checked' : '' }}>
+                                            <span></span>All MediumBrown Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="39" {{ isset($result['logos']) && $result['logos']['active']==39 ? 'checked' : '' }}>
+                                            <span></span>All DarkBrown Logo (vintage)</label>
                                         </div>
                                     </div>
                                     <div class="col-4 col-form-label">
@@ -1317,6 +1337,15 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             <label class="radio">
                                             <input type="radio" name="logo" value="18" {{ isset($result['logos']) && $result['logos']['active']==18 ? 'checked' : '' }}>
                                             <span></span>Red White Lines Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="40" {{ isset($result['logos']) && $result['logos']['active']==40 ? 'checked' : '' }}>
+                                            <span></span>All Black Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="41" {{ isset($result['logos']) && $result['logos']['active']==41 ? 'checked' : '' }}>
+                                            <span></span>All MediumBrown Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="42" {{ isset($result['logos']) && $result['logos']['active']==42 ? 'checked' : '' }}>
+                                            <span></span>All DarkBrown Logo</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1351,6 +1380,15 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             <label class="radio">
                                             <input type="radio" name="logo" value="27" {{ isset($result['logos']) && $result['logos']['active']==27 ? 'checked' : '' }}>
                                             <span></span>Red White Lines Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="43" {{ isset($result['logos']) && $result['logos']['active']==43 ? 'checked' : '' }}>
+                                            <span></span>All Black Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="44" {{ isset($result['logos']) && $result['logos']['active']==44 ? 'checked' : '' }}>
+                                            <span></span>All MediumBrown Logo (vintage)</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="45" {{ isset($result['logos']) && $result['logos']['active']==45 ? 'checked' : '' }}>
+                                            <span></span>All DarkBrown Logo (vintage)</label>
                                         </div>
                                     </div>
                                     <div class="col-4 col-form-label">
@@ -1382,6 +1420,15 @@ $background_image_comingsoon=$result['background_image_comingsoon'];
                                             <label class="radio">
                                             <input type="radio" name="logo" value="36" {{ isset($result['logos']) && $result['logos']['active']==36 ? 'checked' : '' }}>
                                             <span></span>Red White Lines Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="46" {{ isset($result['logos']) && $result['logos']['active']==46 ? 'checked' : '' }}>
+                                            <span></span>All Black Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="47" {{ isset($result['logos']) && $result['logos']['active']==47 ? 'checked' : '' }}>
+                                            <span></span>All MediumBrown Logo</label>
+                                            <label class="radio">
+                                            <input type="radio" name="logo" value="48" {{ isset($result['logos']) && $result['logos']['active']==48 ? 'checked' : '' }}>
+                                            <span></span>All DarkBrown Logo</label>
                                         </div>
                                     </div>
                                 </div>
@@ -2321,10 +2368,10 @@ jQuery(document).ready(function() {
                     // navigationbar_border: $('#colorpicker_navigationbar_border').spectrum('get').toHexString(),
                     // navigationlink: $('#colorpicker_navigationlink').spectrum('get').toHexString(),
                     // navigationlink_hover: $('#colorpicker_navigationlink_hover').spectrum('get').toHexString(),
-                    // buttons: $('#colorpicker_buttons').spectrum('get').toHexString(),
+                    buttons: $('#colorpicker_buttons').spectrum('get').toHexString(),
                     // buttons_border: $('#colorpicker_buttons_border').spectrum('get').toHexString(),
-                    // button_text: $('#colorpicker_button_text').spectrum('get').toHexString(),
-                    // button_text_hover: $('#colorpicker_button_text_hover').spectrum('get').toHexString(),
+                    button_text: $('#colorpicker_button_text').spectrum('get').toHexString(),
+                    button_text_hover: $('#colorpicker_button_text_hover').spectrum('get').toHexString(),
                     // sidelink: $('#colorpicker_sidelink').spectrum('get').toHexString(),
                     // sidelink_hover: $('#colorpicker_sidelink_hover').spectrum('get').toHexString(),
                 })
